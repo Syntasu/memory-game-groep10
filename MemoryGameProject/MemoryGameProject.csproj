@@ -73,7 +73,6 @@
       <DependentUpon>Alexander.cs</DependentUpon>
     </Compile>
     <Compile Include="Code\PlayerList.cs" />
-    <Compile Include="Code\Test\TurnControllerTest.cs" />
     <Compile Include="Code\TurnController.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

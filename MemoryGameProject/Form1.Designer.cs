@@ -211,7 +211,6 @@
             // turnTimer
             // 
             this.turnTimer.Interval = 1000;
-            this.turnTimer.Tick += new System.EventHandler(this.turnTimer_Tick);
             // 
             // Form1
             // 
