@@ -6,8 +6,6 @@ namespace MemoryGameProject
 {
     public partial class Form1 : Form
     {
-        public static PlayerList SpelerLijst;
-
         public Form1()
         {
             InitializeComponent();
@@ -15,12 +13,13 @@ namespace MemoryGameProject
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string[] playerNames = new string[];
+            string[] playerNames = new string[3];
             playerNames[0] = "Alex";
             playerNames[1] = "Alexander";
             playerNames[2] = "Valeria";
 
-            SpelerLijst = new PlayerList(playerNames);
+            PlayerList spelerLijst = new PlayerList(playerNames);
+            //TurnController beurtController = new TurnController(spelerLijst);
         }
     }
 }
