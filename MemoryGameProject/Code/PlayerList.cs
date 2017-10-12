@@ -34,6 +34,8 @@
                 Player player = new Player();
                 player.id = i;
                 player.name = playerNames[i];
+
+                playerList[i] = player;
             }
         }
 
@@ -53,6 +55,11 @@
             }
 
             return null;
+        }
+
+        public int GetPlayerCount()
+        {
+            return playerList.Length;
         }
     }
 }
