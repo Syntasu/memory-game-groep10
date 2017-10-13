@@ -22,7 +22,7 @@ namespace MemoryGameProject.Code
 
             //Kies een random speler van de speler lijst en zet deze aan de beurt.
             int playerCount = playerList.GetPlayerCount();
-            int startingTurn = rand.Next(0, playerCount - 1);
+            int startingTurn = rand.Next(0, playerCount);
             CurrentPlayerId = startingTurn;
         }
 

@@ -35,7 +35,6 @@
             this.kaart30 = new System.Windows.Forms.PictureBox();
             this.turnTimer = new System.Windows.Forms.Timer(this.components);
             this.lblBeurt = new System.Windows.Forms.Label();
-            this.spelersLijst = new System.Windows.Forms.ListView();
             this.lblSpelers = new System.Windows.Forms.Label();
             this.kaart31 = new System.Windows.Forms.PictureBox();
             this.kaart21 = new System.Windows.Forms.PictureBox();
@@ -49,6 +48,8 @@
             this.kaart22 = new System.Windows.Forms.PictureBox();
             this.kaart12 = new System.Windows.Forms.PictureBox();
             this.kaart02 = new System.Windows.Forms.PictureBox();
+            this.lbSpelers = new System.Windows.Forms.ListBox();
+            this.updateTimer = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.kaart00)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kaart10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kaart20)).BeginInit();
@@ -71,7 +72,7 @@
             // 
             this.kaart00.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.kaart00.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.kaart00.Location = new System.Drawing.Point(150, 40);
+            this.kaart00.Location = new System.Drawing.Point(150, 44);
             this.kaart00.Margin = new System.Windows.Forms.Padding(2);
             this.kaart00.Name = "kaart00";
             this.kaart00.Size = new System.Drawing.Size(90, 90);
@@ -82,7 +83,7 @@
             // 
             this.kaart10.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.kaart10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.kaart10.Location = new System.Drawing.Point(150, 135);
+            this.kaart10.Location = new System.Drawing.Point(150, 138);
             this.kaart10.Margin = new System.Windows.Forms.Padding(2);
             this.kaart10.Name = "kaart10";
             this.kaart10.Size = new System.Drawing.Size(90, 90);
@@ -93,7 +94,7 @@
             // 
             this.kaart20.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.kaart20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.kaart20.Location = new System.Drawing.Point(150, 230);
+            this.kaart20.Location = new System.Drawing.Point(150, 232);
             this.kaart20.Margin = new System.Windows.Forms.Padding(2);
             this.kaart20.Name = "kaart20";
             this.kaart20.Size = new System.Drawing.Size(90, 90);
@@ -118,30 +119,20 @@
             // lblBeurt
             // 
             this.lblBeurt.AutoSize = true;
-            this.lblBeurt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBeurt.Location = new System.Drawing.Point(148, 18);
+            this.lblBeurt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBeurt.Location = new System.Drawing.Point(149, 23);
             this.lblBeurt.Name = "lblBeurt";
-            this.lblBeurt.Size = new System.Drawing.Size(52, 20);
+            this.lblBeurt.Size = new System.Drawing.Size(47, 18);
             this.lblBeurt.TabIndex = 16;
             this.lblBeurt.Text = "Beurt:";
-            // 
-            // spelersLijst
-            // 
-            this.spelersLijst.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.spelersLijst.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.spelersLijst.Location = new System.Drawing.Point(12, 40);
-            this.spelersLijst.Name = "spelersLijst";
-            this.spelersLijst.Size = new System.Drawing.Size(130, 375);
-            this.spelersLijst.TabIndex = 17;
-            this.spelersLijst.UseCompatibleStateImageBehavior = false;
             // 
             // lblSpelers
             // 
             this.lblSpelers.AutoSize = true;
-            this.lblSpelers.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSpelers.Location = new System.Drawing.Point(12, 17);
+            this.lblSpelers.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSpelers.Location = new System.Drawing.Point(10, 23);
             this.lblSpelers.Name = "lblSpelers";
-            this.lblSpelers.Size = new System.Drawing.Size(63, 20);
+            this.lblSpelers.Size = new System.Drawing.Size(58, 18);
             this.lblSpelers.TabIndex = 18;
             this.lblSpelers.Text = "Spelers";
             // 
@@ -160,7 +151,7 @@
             // 
             this.kaart21.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.kaart21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.kaart21.Location = new System.Drawing.Point(245, 230);
+            this.kaart21.Location = new System.Drawing.Point(245, 232);
             this.kaart21.Margin = new System.Windows.Forms.Padding(2);
             this.kaart21.Name = "kaart21";
             this.kaart21.Size = new System.Drawing.Size(90, 90);
@@ -171,7 +162,7 @@
             // 
             this.kaart11.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.kaart11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.kaart11.Location = new System.Drawing.Point(245, 135);
+            this.kaart11.Location = new System.Drawing.Point(245, 138);
             this.kaart11.Margin = new System.Windows.Forms.Padding(2);
             this.kaart11.Name = "kaart11";
             this.kaart11.Size = new System.Drawing.Size(90, 90);
@@ -182,7 +173,7 @@
             // 
             this.kaart01.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.kaart01.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.kaart01.Location = new System.Drawing.Point(245, 40);
+            this.kaart01.Location = new System.Drawing.Point(245, 44);
             this.kaart01.Margin = new System.Windows.Forms.Padding(2);
             this.kaart01.Name = "kaart01";
             this.kaart01.Size = new System.Drawing.Size(90, 90);
@@ -215,7 +206,7 @@
             // 
             this.kaart13.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.kaart13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.kaart13.Location = new System.Drawing.Point(435, 135);
+            this.kaart13.Location = new System.Drawing.Point(435, 137);
             this.kaart13.Margin = new System.Windows.Forms.Padding(2);
             this.kaart13.Name = "kaart13";
             this.kaart13.Size = new System.Drawing.Size(90, 90);
@@ -226,7 +217,7 @@
             // 
             this.kaart03.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.kaart03.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.kaart03.Location = new System.Drawing.Point(435, 40);
+            this.kaart03.Location = new System.Drawing.Point(435, 44);
             this.kaart03.Margin = new System.Windows.Forms.Padding(2);
             this.kaart03.Name = "kaart03";
             this.kaart03.Size = new System.Drawing.Size(90, 90);
@@ -259,7 +250,7 @@
             // 
             this.kaart12.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.kaart12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.kaart12.Location = new System.Drawing.Point(340, 135);
+            this.kaart12.Location = new System.Drawing.Point(340, 137);
             this.kaart12.Margin = new System.Windows.Forms.Padding(2);
             this.kaart12.Name = "kaart12";
             this.kaart12.Size = new System.Drawing.Size(90, 90);
@@ -270,12 +261,29 @@
             // 
             this.kaart02.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.kaart02.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.kaart02.Location = new System.Drawing.Point(340, 40);
+            this.kaart02.Location = new System.Drawing.Point(340, 44);
             this.kaart02.Margin = new System.Windows.Forms.Padding(2);
             this.kaart02.Name = "kaart02";
             this.kaart02.Size = new System.Drawing.Size(90, 90);
             this.kaart02.TabIndex = 23;
             this.kaart02.TabStop = false;
+            // 
+            // lbSpelers
+            // 
+            this.lbSpelers.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.lbSpelers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lbSpelers.ForeColor = System.Drawing.SystemColors.InfoText;
+            this.lbSpelers.FormattingEnabled = true;
+            this.lbSpelers.Location = new System.Drawing.Point(12, 44);
+            this.lbSpelers.Name = "lbSpelers";
+            this.lbSpelers.Size = new System.Drawing.Size(133, 366);
+            this.lbSpelers.TabIndex = 31;
+            // 
+            // updateTimer
+            // 
+            this.updateTimer.Enabled = true;
+            this.updateTimer.Interval = 16;
+            this.updateTimer.Tick += new System.EventHandler(this.updateTimer_Tick);
             // 
             // Form1
             // 
@@ -283,6 +291,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(546, 432);
+            this.Controls.Add(this.lbSpelers);
             this.Controls.Add(this.kaart33);
             this.Controls.Add(this.kaart23);
             this.Controls.Add(this.kaart13);
@@ -296,7 +305,6 @@
             this.Controls.Add(this.kaart11);
             this.Controls.Add(this.kaart01);
             this.Controls.Add(this.lblSpelers);
-            this.Controls.Add(this.spelersLijst);
             this.Controls.Add(this.lblBeurt);
             this.Controls.Add(this.kaart30);
             this.Controls.Add(this.kaart20);
@@ -335,7 +343,6 @@
         private System.Windows.Forms.PictureBox kaart30;
         private System.Windows.Forms.Timer turnTimer;
         private System.Windows.Forms.Label lblBeurt;
-        private System.Windows.Forms.ListView spelersLijst;
         private System.Windows.Forms.Label lblSpelers;
         private System.Windows.Forms.PictureBox kaart31;
         private System.Windows.Forms.PictureBox kaart21;
@@ -349,6 +356,8 @@
         private System.Windows.Forms.PictureBox kaart22;
         private System.Windows.Forms.PictureBox kaart12;
         private System.Windows.Forms.PictureBox kaart02;
+        private System.Windows.Forms.ListBox lbSpelers;
+        private System.Windows.Forms.Timer updateTimer;
     }
 }
 

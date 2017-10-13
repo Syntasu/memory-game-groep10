@@ -1,4 +1,6 @@
-﻿namespace MemoryGameProject.Code
+﻿using System.Windows.Forms;
+
+namespace MemoryGameProject.Code
 {
     /// <summary>
     ///     Een speler object.
@@ -57,6 +59,10 @@
             return null;
         }
 
+        /// <summary>
+        ///     Kijk hoeveel spelers in de player list zitten.
+        /// </summary>
+        /// <returns>Returned het aantal spelers.</returns>
         public int GetPlayerCount()
         {
             return playerList.Length;
