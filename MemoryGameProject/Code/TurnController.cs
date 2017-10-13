@@ -5,10 +5,24 @@ namespace MemoryGameProject.Code
 {
     public class TurnController
     {
+        /// <summary>
+        ///     Referentie naar de spelerslijst (via argumenten geassigned).
+        /// </summary>
         private PlayerList playerList;
+        
+        /// <summary>
+        ///     Een stopwatch object die de tijd van elke beurt bijhoud.
+        /// </summary>
         private Stopwatch turnTimer;
+
+        /// <summary>
+        ///     Hoeveel tijd je hebt per beurt, default is 60 seconden. Via argumenten kan je dit overschrijven.
+        /// </summary>
         private int turnTimeInSeconds = 60;
 
+        /// <summary>
+        ///     De ID van de speler die nu aan de beurt is.
+        /// </summary>
         public int CurrentPlayerId = 0;
 
         public TurnController(int turnTimeInSeconds, PlayerList playerList)

@@ -7,10 +7,20 @@ namespace MemoryGameProject
 {
     public partial class Form1 : Form
     {
+        /// <summary>
+        ///     Referentie naar de spelers lijst. (Wordt op Form1_load aangemaakt).
+        /// </summary>
         private PlayerList playerList;
+
+        /// <summary>
+        ///     Referenctie naar de turn controller (Wordt op Form1_Load aangemaakt).
+        /// </summary>
         private TurnController turnController;
 
-        private int tijdPerTurn = 10;
+        /// <summary>
+        ///     Hoeveel tijd je hebt voor elke beurt.
+        /// </summary>
+        private int tijdPerTurn = 60;
 
         public Form1()
         {
@@ -25,7 +35,11 @@ namespace MemoryGameProject
             playerNames[1] = "Alexander";
             playerNames[2] = "Valeria";
 
-            //Maak een nieuwe spelers lijst en beurten controller.
+            /*
+             * Maak een nieuwe spelers lijst en beurten controller.
+             * Spelers lijst vraagt een string array met alle gebruikers namen van de spelers.
+             * De turn controller vraagt de spelers lijst en hoeveel tijd je per beurt hebt.
+             */
             playerList = new PlayerList(playerNames);
             turnController = new TurnController(tijdPerTurn, playerList);
 
@@ -89,12 +103,16 @@ namespace MemoryGameProject
             }
         }
 
+        /// <summary>
+        ///     Logica voor het update van de turn controller
+        /// </summary>
         private void UpdateTurnController()
         {
             //Check of de tijd verstreken is.
             int timeLeft = turnController.GetTurnTimeInSeconds();
 
-            if(timeLeft == 0)
+            //Als er geen tijd meer over is, volgende beurt.
+            if(timeLeft <= 0)
             {
                 turnController.NextTurn();
             }
@@ -102,13 +120,9 @@ namespace MemoryGameProject
 
         private void updateTimer_Tick(object sender, EventArgs e)
         {
+            //Update de user interface en de turn controller.
             UpdateUserInterface();
             UpdateTurnController();
-        }
-
-        private void turnTimer_Tick(object sender, EventArgs e)
-        {
-
         }
     }
 }
