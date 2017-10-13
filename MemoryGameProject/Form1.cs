@@ -67,8 +67,10 @@ namespace MemoryGameProject
             //Vind de speler met de eerste beurt.
             Player playerWithInitialTurn = playerList.GetPlayerById(turnController.CurrentPlayerId);
 
+            //Zet de geselecteerde index van de ListView
             lvSpelers.Items[playerWithInitialTurn.id].Selected = true;
 
+            //Zet de text van de beurt label.
             lblBeurt.Text = "Beurt: " + playerWithInitialTurn.name;
         }
 
