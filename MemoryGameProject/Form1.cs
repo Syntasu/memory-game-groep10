@@ -105,5 +105,10 @@ namespace MemoryGameProject
             UpdateUserInterface();
             UpdateTurnController();
         }
+
+        private void turnTimer_Tick(object sender, EventArgs e)
+        {
+
+        }
     }
 }
