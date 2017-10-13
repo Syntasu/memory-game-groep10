@@ -1,6 +1,4 @@
-﻿using System.Windows.Forms;
-
-namespace MemoryGameProject.Code
+﻿namespace MemoryGameProject.Code
 {
     /// <summary>
     ///     Een speler object.
@@ -16,6 +14,11 @@ namespace MemoryGameProject.Code
         ///     Naam van de speler.
         /// </summary>
         public string name;
+
+        /// <summary>
+        ///     Score van de speler
+        /// </summary>
+        public int score;
     }
 
     public class PlayerList

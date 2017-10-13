@@ -55,20 +55,20 @@ namespace MemoryGameProject
         /// </summary>
         private void SetupUserInterface()
         {
-            //Vul de list box met all speler namen.
+            //Vul de list view in met all spelernamen en scores.
             for (int i = 0; i < playerList.GetPlayerCount(); i++)
             {
                 Player player = playerList.GetPlayerById(i);
-                lbSpelers.Items.Add(player.name);
+
+                ListViewItem item = new ListViewItem(new[] { player.name, player.score.ToString() });
+                lvSpelers.Items.Add(item);
             }
 
             //Vind de speler met de eerste beurt.
             Player playerWithInitialTurn = playerList.GetPlayerById(turnController.CurrentPlayerId);
 
-            //Zet de geselecteerd index van de listbox naar de speler wie de beurt heeft.
-            lbSpelers.SelectedIndex = turnController.CurrentPlayerId;
+            lvSpelers.Items[playerWithInitialTurn.id].Selected = true;
 
-            //Zet de text van de beurt label naar wie de beurt heeft.
             lblBeurt.Text = "Beurt: " + playerWithInitialTurn.name;
         }
 
@@ -79,9 +79,6 @@ namespace MemoryGameProject
         {
             int playerId = turnController.CurrentPlayerId;
             Player playerWithTurn = playerList.GetPlayerById(playerId);
-
-            //Zet de geselecteerd index van de listbox naar de speler wie de beurt heeft.
-            lbSpelers.SelectedIndex = playerId;
 
             //Zet de text van de beurt label naar wie de beurt heeft.
             lblBeurt.Text = "Beurt: " + playerWithTurn.name;
