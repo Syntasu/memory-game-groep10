@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows.Forms;
 
 namespace MemoryGameProject.Code
 {
@@ -25,10 +24,6 @@ namespace MemoryGameProject.Code
             int playerCount = playerList.GetPlayerCount();
             int startingTurn = rand.Next(0, playerCount - 1);
             CurrentPlayerId = startingTurn;
-
-            //Reset de beurt timer, in het geval dat.
-
-
         }
 
         /// <summary>

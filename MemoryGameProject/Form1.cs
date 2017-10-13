@@ -21,5 +21,6 @@ namespace MemoryGameProject
             PlayerList spelerLijst = new PlayerList(playerNames);
             //TurnController beurtController = new TurnController(spelerLijst);
         }
+
     }
 }
