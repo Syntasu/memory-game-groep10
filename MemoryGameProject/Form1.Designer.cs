@@ -77,6 +77,8 @@
 <<<<<<< Updated upstream
             this.kaart00.Location = new System.Drawing.Point(205, 36);
             this.kaart00.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart00.Location = new System.Drawing.Point(273, 44);
+            this.kaart00.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart00.Name = "kaart00";
             this.kaart00.Size = new System.Drawing.Size(90, 90);
 =======
@@ -85,6 +87,7 @@
             this.kaart00.Name = "kaart00";
             this.kaart00.Size = new System.Drawing.Size(119, 110);
 >>>>>>> Stashed changes
+            this.kaart00.Size = new System.Drawing.Size(119, 110);
             this.kaart00.TabIndex = 0;
             this.kaart00.TabStop = false;
             // 
@@ -95,6 +98,8 @@
 <<<<<<< Updated upstream
             this.kaart10.Location = new System.Drawing.Point(205, 130);
             this.kaart10.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart10.Location = new System.Drawing.Point(273, 160);
+            this.kaart10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart10.Name = "kaart10";
             this.kaart10.Size = new System.Drawing.Size(90, 90);
 =======
@@ -103,6 +108,7 @@
             this.kaart10.Name = "kaart10";
             this.kaart10.Size = new System.Drawing.Size(119, 110);
 >>>>>>> Stashed changes
+            this.kaart10.Size = new System.Drawing.Size(119, 110);
             this.kaart10.TabIndex = 4;
             this.kaart10.TabStop = false;
             // 
@@ -113,6 +119,8 @@
 <<<<<<< Updated upstream
             this.kaart20.Location = new System.Drawing.Point(205, 224);
             this.kaart20.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart20.Location = new System.Drawing.Point(273, 276);
+            this.kaart20.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart20.Name = "kaart20";
             this.kaart20.Size = new System.Drawing.Size(90, 90);
 =======
@@ -121,6 +129,7 @@
             this.kaart20.Name = "kaart20";
             this.kaart20.Size = new System.Drawing.Size(119, 110);
 >>>>>>> Stashed changes
+            this.kaart20.Size = new System.Drawing.Size(119, 110);
             this.kaart20.TabIndex = 8;
             this.kaart20.TabStop = false;
             // 
@@ -131,6 +140,8 @@
 <<<<<<< Updated upstream
             this.kaart30.Location = new System.Drawing.Point(205, 317);
             this.kaart30.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart30.Location = new System.Drawing.Point(273, 390);
+            this.kaart30.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart30.Name = "kaart30";
             this.kaart30.Size = new System.Drawing.Size(90, 90);
 =======
@@ -139,6 +150,7 @@
             this.kaart30.Name = "kaart30";
             this.kaart30.Size = new System.Drawing.Size(119, 110);
 >>>>>>> Stashed changes
+            this.kaart30.Size = new System.Drawing.Size(119, 110);
             this.kaart30.TabIndex = 12;
             this.kaart30.TabStop = false;
             // 
@@ -152,6 +164,8 @@
             this.lblBeurt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 <<<<<<< Updated upstream
             this.lblBeurt.Location = new System.Drawing.Point(204, 15);
+            this.lblBeurt.Location = new System.Drawing.Point(272, 18);
+            this.lblBeurt.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblBeurt.Name = "lblBeurt";
             this.lblBeurt.Size = new System.Drawing.Size(47, 18);
 =======
@@ -160,6 +174,7 @@
             this.lblBeurt.Name = "lblBeurt";
             this.lblBeurt.Size = new System.Drawing.Size(59, 24);
 >>>>>>> Stashed changes
+            this.lblBeurt.Size = new System.Drawing.Size(59, 24);
             this.lblBeurt.TabIndex = 16;
             this.lblBeurt.Text = "Beurt:";
             // 
@@ -170,6 +185,8 @@
 <<<<<<< Updated upstream
             this.kaart31.Location = new System.Drawing.Point(300, 317);
             this.kaart31.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart31.Location = new System.Drawing.Point(400, 390);
+            this.kaart31.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart31.Name = "kaart31";
             this.kaart31.Size = new System.Drawing.Size(90, 90);
 =======
@@ -178,6 +195,7 @@
             this.kaart31.Name = "kaart31";
             this.kaart31.Size = new System.Drawing.Size(119, 110);
 >>>>>>> Stashed changes
+            this.kaart31.Size = new System.Drawing.Size(119, 110);
             this.kaart31.TabIndex = 22;
             this.kaart31.TabStop = false;
             // 
@@ -188,6 +206,8 @@
 <<<<<<< Updated upstream
             this.kaart21.Location = new System.Drawing.Point(300, 224);
             this.kaart21.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart21.Location = new System.Drawing.Point(400, 276);
+            this.kaart21.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart21.Name = "kaart21";
             this.kaart21.Size = new System.Drawing.Size(90, 90);
 =======
@@ -196,6 +216,7 @@
             this.kaart21.Name = "kaart21";
             this.kaart21.Size = new System.Drawing.Size(119, 110);
 >>>>>>> Stashed changes
+            this.kaart21.Size = new System.Drawing.Size(119, 110);
             this.kaart21.TabIndex = 21;
             this.kaart21.TabStop = false;
             // 
@@ -206,6 +227,8 @@
 <<<<<<< Updated upstream
             this.kaart11.Location = new System.Drawing.Point(300, 130);
             this.kaart11.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart11.Location = new System.Drawing.Point(400, 160);
+            this.kaart11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart11.Name = "kaart11";
             this.kaart11.Size = new System.Drawing.Size(90, 90);
 =======
@@ -214,6 +237,7 @@
             this.kaart11.Name = "kaart11";
             this.kaart11.Size = new System.Drawing.Size(119, 110);
 >>>>>>> Stashed changes
+            this.kaart11.Size = new System.Drawing.Size(119, 110);
             this.kaart11.TabIndex = 20;
             this.kaart11.TabStop = false;
             // 
@@ -224,6 +248,8 @@
 <<<<<<< Updated upstream
             this.kaart01.Location = new System.Drawing.Point(300, 36);
             this.kaart01.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart01.Location = new System.Drawing.Point(400, 44);
+            this.kaart01.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart01.Name = "kaart01";
             this.kaart01.Size = new System.Drawing.Size(90, 90);
 =======
@@ -232,6 +258,7 @@
             this.kaart01.Name = "kaart01";
             this.kaart01.Size = new System.Drawing.Size(119, 110);
 >>>>>>> Stashed changes
+            this.kaart01.Size = new System.Drawing.Size(119, 110);
             this.kaart01.TabIndex = 19;
             this.kaart01.TabStop = false;
             // 
@@ -242,6 +269,8 @@
 <<<<<<< Updated upstream
             this.kaart33.Location = new System.Drawing.Point(489, 317);
             this.kaart33.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart33.Location = new System.Drawing.Point(652, 390);
+            this.kaart33.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart33.Name = "kaart33";
             this.kaart33.Size = new System.Drawing.Size(90, 90);
 =======
@@ -250,6 +279,7 @@
             this.kaart33.Name = "kaart33";
             this.kaart33.Size = new System.Drawing.Size(119, 110);
 >>>>>>> Stashed changes
+            this.kaart33.Size = new System.Drawing.Size(119, 110);
             this.kaart33.TabIndex = 30;
             this.kaart33.TabStop = false;
             // 
@@ -260,6 +290,8 @@
 <<<<<<< Updated upstream
             this.kaart23.Location = new System.Drawing.Point(489, 222);
             this.kaart23.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart23.Location = new System.Drawing.Point(652, 273);
+            this.kaart23.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart23.Name = "kaart23";
             this.kaart23.Size = new System.Drawing.Size(90, 90);
 =======
@@ -268,6 +300,7 @@
             this.kaart23.Name = "kaart23";
             this.kaart23.Size = new System.Drawing.Size(119, 110);
 >>>>>>> Stashed changes
+            this.kaart23.Size = new System.Drawing.Size(119, 110);
             this.kaart23.TabIndex = 29;
             this.kaart23.TabStop = false;
             // 
@@ -278,6 +311,8 @@
 <<<<<<< Updated upstream
             this.kaart13.Location = new System.Drawing.Point(489, 129);
             this.kaart13.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart13.Location = new System.Drawing.Point(652, 159);
+            this.kaart13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart13.Name = "kaart13";
             this.kaart13.Size = new System.Drawing.Size(90, 90);
 =======
@@ -286,6 +321,7 @@
             this.kaart13.Name = "kaart13";
             this.kaart13.Size = new System.Drawing.Size(119, 110);
 >>>>>>> Stashed changes
+            this.kaart13.Size = new System.Drawing.Size(119, 110);
             this.kaart13.TabIndex = 28;
             this.kaart13.TabStop = false;
             // 
@@ -296,6 +332,8 @@
 <<<<<<< Updated upstream
             this.kaart03.Location = new System.Drawing.Point(489, 36);
             this.kaart03.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart03.Location = new System.Drawing.Point(652, 44);
+            this.kaart03.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart03.Name = "kaart03";
             this.kaart03.Size = new System.Drawing.Size(90, 90);
 =======
@@ -304,6 +342,7 @@
             this.kaart03.Name = "kaart03";
             this.kaart03.Size = new System.Drawing.Size(119, 110);
 >>>>>>> Stashed changes
+            this.kaart03.Size = new System.Drawing.Size(119, 110);
             this.kaart03.TabIndex = 27;
             this.kaart03.TabStop = false;
             // 
@@ -314,6 +353,8 @@
 <<<<<<< Updated upstream
             this.kaart32.Location = new System.Drawing.Point(394, 317);
             this.kaart32.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart32.Location = new System.Drawing.Point(525, 390);
+            this.kaart32.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart32.Name = "kaart32";
             this.kaart32.Size = new System.Drawing.Size(90, 90);
 =======
@@ -322,6 +363,7 @@
             this.kaart32.Name = "kaart32";
             this.kaart32.Size = new System.Drawing.Size(119, 110);
 >>>>>>> Stashed changes
+            this.kaart32.Size = new System.Drawing.Size(119, 110);
             this.kaart32.TabIndex = 26;
             this.kaart32.TabStop = false;
             // 
@@ -332,6 +374,8 @@
 <<<<<<< Updated upstream
             this.kaart22.Location = new System.Drawing.Point(394, 222);
             this.kaart22.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart22.Location = new System.Drawing.Point(525, 273);
+            this.kaart22.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart22.Name = "kaart22";
             this.kaart22.Size = new System.Drawing.Size(90, 90);
 =======
@@ -340,6 +384,7 @@
             this.kaart22.Name = "kaart22";
             this.kaart22.Size = new System.Drawing.Size(119, 110);
 >>>>>>> Stashed changes
+            this.kaart22.Size = new System.Drawing.Size(119, 110);
             this.kaart22.TabIndex = 25;
             this.kaart22.TabStop = false;
             // 
@@ -350,6 +395,8 @@
 <<<<<<< Updated upstream
             this.kaart12.Location = new System.Drawing.Point(394, 129);
             this.kaart12.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart12.Location = new System.Drawing.Point(525, 159);
+            this.kaart12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart12.Name = "kaart12";
             this.kaart12.Size = new System.Drawing.Size(90, 90);
 =======
@@ -358,6 +405,7 @@
             this.kaart12.Name = "kaart12";
             this.kaart12.Size = new System.Drawing.Size(119, 110);
 >>>>>>> Stashed changes
+            this.kaart12.Size = new System.Drawing.Size(119, 110);
             this.kaart12.TabIndex = 24;
             this.kaart12.TabStop = false;
             // 
@@ -368,8 +416,10 @@
 <<<<<<< Updated upstream
             this.kaart02.Location = new System.Drawing.Point(394, 36);
             this.kaart02.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart02.Location = new System.Drawing.Point(525, 44);
+            this.kaart02.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart02.Name = "kaart02";
-            this.kaart02.Size = new System.Drawing.Size(90, 90);
+            this.kaart02.Size = new System.Drawing.Size(119, 110);
             this.kaart02.TabIndex = 23;
             this.kaart02.TabStop = false;
 =======
@@ -394,6 +444,8 @@
             this.lblTijd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 <<<<<<< Updated upstream
             this.lblTijd.Location = new System.Drawing.Point(394, 16);
+            this.lblTijd.Location = new System.Drawing.Point(525, 20);
+            this.lblTijd.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTijd.Name = "lblTijd";
             this.lblTijd.Size = new System.Drawing.Size(75, 18);
 =======
@@ -402,6 +454,7 @@
             this.lblTijd.Name = "lblTijd";
             this.lblTijd.Size = new System.Drawing.Size(96, 24);
 >>>>>>> Stashed changes
+            this.lblTijd.Size = new System.Drawing.Size(96, 24);
             this.lblTijd.TabIndex = 32;
             this.lblTijd.Text = "Tijd: 00:00";
             // 
@@ -415,6 +468,8 @@
             this.lvSpelers.FullRowSelect = true;
 <<<<<<< Updated upstream
             this.lvSpelers.Location = new System.Drawing.Point(9, 34);
+            this.lvSpelers.Location = new System.Drawing.Point(12, 42);
+            this.lvSpelers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lvSpelers.Name = "lvSpelers";
             this.lvSpelers.Size = new System.Drawing.Size(185, 371);
 =======
@@ -423,9 +478,11 @@
             this.lvSpelers.Name = "lvSpelers";
             this.lvSpelers.Size = new System.Drawing.Size(246, 456);
 >>>>>>> Stashed changes
+            this.lvSpelers.Size = new System.Drawing.Size(246, 456);
             this.lvSpelers.TabIndex = 33;
             this.lvSpelers.UseCompatibleStateImageBehavior = false;
             this.lvSpelers.View = System.Windows.Forms.View.Details;
+            this.lvSpelers.SelectedIndexChanged += new System.EventHandler(this.lvSpelers_SelectedIndexChanged);
             // 
             // colName
             // 
@@ -447,6 +504,7 @@
 =======
             this.ClientSize = new System.Drawing.Size(807, 532);
 >>>>>>> Stashed changes
+            this.ClientSize = new System.Drawing.Size(807, 532);
             this.Controls.Add(this.lvSpelers);
             this.Controls.Add(this.lblTijd);
             this.Controls.Add(this.kaart33);
@@ -471,6 +529,7 @@
 =======
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 >>>>>>> Stashed changes
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
             this.Text = "Memory Game";
             this.Load += new System.EventHandler(this.Form1_Load);
