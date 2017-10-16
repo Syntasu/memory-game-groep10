@@ -122,6 +122,14 @@ namespace MemoryGameProject
             //Update de user interface en de turn controller.
             UpdateUserInterface();
             UpdateTurnController();
+<<<<<<< Updated upstream
+=======
+        }
+
+        private void kaart02_Click(object sender, EventArgs e)
+        {
+
+>>>>>>> Stashed changes
         }
     }
 }
