@@ -14,6 +14,11 @@
         ///     Naam van de speler.
         /// </summary>
         public string name;
+
+        /// <summary>
+        ///     Score van de speler
+        /// </summary>
+        public int score;
     }
 
     public class PlayerList
@@ -57,6 +62,10 @@
             return null;
         }
 
+        /// <summary>
+        ///     Kijk hoeveel spelers in de player list zitten.
+        /// </summary>
+        /// <returns>Returned het aantal spelers.</returns>
         public int GetPlayerCount()
         {
             return playerList.Length;

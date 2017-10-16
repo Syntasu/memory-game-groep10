@@ -29,254 +29,353 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.pictureBox15 = new System.Windows.Forms.PictureBox();
-            this.pictureBox16 = new System.Windows.Forms.PictureBox();
+            this.kaart00 = new System.Windows.Forms.PictureBox();
+            this.kaart10 = new System.Windows.Forms.PictureBox();
+            this.kaart20 = new System.Windows.Forms.PictureBox();
+            this.kaart30 = new System.Windows.Forms.PictureBox();
             this.turnTimer = new System.Windows.Forms.Timer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
+            this.lblBeurt = new System.Windows.Forms.Label();
+            this.kaart31 = new System.Windows.Forms.PictureBox();
+            this.kaart21 = new System.Windows.Forms.PictureBox();
+            this.kaart11 = new System.Windows.Forms.PictureBox();
+            this.kaart01 = new System.Windows.Forms.PictureBox();
+            this.kaart33 = new System.Windows.Forms.PictureBox();
+            this.kaart23 = new System.Windows.Forms.PictureBox();
+            this.kaart13 = new System.Windows.Forms.PictureBox();
+            this.kaart03 = new System.Windows.Forms.PictureBox();
+            this.kaart32 = new System.Windows.Forms.PictureBox();
+            this.kaart22 = new System.Windows.Forms.PictureBox();
+            this.kaart12 = new System.Windows.Forms.PictureBox();
+            this.kaart02 = new System.Windows.Forms.PictureBox();
+            this.updateTimer = new System.Windows.Forms.Timer(this.components);
+            this.lblTijd = new System.Windows.Forms.Label();
+            this.lvSpelers = new System.Windows.Forms.ListView();
+            this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colScore = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            ((System.ComponentModel.ISupportInitialize)(this.kaart00)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart30)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart31)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart01)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart33)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart03)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart32)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart02)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // kaart00
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(233, 42);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 91);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.kaart00.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.kaart00.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.kaart00.Location = new System.Drawing.Point(205, 36);
+            this.kaart00.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart00.Name = "kaart00";
+            this.kaart00.Size = new System.Drawing.Size(90, 90);
+            this.kaart00.TabIndex = 0;
+            this.kaart00.TabStop = false;
             // 
-            // pictureBox2
+            // kaart10
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(337, 42);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(100, 91);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
+            this.kaart10.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.kaart10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.kaart10.Location = new System.Drawing.Point(205, 130);
+            this.kaart10.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart10.Name = "kaart10";
+            this.kaart10.Size = new System.Drawing.Size(90, 90);
+            this.kaart10.TabIndex = 4;
+            this.kaart10.TabStop = false;
             // 
-            // pictureBox3
+            // kaart20
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(443, 42);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(100, 91);
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
+            this.kaart20.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.kaart20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.kaart20.Location = new System.Drawing.Point(205, 224);
+            this.kaart20.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart20.Name = "kaart20";
+            this.kaart20.Size = new System.Drawing.Size(90, 90);
+            this.kaart20.TabIndex = 8;
+            this.kaart20.TabStop = false;
             // 
-            // pictureBox4
+            // kaart30
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(547, 42);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(100, 91);
-            this.pictureBox4.TabIndex = 3;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Location = new System.Drawing.Point(547, 138);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(100, 91);
-            this.pictureBox5.TabIndex = 7;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Location = new System.Drawing.Point(443, 138);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(100, 91);
-            this.pictureBox6.TabIndex = 6;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Location = new System.Drawing.Point(337, 138);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(100, 91);
-            this.pictureBox7.TabIndex = 5;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Location = new System.Drawing.Point(233, 138);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(100, 91);
-            this.pictureBox8.TabIndex = 4;
-            this.pictureBox8.TabStop = false;
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Location = new System.Drawing.Point(547, 234);
-            this.pictureBox9.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(100, 91);
-            this.pictureBox9.TabIndex = 11;
-            this.pictureBox9.TabStop = false;
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Location = new System.Drawing.Point(443, 234);
-            this.pictureBox10.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(100, 91);
-            this.pictureBox10.TabIndex = 10;
-            this.pictureBox10.TabStop = false;
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.Location = new System.Drawing.Point(337, 234);
-            this.pictureBox11.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(100, 91);
-            this.pictureBox11.TabIndex = 9;
-            this.pictureBox11.TabStop = false;
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.Location = new System.Drawing.Point(233, 234);
-            this.pictureBox12.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(100, 91);
-            this.pictureBox12.TabIndex = 8;
-            this.pictureBox12.TabStop = false;
-            // 
-            // pictureBox13
-            // 
-            this.pictureBox13.Location = new System.Drawing.Point(547, 330);
-            this.pictureBox13.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(100, 91);
-            this.pictureBox13.TabIndex = 15;
-            this.pictureBox13.TabStop = false;
-            // 
-            // pictureBox14
-            // 
-            this.pictureBox14.Location = new System.Drawing.Point(443, 330);
-            this.pictureBox14.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(100, 91);
-            this.pictureBox14.TabIndex = 14;
-            this.pictureBox14.TabStop = false;
-            // 
-            // pictureBox15
-            // 
-            this.pictureBox15.Location = new System.Drawing.Point(337, 330);
-            this.pictureBox15.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox15.Name = "pictureBox15";
-            this.pictureBox15.Size = new System.Drawing.Size(100, 91);
-            this.pictureBox15.TabIndex = 13;
-            this.pictureBox15.TabStop = false;
-            // 
-            // pictureBox16
-            // 
-            this.pictureBox16.Location = new System.Drawing.Point(233, 330);
-            this.pictureBox16.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox16.Name = "pictureBox16";
-            this.pictureBox16.Size = new System.Drawing.Size(100, 91);
-            this.pictureBox16.TabIndex = 12;
-            this.pictureBox16.TabStop = false;
+            this.kaart30.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.kaart30.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.kaart30.Location = new System.Drawing.Point(205, 317);
+            this.kaart30.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart30.Name = "kaart30";
+            this.kaart30.Size = new System.Drawing.Size(90, 90);
+            this.kaart30.TabIndex = 12;
+            this.kaart30.TabStop = false;
             // 
             // turnTimer
             // 
             this.turnTimer.Interval = 1000;
+            // 
+            // lblBeurt
+            // 
+            this.lblBeurt.AutoSize = true;
+            this.lblBeurt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBeurt.Location = new System.Drawing.Point(204, 15);
+            this.lblBeurt.Name = "lblBeurt";
+            this.lblBeurt.Size = new System.Drawing.Size(47, 18);
+            this.lblBeurt.TabIndex = 16;
+            this.lblBeurt.Text = "Beurt:";
+            // 
+            // kaart31
+            // 
+            this.kaart31.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.kaart31.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.kaart31.Location = new System.Drawing.Point(300, 317);
+            this.kaart31.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart31.Name = "kaart31";
+            this.kaart31.Size = new System.Drawing.Size(90, 90);
+            this.kaart31.TabIndex = 22;
+            this.kaart31.TabStop = false;
+            // 
+            // kaart21
+            // 
+            this.kaart21.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.kaart21.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.kaart21.Location = new System.Drawing.Point(300, 224);
+            this.kaart21.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart21.Name = "kaart21";
+            this.kaart21.Size = new System.Drawing.Size(90, 90);
+            this.kaart21.TabIndex = 21;
+            this.kaart21.TabStop = false;
+            // 
+            // kaart11
+            // 
+            this.kaart11.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.kaart11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.kaart11.Location = new System.Drawing.Point(300, 130);
+            this.kaart11.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart11.Name = "kaart11";
+            this.kaart11.Size = new System.Drawing.Size(90, 90);
+            this.kaart11.TabIndex = 20;
+            this.kaart11.TabStop = false;
+            // 
+            // kaart01
+            // 
+            this.kaart01.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.kaart01.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.kaart01.Location = new System.Drawing.Point(300, 36);
+            this.kaart01.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart01.Name = "kaart01";
+            this.kaart01.Size = new System.Drawing.Size(90, 90);
+            this.kaart01.TabIndex = 19;
+            this.kaart01.TabStop = false;
+            // 
+            // kaart33
+            // 
+            this.kaart33.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.kaart33.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.kaart33.Location = new System.Drawing.Point(489, 317);
+            this.kaart33.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart33.Name = "kaart33";
+            this.kaart33.Size = new System.Drawing.Size(90, 90);
+            this.kaart33.TabIndex = 30;
+            this.kaart33.TabStop = false;
+            // 
+            // kaart23
+            // 
+            this.kaart23.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.kaart23.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.kaart23.Location = new System.Drawing.Point(489, 222);
+            this.kaart23.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart23.Name = "kaart23";
+            this.kaart23.Size = new System.Drawing.Size(90, 90);
+            this.kaart23.TabIndex = 29;
+            this.kaart23.TabStop = false;
+            // 
+            // kaart13
+            // 
+            this.kaart13.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.kaart13.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.kaart13.Location = new System.Drawing.Point(489, 129);
+            this.kaart13.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart13.Name = "kaart13";
+            this.kaart13.Size = new System.Drawing.Size(90, 90);
+            this.kaart13.TabIndex = 28;
+            this.kaart13.TabStop = false;
+            // 
+            // kaart03
+            // 
+            this.kaart03.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.kaart03.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.kaart03.Location = new System.Drawing.Point(489, 36);
+            this.kaart03.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart03.Name = "kaart03";
+            this.kaart03.Size = new System.Drawing.Size(90, 90);
+            this.kaart03.TabIndex = 27;
+            this.kaart03.TabStop = false;
+            // 
+            // kaart32
+            // 
+            this.kaart32.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.kaart32.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.kaart32.Location = new System.Drawing.Point(394, 317);
+            this.kaart32.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart32.Name = "kaart32";
+            this.kaart32.Size = new System.Drawing.Size(90, 90);
+            this.kaart32.TabIndex = 26;
+            this.kaart32.TabStop = false;
+            // 
+            // kaart22
+            // 
+            this.kaart22.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.kaart22.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.kaart22.Location = new System.Drawing.Point(394, 222);
+            this.kaart22.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart22.Name = "kaart22";
+            this.kaart22.Size = new System.Drawing.Size(90, 90);
+            this.kaart22.TabIndex = 25;
+            this.kaart22.TabStop = false;
+            // 
+            // kaart12
+            // 
+            this.kaart12.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.kaart12.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.kaart12.Location = new System.Drawing.Point(394, 129);
+            this.kaart12.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart12.Name = "kaart12";
+            this.kaart12.Size = new System.Drawing.Size(90, 90);
+            this.kaart12.TabIndex = 24;
+            this.kaart12.TabStop = false;
+            // 
+            // kaart02
+            // 
+            this.kaart02.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.kaart02.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.kaart02.Location = new System.Drawing.Point(394, 36);
+            this.kaart02.Margin = new System.Windows.Forms.Padding(2);
+            this.kaart02.Name = "kaart02";
+            this.kaart02.Size = new System.Drawing.Size(90, 90);
+            this.kaart02.TabIndex = 23;
+            this.kaart02.TabStop = false;
+            // 
+            // updateTimer
+            // 
+            this.updateTimer.Enabled = true;
+            this.updateTimer.Interval = 16;
+            this.updateTimer.Tick += new System.EventHandler(this.updateTimer_Tick);
+            // 
+            // lblTijd
+            // 
+            this.lblTijd.AutoSize = true;
+            this.lblTijd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTijd.Location = new System.Drawing.Point(394, 16);
+            this.lblTijd.Name = "lblTijd";
+            this.lblTijd.Size = new System.Drawing.Size(75, 18);
+            this.lblTijd.TabIndex = 32;
+            this.lblTijd.Text = "Tijd: 00:00";
+            // 
+            // lvSpelers
+            // 
+            this.lvSpelers.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.lvSpelers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lvSpelers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colName,
+            this.colScore});
+            this.lvSpelers.FullRowSelect = true;
+            this.lvSpelers.Location = new System.Drawing.Point(9, 34);
+            this.lvSpelers.Name = "lvSpelers";
+            this.lvSpelers.Size = new System.Drawing.Size(185, 371);
+            this.lvSpelers.TabIndex = 33;
+            this.lvSpelers.UseCompatibleStateImageBehavior = false;
+            this.lvSpelers.View = System.Windows.Forms.View.Details;
+            // 
+            // colName
+            // 
+            this.colName.Text = "Speler";
+            this.colName.Width = 100;
+            // 
+            // colScore
+            // 
+            this.colScore.Text = "Score";
+            this.colScore.Width = 80;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(658, 503);
-            this.Controls.Add(this.pictureBox13);
-            this.Controls.Add(this.pictureBox14);
-            this.Controls.Add(this.pictureBox15);
-            this.Controls.Add(this.pictureBox16);
-            this.Controls.Add(this.pictureBox9);
-            this.Controls.Add(this.pictureBox10);
-            this.Controls.Add(this.pictureBox11);
-            this.Controls.Add(this.pictureBox12);
-            this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.pictureBox6);
-            this.Controls.Add(this.pictureBox7);
-            this.Controls.Add(this.pictureBox8);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.ClientSize = new System.Drawing.Size(605, 432);
+            this.Controls.Add(this.lvSpelers);
+            this.Controls.Add(this.lblTijd);
+            this.Controls.Add(this.kaart33);
+            this.Controls.Add(this.kaart23);
+            this.Controls.Add(this.kaart13);
+            this.Controls.Add(this.kaart03);
+            this.Controls.Add(this.kaart32);
+            this.Controls.Add(this.kaart22);
+            this.Controls.Add(this.kaart12);
+            this.Controls.Add(this.kaart02);
+            this.Controls.Add(this.kaart31);
+            this.Controls.Add(this.kaart21);
+            this.Controls.Add(this.kaart11);
+            this.Controls.Add(this.kaart01);
+            this.Controls.Add(this.lblBeurt);
+            this.Controls.Add(this.kaart30);
+            this.Controls.Add(this.kaart20);
+            this.Controls.Add(this.kaart10);
+            this.Controls.Add(this.kaart00);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Memory Game";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart00)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart30)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart31)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart01)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart33)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart03)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart32)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.kaart02)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox6;
-        private System.Windows.Forms.PictureBox pictureBox7;
-        private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.PictureBox pictureBox9;
-        private System.Windows.Forms.PictureBox pictureBox10;
-        private System.Windows.Forms.PictureBox pictureBox11;
-        private System.Windows.Forms.PictureBox pictureBox12;
-        private System.Windows.Forms.PictureBox pictureBox13;
-        private System.Windows.Forms.PictureBox pictureBox14;
-        private System.Windows.Forms.PictureBox pictureBox15;
-        private System.Windows.Forms.PictureBox pictureBox16;
+        private System.Windows.Forms.PictureBox kaart00;
+        private System.Windows.Forms.PictureBox kaart10;
+        private System.Windows.Forms.PictureBox kaart20;
+        private System.Windows.Forms.PictureBox kaart30;
         private System.Windows.Forms.Timer turnTimer;
+        private System.Windows.Forms.Label lblBeurt;
+        private System.Windows.Forms.PictureBox kaart31;
+        private System.Windows.Forms.PictureBox kaart21;
+        private System.Windows.Forms.PictureBox kaart11;
+        private System.Windows.Forms.PictureBox kaart01;
+        private System.Windows.Forms.PictureBox kaart33;
+        private System.Windows.Forms.PictureBox kaart23;
+        private System.Windows.Forms.PictureBox kaart13;
+        private System.Windows.Forms.PictureBox kaart03;
+        private System.Windows.Forms.PictureBox kaart32;
+        private System.Windows.Forms.PictureBox kaart22;
+        private System.Windows.Forms.PictureBox kaart12;
+        private System.Windows.Forms.PictureBox kaart02;
+        private System.Windows.Forms.Timer updateTimer;
+        private System.Windows.Forms.Label lblTijd;
+        private System.Windows.Forms.ListView lvSpelers;
+        private System.Windows.Forms.ColumnHeader colName;
+        private System.Windows.Forms.ColumnHeader colScore;
     }
 }
 
