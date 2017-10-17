@@ -36,7 +36,7 @@ namespace MemoryGameProject
         /// <summary>
         ///     Een array met de kaarten van het spel.
         /// </summary>
-        private Kaart[,] cards = new Kaart[4,4];
+        private Kaart[,] cards = new Kaart[4, 4];
 
         /// <summary>
         ///     Hoeveel tijd je hebt voor elke beurt.
@@ -106,7 +106,7 @@ namespace MemoryGameProject
             for (int x = 0; x < 4; x++)
             {
                 for (int y = 0; y < 4; y++)
-                { 
+                {
                     bool haspicked = false;
 
                     //Pak een random nummer tussen 0 en 8.
@@ -120,7 +120,7 @@ namespace MemoryGameProject
                         {
                             //Zeg welke id deze kaart heeft.
                             cards[x, y].front = kaart;
-                            
+
                             //Zet de het plaatje van de kaart
                             //TODO: We willen plaatje niet laten zien, gebruik de achterkant.
                             cards[x, y].pictureBox.Image = achterkant;
@@ -135,7 +135,7 @@ namespace MemoryGameProject
                         //Trek een nieuwe random nummer en probeer opnieuw
                         else
                         {
-                           
+
                             kaart = rand.Next(0, 8);
                         }
                     }
@@ -193,7 +193,7 @@ namespace MemoryGameProject
 
             //Als we minder dan 10 second nog hebben, zet de kleur naar rood.
             //Zo niet, zet het terug naar zwart.
-            if(tijdBeurtSeconden <= 10)
+            if (tijdBeurtSeconden <= 10)
             {
                 lblTijd.ForeColor = Color.Red;
             }
@@ -212,7 +212,7 @@ namespace MemoryGameProject
             int timeLeft = turnController.GetTurnTimeInSeconds();
 
             //Als er geen tijd meer over is, volgende beurt.
-            if(timeLeft <= 0)
+            if (timeLeft <= 0)
             {
                 turnController.NextTurn();
             }
@@ -232,28 +232,19 @@ namespace MemoryGameProject
 
         private void kaartklikken(object sender, EventArgs e)
         {
-            if (isWaiting)
+            if (checkGuess())
             {
                 return;
             }
-            if (aantalGeraden == 2)
+            PictureBox box = (PictureBox)sender;
+            CompareGuess(box);
+            if (CheckEndGame())
             {
-                if (Geraden[0].front == Geraden[1].front)
-                {
-                    // score = +1 
-                    Geraden = new Kaart[2];
-                    aantalGeraden = 0;
-                    isWaiting = false;
-                }
-
-                else
-                {
-                    timer1.Start();
-                    isWaiting = true;
-                }
-                return;
+                MessageBox.Show("Game over");
             }
-                PictureBox box = (PictureBox)sender;
+        }
+        private void CompareGuess(PictureBox box)
+        {
             for (int x = 0; x < 4; x++)
             {
                 for (int y = 0; y < 4; y++)
@@ -267,8 +258,60 @@ namespace MemoryGameProject
                     }
                 }
 
-            } 
+            }
         }
+        private bool checkGuess()
+        {
+            if (isWaiting)
+            {
+                return true;
+            }
+            if (aantalGeraden == 2)
+            {
+                if (Geraden[0].front == Geraden[1].front)
+                {
+                    int playerId = turnController.CurrentPlayerId;
+                    Player player = playerList.GetPlayerById(playerId);
+                    player.score = player.score + 1;
+                    Geraden[0].geraden = true;
+                    Geraden[1].geraden = true;
+                    Geraden = new Kaart[2];
+                    aantalGeraden = 0;
+                    isWaiting = false;
+                }
+
+                else
+                {
+                    timer1.Start();
+                    isWaiting = true;
+                }
+                turnController.NextTurn();
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        private bool CheckEndGame()
+        {
+            for (int x = 0; x < 4; x++)
+            {
+                for (int y = 0; y < 4; y++)
+                {
+                    Kaart k = cards[x, y];
+                    if (k.geraden != true)
+                    {
+                        return false;
+                    }
+
+
+                    
+                }
+            }
+            return true;
+        }
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {

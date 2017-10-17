@@ -18,6 +18,7 @@ namespace MemoryGameProject
 
         //Welke ID de voorkant is.
         public int front;
+        public bool geraden;
 
         public Kaart(int x, int y, PictureBox pictures)
         {
