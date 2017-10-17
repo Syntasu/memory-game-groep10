@@ -55,18 +55,19 @@ namespace MemoryGameProject
         /// </summary>
         private void SetupUserInterface()
         {
-            //Vul de list box met all speler namen.
+            //Vul de list view met all speler namen.
             for (int i = 0; i < playerList.GetPlayerCount(); i++)
             {
                 Player player = playerList.GetPlayerById(i);
-                lbSpelers.Items.Add(player.name);
+                ListViewItem item = new ListViewItem(new[] { player.name, player.score.ToString() });
+                lvSpelers.Items.Add(item);
             }
 
             //Vind de speler met de eerste beurt.
             Player playerWithInitialTurn = playerList.GetPlayerById(turnController.CurrentPlayerId);
 
-            //Zet de geselecteerd index van de listbox naar de speler wie de beurt heeft.
-            lbSpelers.SelectedIndex = turnController.CurrentPlayerId;
+            //Selecteer de item in de listview voor de speler die aan de beurt is.
+            lvSpelers.Items[playerWithInitialTurn.id].Selected = true;
 
             //Zet de text van de beurt label naar wie de beurt heeft.
             lblBeurt.Text = "Beurt: " + playerWithInitialTurn.name;
@@ -77,11 +78,15 @@ namespace MemoryGameProject
         /// </summary>
         private void UpdateUserInterface()
         {
+            /*
+             * Verkrijg de id van de speler die aan de beurt is (playerId).
+             * Vraag het spelers object op met de ID die we zojuist hebben verkregen.
+             */
             int playerId = turnController.CurrentPlayerId;
             Player playerWithTurn = playerList.GetPlayerById(playerId);
 
-            //Zet de geselecteerd index van de listbox naar de speler wie de beurt heeft.
-            lbSpelers.SelectedIndex = playerId;
+            //Zet de geselecteerd index van de list view naar de speler wie de beurt heeft.
+            lvSpelers.Items[playerWithTurn.id].Selected = true;
 
             //Zet de text van de beurt label naar wie de beurt heeft.
             lblBeurt.Text = "Beurt: " + playerWithTurn.name;

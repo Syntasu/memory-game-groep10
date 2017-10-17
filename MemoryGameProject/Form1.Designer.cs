@@ -294,7 +294,6 @@
             this.lvSpelers.TabIndex = 33;
             this.lvSpelers.UseCompatibleStateImageBehavior = false;
             this.lvSpelers.View = System.Windows.Forms.View.Details;
-            this.lvSpelers.SelectedIndexChanged += new System.EventHandler(this.lvSpelers_SelectedIndexChanged);
             // 
             // colName
             // 
