@@ -48,6 +48,61 @@ namespace MemoryGameProject
 
             //Vul alles in (labels, listboxes) op de user interface.
             SetupUserInterface();
+
+            Bitmap[] achterkanten = new Bitmap[8];
+            achterkanten[0] = Properties.Resources.sw0;
+            achterkanten[1] = Properties.Resources.sw1;
+            achterkanten[2] = Properties.Resources.sw2;
+            achterkanten[3] = Properties.Resources.sw3;
+            achterkanten[4] = Properties.Resources.sw4;
+            achterkanten[5] = Properties.Resources.sw5;
+            achterkanten[6] = Properties.Resources.sw6;
+            achterkanten[7] = Properties.Resources.sw7;
+
+            Kaart[,] kaarten = new Kaart[4, 4];
+            kaarten[0, 0] = new Kaart(0, 0, kaart00);
+            kaarten[0, 1] = new Kaart(0, 1, kaart01);
+            kaarten[0, 2] = new Kaart(0, 2, kaart02);
+            kaarten[0, 3] = new Kaart(0, 3, kaart03);
+            kaarten[1, 0] = new Kaart(1, 0, kaart10);
+            kaarten[1, 1] = new Kaart(1, 1, kaart11);
+            kaarten[1, 2] = new Kaart(1, 2, kaart12);
+            kaarten[1, 3] = new Kaart(1, 3, kaart13);
+            kaarten[2, 0] = new Kaart(2, 0, kaart20);
+            kaarten[2, 1] = new Kaart(2, 1, kaart21);
+            kaarten[2, 2] = new Kaart(2, 2, kaart22);
+            kaarten[2, 3] = new Kaart(2, 3, kaart23);
+            kaarten[3, 0] = new Kaart(3, 0, kaart30);
+            kaarten[3, 1] = new Kaart(3, 1, kaart31);
+            kaarten[3, 2] = new Kaart(3, 2, kaart32);
+            kaarten[3, 3] = new Kaart(3, 3, kaart33);
+            // kaarten[0, 0] = new kaart(0,0) 
+            Random rand = new Random();
+            int[] picked = new int[8];
+            for (int x = 0; x < 4; x++)
+            {
+                for (int y = 0; y < 4; y++)
+                {
+                    bool haspicked = false;
+                    int kaart = rand.Next(0, 8);
+                    while (!haspicked)
+                    {
+                        if (picked[kaart] <= 1)
+                        {
+                            kaarten[x, y].Achterkant = kaart;
+                            kaarten[x, y].Pictures.Image = achterkanten[kaart];
+                            picked[kaart]++;
+                            haspicked = true;
+                        }
+                        else
+                        {
+                            kaart = rand.Next(0, 8);
+                        }
+                    }
+
+                }
+
+            }
         }
 
         /// <summary>

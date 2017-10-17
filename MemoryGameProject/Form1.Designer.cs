@@ -74,11 +74,11 @@
             // 
             this.kaart00.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.kaart00.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-
             this.kaart00.Location = new System.Drawing.Point(273, 44);
             this.kaart00.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart00.Name = "kaart00";
             this.kaart00.Size = new System.Drawing.Size(119, 110);
+            this.kaart00.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart00.TabIndex = 0;
             this.kaart00.TabStop = false;
             // 
@@ -90,6 +90,7 @@
             this.kaart10.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart10.Name = "kaart10";
             this.kaart10.Size = new System.Drawing.Size(119, 110);
+            this.kaart10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart10.TabIndex = 4;
             this.kaart10.TabStop = false;
             // 
@@ -101,6 +102,7 @@
             this.kaart20.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart20.Name = "kaart20";
             this.kaart20.Size = new System.Drawing.Size(119, 110);
+            this.kaart20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart20.TabIndex = 8;
             this.kaart20.TabStop = false;
             // 
@@ -112,6 +114,7 @@
             this.kaart30.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart30.Name = "kaart30";
             this.kaart30.Size = new System.Drawing.Size(119, 110);
+            this.kaart30.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart30.TabIndex = 12;
             this.kaart30.TabStop = false;
             // 
@@ -138,6 +141,7 @@
             this.kaart31.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart31.Name = "kaart31";
             this.kaart31.Size = new System.Drawing.Size(119, 110);
+            this.kaart31.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart31.TabIndex = 22;
             this.kaart31.TabStop = false;
             // 
@@ -149,6 +153,7 @@
             this.kaart21.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart21.Name = "kaart21";
             this.kaart21.Size = new System.Drawing.Size(119, 110);
+            this.kaart21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart21.TabIndex = 21;
             this.kaart21.TabStop = false;
             // 
@@ -160,6 +165,7 @@
             this.kaart11.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart11.Name = "kaart11";
             this.kaart11.Size = new System.Drawing.Size(119, 110);
+            this.kaart11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart11.TabIndex = 20;
             this.kaart11.TabStop = false;
             // 
@@ -171,6 +177,7 @@
             this.kaart01.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart01.Name = "kaart01";
             this.kaart01.Size = new System.Drawing.Size(119, 110);
+            this.kaart01.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart01.TabIndex = 19;
             this.kaart01.TabStop = false;
             // 
@@ -182,6 +189,7 @@
             this.kaart33.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart33.Name = "kaart33";
             this.kaart33.Size = new System.Drawing.Size(119, 110);
+            this.kaart33.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart33.TabIndex = 30;
             this.kaart33.TabStop = false;
             // 
@@ -193,6 +201,7 @@
             this.kaart23.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart23.Name = "kaart23";
             this.kaart23.Size = new System.Drawing.Size(119, 110);
+            this.kaart23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart23.TabIndex = 29;
             this.kaart23.TabStop = false;
             // 
@@ -204,6 +213,7 @@
             this.kaart13.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart13.Name = "kaart13";
             this.kaart13.Size = new System.Drawing.Size(119, 110);
+            this.kaart13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart13.TabIndex = 28;
             this.kaart13.TabStop = false;
             // 
@@ -215,6 +225,7 @@
             this.kaart03.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart03.Name = "kaart03";
             this.kaart03.Size = new System.Drawing.Size(119, 110);
+            this.kaart03.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart03.TabIndex = 27;
             this.kaart03.TabStop = false;
             // 
@@ -226,7 +237,8 @@
             this.kaart32.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart32.Name = "kaart32";
             this.kaart32.Size = new System.Drawing.Size(119, 110);
-            TabIndex = 26;
+            this.kaart32.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.kaart32.TabIndex = 34;
             this.kaart32.TabStop = false;
             // 
             // kaart22
@@ -237,6 +249,7 @@
             this.kaart22.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart22.Name = "kaart22";
             this.kaart22.Size = new System.Drawing.Size(119, 110);
+            this.kaart22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart22.TabIndex = 25;
             this.kaart22.TabStop = false;
             // 
@@ -248,6 +261,7 @@
             this.kaart12.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart12.Name = "kaart12";
             this.kaart12.Size = new System.Drawing.Size(119, 110);
+            this.kaart12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart12.TabIndex = 24;
             this.kaart12.TabStop = false;
             // 
@@ -259,6 +273,7 @@
             this.kaart02.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.kaart02.Name = "kaart02";
             this.kaart02.Size = new System.Drawing.Size(119, 110);
+            this.kaart02.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart02.TabIndex = 23;
             this.kaart02.TabStop = false;
             // 
@@ -288,7 +303,7 @@
             this.colScore});
             this.lvSpelers.FullRowSelect = true;
             this.lvSpelers.Location = new System.Drawing.Point(12, 42);
-            this.lvSpelers.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.lvSpelers.Margin = new System.Windows.Forms.Padding(4);
             this.lvSpelers.Name = "lvSpelers";
             this.lvSpelers.Size = new System.Drawing.Size(246, 456);
             this.lvSpelers.TabIndex = 33;
