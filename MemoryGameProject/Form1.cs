@@ -16,14 +16,13 @@ namespace MemoryGameProject
         ///     Referenctie naar de turn controller (Wordt op Form1_Load aangemaakt).
         /// </summary>
         private TurnController turnController;
-
+        private Bitmap achterkant = Properties.Resources.sw0;
         /// <summary>
         ///     Alle graphics die we gaan gebruiken.
         ///     0 is de achterkant, 1 tot 7 zijn de voorkanten.
         /// </summary>
         private Bitmap[] cardGraphics =
         {
-            Properties.Resources.sw0,
             Properties.Resources.sw1,
             Properties.Resources.sw2,
             Properties.Resources.sw3,
@@ -31,6 +30,7 @@ namespace MemoryGameProject
             Properties.Resources.sw5,
             Properties.Resources.sw6,
             Properties.Resources.sw7,
+            Properties.Resources.sw8,
         };
 
         /// <summary>
@@ -123,7 +123,7 @@ namespace MemoryGameProject
                             
                             //Zet de het plaatje van de kaart
                             //TODO: We willen plaatje niet laten zien, gebruik de achterkant.
-                            cards[x, y].pictureBox.Image = cardGraphics[kaart];
+                            cards[x, y].pictureBox.Image = achterkant;
 
                             //Plus 1 in de picked array.
                             picked[kaart] = picked[kaart] + 1;
