@@ -34,7 +34,7 @@ namespace MemoryGameProject
             }
             else
             {
-                lbPlayers.Items.Add(Names);
+                lbPlayers.Items.Add(tbUsername.Text);
                 Names.Add(tbUsername.Text);
                 tbUsername.Clear();
             }
@@ -50,6 +50,7 @@ namespace MemoryGameProject
         private void Play_Click(object sender, EventArgs e)
         {
             //TO DO Functie om het spel op te starten.
+            this.Show(/*formblabla*/);
         }
 
         private void Leaderboard_Click(object sender, EventArgs e)

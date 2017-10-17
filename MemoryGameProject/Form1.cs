@@ -304,9 +304,6 @@ namespace MemoryGameProject
                     {
                         return false;
                     }
-
-
-                    
                 }
             }
             return true;
