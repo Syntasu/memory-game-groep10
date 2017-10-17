@@ -225,5 +225,61 @@ namespace MemoryGameProject
             UpdateTurnController();
         }
 
+        int aantalGeraden = 0;
+        bool isWaiting = false;
+        Kaart[] Geraden = new Kaart[2];
+
+
+        private void kaartklikken(object sender, EventArgs e)
+        {
+            if (isWaiting)
+            {
+                return;
+            }
+            if (aantalGeraden == 2)
+            {
+                if (Geraden[0].front == Geraden[1].front)
+                {
+                    // score = +1 
+                    Geraden = new Kaart[2];
+                    aantalGeraden = 0;
+                    isWaiting = false;
+                }
+
+                else
+                {
+                    timer1.Start();
+                    isWaiting = true;
+                }
+                return;
+            }
+                PictureBox box = (PictureBox)sender;
+            for (int x = 0; x < 4; x++)
+            {
+                for (int y = 0; y < 4; y++)
+                {
+                    if (box == cards[x, y].pictureBox)
+                    {
+                        Kaart gevonden = cards[x, y];
+                        gevonden.pictureBox.Image = cardGraphics[gevonden.front];
+                        Geraden[aantalGeraden] = gevonden;
+                        aantalGeraden++;
+                    }
+                }
+
+            } 
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            for (int i = 0; i < Geraden.Length; i++)
+            {
+                Geraden[i].pictureBox.Image = achterkant;
+            }
+            Geraden = new Kaart[2];
+            aantalGeraden = 0;
+            isWaiting = false;
+            timer1.Stop();
+        }
     }
 }

@@ -52,6 +52,7 @@
             this.lvSpelers = new System.Windows.Forms.ListView();
             this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colScore = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.kaart00)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kaart10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kaart20)).BeginInit();
@@ -81,6 +82,7 @@
             this.kaart00.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart00.TabIndex = 0;
             this.kaart00.TabStop = false;
+            this.kaart00.Click += new System.EventHandler(this.kaartklikken);
             // 
             // kaart10
             // 
@@ -93,6 +95,7 @@
             this.kaart10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart10.TabIndex = 4;
             this.kaart10.TabStop = false;
+            this.kaart10.Click += new System.EventHandler(this.kaartklikken);
             // 
             // kaart20
             // 
@@ -105,6 +108,7 @@
             this.kaart20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart20.TabIndex = 8;
             this.kaart20.TabStop = false;
+            this.kaart20.Click += new System.EventHandler(this.kaartklikken);
             // 
             // kaart30
             // 
@@ -117,6 +121,7 @@
             this.kaart30.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart30.TabIndex = 12;
             this.kaart30.TabStop = false;
+            this.kaart30.Click += new System.EventHandler(this.kaartklikken);
             // 
             // turnTimer
             // 
@@ -144,6 +149,7 @@
             this.kaart31.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart31.TabIndex = 22;
             this.kaart31.TabStop = false;
+            this.kaart31.Click += new System.EventHandler(this.kaartklikken);
             // 
             // kaart21
             // 
@@ -156,6 +162,7 @@
             this.kaart21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart21.TabIndex = 21;
             this.kaart21.TabStop = false;
+            this.kaart21.Click += new System.EventHandler(this.kaartklikken);
             // 
             // kaart11
             // 
@@ -168,6 +175,7 @@
             this.kaart11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart11.TabIndex = 20;
             this.kaart11.TabStop = false;
+            this.kaart11.Click += new System.EventHandler(this.kaartklikken);
             // 
             // kaart01
             // 
@@ -180,6 +188,7 @@
             this.kaart01.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart01.TabIndex = 19;
             this.kaart01.TabStop = false;
+            this.kaart01.Click += new System.EventHandler(this.kaartklikken);
             // 
             // kaart33
             // 
@@ -192,6 +201,7 @@
             this.kaart33.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart33.TabIndex = 30;
             this.kaart33.TabStop = false;
+            this.kaart33.Click += new System.EventHandler(this.kaartklikken);
             // 
             // kaart23
             // 
@@ -204,6 +214,7 @@
             this.kaart23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart23.TabIndex = 29;
             this.kaart23.TabStop = false;
+            this.kaart23.Click += new System.EventHandler(this.kaartklikken);
             // 
             // kaart13
             // 
@@ -216,6 +227,7 @@
             this.kaart13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart13.TabIndex = 28;
             this.kaart13.TabStop = false;
+            this.kaart13.Click += new System.EventHandler(this.kaartklikken);
             // 
             // kaart03
             // 
@@ -228,6 +240,7 @@
             this.kaart03.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart03.TabIndex = 27;
             this.kaart03.TabStop = false;
+            this.kaart03.Click += new System.EventHandler(this.kaartklikken);
             // 
             // kaart32
             // 
@@ -240,6 +253,7 @@
             this.kaart32.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart32.TabIndex = 34;
             this.kaart32.TabStop = false;
+            this.kaart32.Click += new System.EventHandler(this.kaartklikken);
             // 
             // kaart22
             // 
@@ -252,6 +266,7 @@
             this.kaart22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart22.TabIndex = 25;
             this.kaart22.TabStop = false;
+            this.kaart22.Click += new System.EventHandler(this.kaartklikken);
             // 
             // kaart12
             // 
@@ -264,6 +279,7 @@
             this.kaart12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart12.TabIndex = 24;
             this.kaart12.TabStop = false;
+            this.kaart12.Click += new System.EventHandler(this.kaartklikken);
             // 
             // kaart02
             // 
@@ -276,6 +292,7 @@
             this.kaart02.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.kaart02.TabIndex = 23;
             this.kaart02.TabStop = false;
+            this.kaart02.Click += new System.EventHandler(this.kaartklikken);
             // 
             // updateTimer
             // 
@@ -319,6 +336,11 @@
             // 
             this.colScore.Text = "Score";
             this.colScore.Width = 80;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 200;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -395,6 +417,7 @@
         private System.Windows.Forms.ListView lvSpelers;
         private System.Windows.Forms.ColumnHeader colName;
         private System.Windows.Forms.ColumnHeader colScore;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
