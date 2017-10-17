@@ -1,24 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace MemoryGameProject
 {
+    /// <summary>
+    ///     De object kaart.
+    /// </summary>
     public class Kaart
     {
+        //De positie van de kaart op de X as.
         public int X;
+
+        //De positie van de kaart op de Y as.
         public int Y;
-        public PictureBox Pictures;
-        public int Achterkant;
+
+        //Met welke picture box het verbonden is.
+        public PictureBox pictureBox;
+
+        //Welke ID de voorkant is.
+        public int front;
 
         public Kaart(int x, int y, PictureBox pictures)
         {
             X = x;
             Y = y;
-            Pictures = pictures;
+            pictureBox = pictures;
         }
     }
 }

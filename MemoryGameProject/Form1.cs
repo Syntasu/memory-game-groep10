@@ -18,9 +18,30 @@ namespace MemoryGameProject
         private TurnController turnController;
 
         /// <summary>
+        ///     Alle graphics die we gaan gebruiken.
+        ///     0 is de achterkant, 1 tot 7 zijn de voorkanten.
+        /// </summary>
+        private Bitmap[] cardGraphics =
+        {
+            Properties.Resources.sw0,
+            Properties.Resources.sw1,
+            Properties.Resources.sw2,
+            Properties.Resources.sw3,
+            Properties.Resources.sw4,
+            Properties.Resources.sw5,
+            Properties.Resources.sw6,
+            Properties.Resources.sw7,
+        };
+
+        /// <summary>
+        ///     Een array met de kaarten van het spel.
+        /// </summary>
+        private Kaart[,] cards = new Kaart[4,4];
+
+        /// <summary>
         ///     Hoeveel tijd je hebt voor elke beurt.
         /// </summary>
-        private int tijdPerTurn = 60;
+        private int timePerTurn = 60;
 
         public Form1()
         {
@@ -41,61 +62,80 @@ namespace MemoryGameProject
              * De turn controller vraagt de spelers lijst en hoeveel tijd je per beurt hebt.
              */
             playerList = new PlayerList(playerNames);
-            turnController = new TurnController(tijdPerTurn, playerList);
+            turnController = new TurnController(timePerTurn, playerList);
 
             //Start de turn controller, normaal roepen we dit aan als het spel begint.
             turnController.BeginTurn();
 
             //Vul alles in (labels, listboxes) op de user interface.
             SetupUserInterface();
+            SetupCards();
+        }
 
-            Bitmap[] achterkanten = new Bitmap[8];
-            achterkanten[0] = Properties.Resources.sw0;
-            achterkanten[1] = Properties.Resources.sw1;
-            achterkanten[2] = Properties.Resources.sw2;
-            achterkanten[3] = Properties.Resources.sw3;
-            achterkanten[4] = Properties.Resources.sw4;
-            achterkanten[5] = Properties.Resources.sw5;
-            achterkanten[6] = Properties.Resources.sw6;
-            achterkanten[7] = Properties.Resources.sw7;
+        /// <summary>
+        ///     Alle kaarten aanmaken, een picture box linken aan de coordinaten.
+        ///     Daarna over alle kaarten loopen en een random voorkant geven.
+        /// </summary>
+        private void SetupCards()
+        {
+            //Maak alle kaarten aan die in het spel zitten.
+            //TODO: We zouden dit ook met de on_load 
+            cards[0, 0] = new Kaart(0, 0, kaart00);
+            cards[0, 1] = new Kaart(0, 1, kaart01);
+            cards[0, 2] = new Kaart(0, 2, kaart02);
+            cards[0, 3] = new Kaart(0, 3, kaart03);
+            cards[1, 0] = new Kaart(1, 0, kaart10);
+            cards[1, 1] = new Kaart(1, 1, kaart11);
+            cards[1, 2] = new Kaart(1, 2, kaart12);
+            cards[1, 3] = new Kaart(1, 3, kaart13);
+            cards[2, 0] = new Kaart(2, 0, kaart20);
+            cards[2, 1] = new Kaart(2, 1, kaart21);
+            cards[2, 2] = new Kaart(2, 2, kaart22);
+            cards[2, 3] = new Kaart(2, 3, kaart23);
+            cards[3, 0] = new Kaart(3, 0, kaart30);
+            cards[3, 1] = new Kaart(3, 1, kaart31);
+            cards[3, 2] = new Kaart(3, 2, kaart32);
+            cards[3, 3] = new Kaart(3, 3, kaart33);
 
-            Kaart[,] kaarten = new Kaart[4, 4];
-            kaarten[0, 0] = new Kaart(0, 0, kaart00);
-            kaarten[0, 1] = new Kaart(0, 1, kaart01);
-            kaarten[0, 2] = new Kaart(0, 2, kaart02);
-            kaarten[0, 3] = new Kaart(0, 3, kaart03);
-            kaarten[1, 0] = new Kaart(1, 0, kaart10);
-            kaarten[1, 1] = new Kaart(1, 1, kaart11);
-            kaarten[1, 2] = new Kaart(1, 2, kaart12);
-            kaarten[1, 3] = new Kaart(1, 3, kaart13);
-            kaarten[2, 0] = new Kaart(2, 0, kaart20);
-            kaarten[2, 1] = new Kaart(2, 1, kaart21);
-            kaarten[2, 2] = new Kaart(2, 2, kaart22);
-            kaarten[2, 3] = new Kaart(2, 3, kaart23);
-            kaarten[3, 0] = new Kaart(3, 0, kaart30);
-            kaarten[3, 1] = new Kaart(3, 1, kaart31);
-            kaarten[3, 2] = new Kaart(3, 2, kaart32);
-            kaarten[3, 3] = new Kaart(3, 3, kaart33);
-            // kaarten[0, 0] = new kaart(0,0) 
             Random rand = new Random();
+
+            //Houd een array bij met hoe vaak een kaart gekozen is.
             int[] picked = new int[8];
+
+            //Loop over de 2d array heen.
             for (int x = 0; x < 4; x++)
             {
                 for (int y = 0; y < 4; y++)
-                {
+                { 
                     bool haspicked = false;
+
+                    //Pak een random nummer tussen 0 en 8.
                     int kaart = rand.Next(0, 8);
+
+                    // Zolang we nog geen kaart hebben gepakt, dan...
                     while (!haspicked)
                     {
+                        //Als de kaart minder dan 2x gekozen is, gebruik deze kaart.
                         if (picked[kaart] <= 1)
                         {
-                            kaarten[x, y].Achterkant = kaart;
-                            kaarten[x, y].Pictures.Image = achterkanten[kaart];
-                            picked[kaart]++;
+                            //Zeg welke id deze kaart heeft.
+                            cards[x, y].front = kaart;
+                            
+                            //Zet de het plaatje van de kaart
+                            //TODO: We willen plaatje niet laten zien, gebruik de achterkant.
+                            cards[x, y].pictureBox.Image = cardGraphics[kaart];
+
+                            //Plus 1 in de picked array.
+                            picked[kaart] = picked[kaart] + 1;
+
+                            //En we hebben gekozen dus we willen uit de while loop weg.
                             haspicked = true;
                         }
+                        //Als de kaart al meer dan 2 keer gekozen is...
+                        //Trek een nieuwe random nummer en probeer opnieuw
                         else
                         {
+                           
                             kaart = rand.Next(0, 8);
                         }
                     }
