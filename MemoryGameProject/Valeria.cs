@@ -26,16 +26,16 @@ namespace WindowsFormsApp5
         {
             // Go through all of the labels in the Memory Game Project, 
             // checking each one to see if its icon is matched
-            foreach (Control control in MemoryGameProject.Controls)
-            {
-                Label iconLabel = control as Label;
+            //foreach (Control control in MemoryGameProject.Controls)
+            //{
+            //    Label iconLabel = control as Label;
 
-                if (iconLabel != null)
-                {
-                    if (iconLabel.ForeColor == iconLabel.BackColor)
-                        return;
-                }
-            }
+            //    if (iconLabel != null)
+            //    {
+            //        if (iconLabel.ForeColor == iconLabel.BackColor)
+            //            return;
+            //    }
+            //}
 
             // If the loop didn’t return, it didn't find
             // any unmatched icons
