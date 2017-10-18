@@ -66,7 +66,7 @@
             // 
             this.spelTab.Location = new System.Drawing.Point(4, 22);
             this.spelTab.Name = "spelTab";
-            this.spelTab.Size = new System.Drawing.Size(729, 530);
+            this.spelTab.Size = new System.Drawing.Size(749, 561);
             this.spelTab.TabIndex = 1;
             this.spelTab.Text = "Spel";
             this.spelTab.UseVisualStyleBackColor = true;
@@ -75,7 +75,7 @@
             // 
             this.highscoreTab.Location = new System.Drawing.Point(4, 22);
             this.highscoreTab.Name = "highscoreTab";
-            this.highscoreTab.Size = new System.Drawing.Size(729, 530);
+            this.highscoreTab.Size = new System.Drawing.Size(749, 561);
             this.highscoreTab.TabIndex = 2;
             this.highscoreTab.Text = "Highscore";
             this.highscoreTab.UseVisualStyleBackColor = true;
@@ -88,6 +88,8 @@
             this.Controls.Add(this.tabControl1);
             this.Name = "Alex";
             this.Text = "Alex";
+            this.Load += new System.EventHandler(this.Alex_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Alex_KeyDown);
             this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 

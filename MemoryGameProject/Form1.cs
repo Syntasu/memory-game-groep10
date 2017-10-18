@@ -41,7 +41,7 @@ namespace MemoryGameProject
         /// <summary>
         ///     Hoeveel tijd je hebt voor elke beurt.
         /// </summary>
-        private int timePerTurn = 2;
+        private int timePerTurn = 10;
 
         public Form1()
         {
@@ -150,19 +150,11 @@ namespace MemoryGameProject
         /// </summary>
         private void SetupUserInterface()
         {
-            //Vul de list view met all speler namen.
-            for (int i = 0; i < playerList.GetPlayerCount(); i++)
-            {
-                Player player = playerList.GetPlayerById(i);
-                ListViewItem item = new ListViewItem(new[] { player.name, player.score.ToString() });
-                lvSpelers.Items.Add(item);
-            }
-
             //Vind de speler met de eerste beurt.
             Player playerWithInitialTurn = playerList.GetPlayerById(turnController.CurrentPlayerId);
 
             //Selecteer de item in de listview voor de speler die aan de beurt is.
-            ListViewSetSelectedPlayer(playerWithInitialTurn);
+            UpdatePlayerList();
 
             lvSpelers.Items[playerWithInitialTurn.id].Selected = true;
 
@@ -181,9 +173,6 @@ namespace MemoryGameProject
              */
             int playerId = turnController.CurrentPlayerId;
             Player playerWithTurn = playerList.GetPlayerById(playerId);
-
-            //Zet de geselecteerd index van de list view naar de speler wie de beurt heeft.
-            ListViewSetSelectedPlayer(playerWithTurn);
 
             //Zet de text van de beurt label naar wie de beurt heeft.
             lblBeurt.Text = "Beurt: " + playerWithTurn.name;
@@ -205,11 +194,22 @@ namespace MemoryGameProject
             }
         }
 
-        private void ListViewSetSelectedPlayer(Player player)
+        /// <summary>
+        ///     Ververs de spelers lijst met nieuwe waarden.
+        /// </summary>
+        private void UpdatePlayerList()
         {
-            for (int i = 0; i < lvSpelers.Items.Count; i++)
+            lvSpelers.Items.Clear();
+
+            for (int i = 0; i < playerList.GetPlayerCount(); i++)
             {
-                if(i == player.id)
+                Player player = playerList.GetPlayerById(i);
+                ListViewItem item = new ListViewItem(new[] { player.name, player.score.ToString() });
+                lvSpelers.Items.Add(item);
+
+                int playerTurnId = turnController.CurrentPlayerId;
+
+                if (i == playerTurnId)
                 {
                     lvSpelers.Items[i].Selected = true;
                 }
@@ -232,9 +232,13 @@ namespace MemoryGameProject
             if (timeLeft <= 0)
             {
                 turnController.NextTurn();
+                UpdatePlayerList();
             }
         }
 
+        /// <summary>
+        ///     Update de user interface en turn controller elke 100 ms.
+        /// </summary>
         private void updateTimer_Tick(object sender, EventArgs e)
         {
             //Update de user interface en de turn controller.
@@ -245,7 +249,6 @@ namespace MemoryGameProject
         int aantalGeraden = 0;
         bool isWaiting = false;
         Kaart[] Geraden = new Kaart[2];
-
 
         private void kaartklikken(object sender, EventArgs e)
         {
@@ -261,23 +264,7 @@ namespace MemoryGameProject
                 MessageBox.Show("Game over");
             }
         }
-        private void CompareGuess(PictureBox box)
-        {
-            for (int x = 0; x < 4; x++)
-            {
-                for (int y = 0; y < 4; y++)
-                {
-                    if (box == cards[x, y].pictureBox)
-                    {
-                        Kaart gevonden = cards[x, y];
-                        gevonden.pictureBox.Image = cardGraphics[gevonden.front];
-                        Geraden[aantalGeraden] = gevonden;
-                        aantalGeraden++;
-                    }
-                }
 
-            }
-        }
         private bool checkGuess()
         {
             if (isWaiting)
@@ -311,6 +298,25 @@ namespace MemoryGameProject
                 return false;
             }
         }
+
+        private void CompareGuess(PictureBox box)
+        {
+            for (int x = 0; x < 4; x++)
+            {
+                for (int y = 0; y < 4; y++)
+                {
+                    if (box == cards[x, y].pictureBox)
+                    {
+                        Kaart gevonden = cards[x, y];
+                        gevonden.pictureBox.Image = cardGraphics[gevonden.front];
+                        Geraden[aantalGeraden] = gevonden;
+                        aantalGeraden++;
+                    }
+                }
+
+            }
+        }
+       
         private bool CheckEndGame()
         {
             for (int x = 0; x < 4; x++)
