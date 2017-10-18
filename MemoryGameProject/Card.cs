@@ -5,7 +5,7 @@ namespace MemoryGameProject
     /// <summary>
     ///     De object kaart.
     /// </summary>
-    public class Kaart
+    public class Card
     {
         //De positie van de kaart op de X as.
         public int X;
@@ -18,13 +18,16 @@ namespace MemoryGameProject
 
         //Welke ID de voorkant is.
         public int front;
-        public bool geraden;
 
-        public Kaart(int x, int y, PictureBox pictures)
+        //Boolean om aan te geven of een kaart al geraden is of niet.
+        public bool isGuessed;
+
+        public Card(int x, int y, PictureBox pictures)
         {
             X = x;
             Y = y;
             pictureBox = pictures;
+            isGuessed = false;
         }
     }
 }

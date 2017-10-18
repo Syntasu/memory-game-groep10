@@ -9,14 +9,24 @@ namespace MemoryGameProject
     {
         /// <summary>
         ///     Referentie naar de spelers lijst. (Wordt op Form1_load aangemaakt).
+        ///     Spelers lijst handelt alles af m.b.t spelers.
         /// </summary>
         private PlayerList playerList;
 
         /// <summary>
-        ///     Referenctie naar de turn controller (Wordt op Form1_Load aangemaakt).
+        ///     Referentie naar de turn controller (Wordt op Form1_Load aangemaakt).
+        ///     Turn controller handelt alles af m.b.t. beurten.
         /// </summary>
         private TurnController turnController;
-        private Bitmap achterkant = Properties.Resources.sw0;
+
+        /// <summary>
+        ///     Referentie naar de card controller
+        ///     Card controller handelt alles af m.b.t. kaarten.
+        /// </summary>
+        private CardController cardController;
+
+
+        private Bitmap backGraphic = Properties.Resources.sw0;
         /// <summary>
         ///     Alle graphics die we gaan gebruiken.
         ///     0 is de achterkant, 1 tot 7 zijn de voorkanten.
@@ -36,12 +46,12 @@ namespace MemoryGameProject
         /// <summary>
         ///     Een array met de kaarten van het spel.
         /// </summary>
-        private Kaart[,] cards = new Kaart[4, 4];
+        private Card[,] cards = new Card[4, 4];
 
         /// <summary>
         ///     Hoeveel tijd je hebt voor elke beurt.
         /// </summary>
-        private int timePerTurn = 10;
+        private int timePerTurn = 60;
 
         public Form1()
         {
@@ -80,22 +90,22 @@ namespace MemoryGameProject
         {
             //Maak alle kaarten aan die in het spel zitten.
             //TODO: We zouden dit ook met de on_load 
-            cards[0, 0] = new Kaart(0, 0, kaart00);
-            cards[0, 1] = new Kaart(0, 1, kaart01);
-            cards[0, 2] = new Kaart(0, 2, kaart02);
-            cards[0, 3] = new Kaart(0, 3, kaart03);
-            cards[1, 0] = new Kaart(1, 0, kaart10);
-            cards[1, 1] = new Kaart(1, 1, kaart11);
-            cards[1, 2] = new Kaart(1, 2, kaart12);
-            cards[1, 3] = new Kaart(1, 3, kaart13);
-            cards[2, 0] = new Kaart(2, 0, kaart20);
-            cards[2, 1] = new Kaart(2, 1, kaart21);
-            cards[2, 2] = new Kaart(2, 2, kaart22);
-            cards[2, 3] = new Kaart(2, 3, kaart23);
-            cards[3, 0] = new Kaart(3, 0, kaart30);
-            cards[3, 1] = new Kaart(3, 1, kaart31);
-            cards[3, 2] = new Kaart(3, 2, kaart32);
-            cards[3, 3] = new Kaart(3, 3, kaart33);
+            cards[0, 0] = new Card(0, 0, kaart00);
+            cards[0, 1] = new Card(0, 1, kaart01);
+            cards[0, 2] = new Card(0, 2, kaart02);
+            cards[0, 3] = new Card(0, 3, kaart03);
+            cards[1, 0] = new Card(1, 0, kaart10);
+            cards[1, 1] = new Card(1, 1, kaart11);
+            cards[1, 2] = new Card(1, 2, kaart12);
+            cards[1, 3] = new Card(1, 3, kaart13);
+            cards[2, 0] = new Card(2, 0, kaart20);
+            cards[2, 1] = new Card(2, 1, kaart21);
+            cards[2, 2] = new Card(2, 2, kaart22);
+            cards[2, 3] = new Card(2, 3, kaart23);
+            cards[3, 0] = new Card(3, 0, kaart30);
+            cards[3, 1] = new Card(3, 1, kaart31);
+            cards[3, 2] = new Card(3, 2, kaart32);
+            cards[3, 3] = new Card(3, 3, kaart33);
 
             Random rand = new Random();
 
@@ -121,10 +131,6 @@ namespace MemoryGameProject
                             //Zeg welke id deze kaart heeft.
                             cards[x, y].front = kaart;
 
-                            //Zet de het plaatje van de kaart
-                            //TODO: We willen plaatje niet laten zien, gebruik de achterkant.
-                            cards[x, y].pictureBox.Image = achterkant;
-
                             //Plus 1 in de picked array.
                             picked[kaart] = picked[kaart] + 1;
 
@@ -141,8 +147,16 @@ namespace MemoryGameProject
                     }
 
                 }
-
             }
+
+            //Initialiseer de card controller.
+            cardController = new CardController(
+                cards, cardGraphics, backGraphic, 
+                turnEndTimer, 2, turnController
+            );
+
+            //Reset alle kaarten.
+            cardController.ResetCards();
         }
 
         /// <summary>
@@ -244,106 +258,22 @@ namespace MemoryGameProject
             //Update de user interface en de turn controller.
             UpdateUserInterface();
             UpdateTurnController();
-        }
 
-        int aantalGeraden = 0;
-        bool isWaiting = false;
-        Kaart[] Geraden = new Kaart[2];
+            if(cardController.CheckEndOfGame())
+            {
+                updateTimer.Stop();
+                MessageBox.Show("Game over!");
+            }
+        }
 
         private void kaartklikken(object sender, EventArgs e)
         {
-            if (checkGuess())
-            {
-                return;
-            }
-
-            PictureBox box = (PictureBox)sender;
-            CompareGuess(box);
-            if (CheckEndGame())
-            {
-                MessageBox.Show("Game over");
-            }
+            cardController.CardClicked(sender);
         }
 
-        private bool checkGuess()
+        private void turnEndTimer_tick(object sender, EventArgs e)
         {
-            if (isWaiting)
-            {
-                return true;
-            }
-            if (aantalGeraden == 2)
-            {
-                if (Geraden[0].front == Geraden[1].front)
-                {
-                    int playerId = turnController.CurrentPlayerId;
-                    Player player = playerList.GetPlayerById(playerId);
-                    player.score = player.score + 1;
-                    Geraden[0].geraden = true;
-                    Geraden[1].geraden = true;
-                    Geraden = new Kaart[2];
-                    aantalGeraden = 0;
-                    isWaiting = false;
-                }
-
-                else
-                {
-                    timer1.Start();
-                    isWaiting = true;
-                }
-                turnController.NextTurn();
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
-        private void CompareGuess(PictureBox box)
-        {
-            for (int x = 0; x < 4; x++)
-            {
-                for (int y = 0; y < 4; y++)
-                {
-                    if (box == cards[x, y].pictureBox)
-                    {
-                        Kaart gevonden = cards[x, y];
-                        gevonden.pictureBox.Image = cardGraphics[gevonden.front];
-                        Geraden[aantalGeraden] = gevonden;
-                        aantalGeraden++;
-                    }
-                }
-
-            }
-        }
-       
-        private bool CheckEndGame()
-        {
-            for (int x = 0; x < 4; x++)
-            {
-                for (int y = 0; y < 4; y++)
-                {
-                    Kaart k = cards[x, y];
-                    if (k.geraden != true)
-                    {
-                        return false;
-                    }
-                }
-            }
-            return true;
-        }
-
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            for (int i = 0; i < Geraden.Length; i++)
-            {
-                Geraden[i].pictureBox.Image = achterkant;
-            }
-            Geraden = new Kaart[2];
-            aantalGeraden = 0;
-            isWaiting = false;
-            timer1.Stop();
+            cardController.ResetGuesses();
         }
     }
 }
