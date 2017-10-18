@@ -1,4 +1,7 @@
-﻿namespace MemoryGameProject.Code
+﻿using System;
+using System.Collections.Generic;
+
+namespace MemoryGameProject.Code
 {
     /// <summary>
     ///     Een speler object.

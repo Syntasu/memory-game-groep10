@@ -13,6 +13,11 @@ namespace MemoryGameProject.Code
         private TurnController turnController;
 
         /// <summary>
+        ///     Referentie naar de turn controller.
+        /// </summary>
+        private PlayerList playerList;
+
+        /// <summary>
         ///     Array van kaart objecten.
         /// </summary>
         private Card[,] cards;
@@ -50,9 +55,10 @@ namespace MemoryGameProject.Code
         private List<Card> guessedCards = new List<Card>();
 
         public CardController(Card[,] cards, Bitmap[] graphics, Bitmap backGraphic, 
-            Timer timeoutTimer, int maxGuesses, TurnController turnController )
+            Timer timeoutTimer, int maxGuesses, TurnController turnController, PlayerList playerList )
         {
             this.turnController = turnController;
+            this.playerList = playerList;
             this.cards = cards;
             this.graphics = graphics;
             this.backGraphic = backGraphic;
@@ -120,6 +126,10 @@ namespace MemoryGameProject.Code
                  */
                 if(match)
                 {
+                    int playerId = turnController.CurrentPlayerId;
+                    Player player = playerList.GetPlayerById(playerId);
+                    player.score++;
+
                     ResetGuesses();
                     return;
                 }

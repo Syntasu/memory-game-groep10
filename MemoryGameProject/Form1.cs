@@ -152,7 +152,7 @@ namespace MemoryGameProject
             //Initialiseer de card controller.
             cardController = new CardController(
                 cards, cardGraphics, backGraphic, 
-                turnEndTimer, 2, turnController
+                turnEndTimer, 2, turnController, playerList
             );
 
             //Reset alle kaarten.
@@ -211,9 +211,11 @@ namespace MemoryGameProject
         /// <summary>
         ///     Ververs de spelers lijst met nieuwe waarden.
         /// </summary>
-        private void UpdatePlayerList()
+        public void UpdatePlayerList()
         {
             lvSpelers.Items.Clear();
+
+
 
             for (int i = 0; i < playerList.GetPlayerCount(); i++)
             {
@@ -246,7 +248,6 @@ namespace MemoryGameProject
             if (timeLeft <= 0)
             {
                 turnController.NextTurn();
-                UpdatePlayerList();
             }
         }
 
@@ -258,7 +259,8 @@ namespace MemoryGameProject
             //Update de user interface en de turn controller.
             UpdateUserInterface();
             UpdateTurnController();
-
+            UpdatePlayerList();
+           
             if(cardController.CheckEndOfGame())
             {
                 updateTimer.Stop();
