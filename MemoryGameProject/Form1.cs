@@ -41,7 +41,7 @@ namespace MemoryGameProject
         /// <summary>
         ///     Hoeveel tijd je hebt voor elke beurt.
         /// </summary>
-        private int timePerTurn = 60;
+        private int timePerTurn = 2;
 
         public Form1()
         {
@@ -162,6 +162,8 @@ namespace MemoryGameProject
             Player playerWithInitialTurn = playerList.GetPlayerById(turnController.CurrentPlayerId);
 
             //Selecteer de item in de listview voor de speler die aan de beurt is.
+            ListViewSetSelectedPlayer(playerWithInitialTurn);
+
             lvSpelers.Items[playerWithInitialTurn.id].Selected = true;
 
             //Zet de text van de beurt label naar wie de beurt heeft.
@@ -181,7 +183,7 @@ namespace MemoryGameProject
             Player playerWithTurn = playerList.GetPlayerById(playerId);
 
             //Zet de geselecteerd index van de list view naar de speler wie de beurt heeft.
-            lvSpelers.Items[playerWithTurn.id].Selected = true;
+            ListViewSetSelectedPlayer(playerWithTurn);
 
             //Zet de text van de beurt label naar wie de beurt heeft.
             lblBeurt.Text = "Beurt: " + playerWithTurn.name;
@@ -200,6 +202,21 @@ namespace MemoryGameProject
             else
             {
                 lblTijd.ForeColor = Color.Black;
+            }
+        }
+
+        private void ListViewSetSelectedPlayer(Player player)
+        {
+            for (int i = 0; i < lvSpelers.Items.Count; i++)
+            {
+                if(i == player.id)
+                {
+                    lvSpelers.Items[i].Selected = true;
+                }
+                else
+                {
+                    lvSpelers.Items[i].Selected = false;
+                }
             }
         }
 
@@ -236,6 +253,7 @@ namespace MemoryGameProject
             {
                 return;
             }
+
             PictureBox box = (PictureBox)sender;
             CompareGuess(box);
             if (CheckEndGame())
