@@ -31,9 +31,9 @@
             this.components = new System.ComponentModel.Container();
             this.turnTimer = new System.Windows.Forms.Timer(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.hoofdMenuTab = new System.Windows.Forms.TabPage();
-            this.spelTab = new System.Windows.Forms.TabPage();
-            this.highscoreTab = new System.Windows.Forms.TabPage();
+            this.hoofdMenuPage = new System.Windows.Forms.TabPage();
+            this.spelPage = new System.Windows.Forms.TabPage();
+            this.highScorePage = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -43,9 +43,9 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.hoofdMenuTab);
-            this.tabControl1.Controls.Add(this.spelTab);
-            this.tabControl1.Controls.Add(this.highscoreTab);
+            this.tabControl1.Controls.Add(this.hoofdMenuPage);
+            this.tabControl1.Controls.Add(this.spelPage);
+            this.tabControl1.Controls.Add(this.highScorePage);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
@@ -53,32 +53,32 @@
             this.tabControl1.Size = new System.Drawing.Size(757, 587);
             this.tabControl1.TabIndex = 0;
             // 
-            // hoofdMenuTab
+            // hoofdMenuPage
             // 
-            this.hoofdMenuTab.Location = new System.Drawing.Point(4, 22);
-            this.hoofdMenuTab.Name = "hoofdMenuTab";
-            this.hoofdMenuTab.Size = new System.Drawing.Size(749, 561);
-            this.hoofdMenuTab.TabIndex = 0;
-            this.hoofdMenuTab.Text = "Hoofdmenu";
-            this.hoofdMenuTab.UseVisualStyleBackColor = true;
+            this.hoofdMenuPage.Location = new System.Drawing.Point(4, 22);
+            this.hoofdMenuPage.Name = "hoofdMenuPage";
+            this.hoofdMenuPage.Size = new System.Drawing.Size(749, 561);
+            this.hoofdMenuPage.TabIndex = 0;
+            this.hoofdMenuPage.Text = "Hoofdmenu";
+            this.hoofdMenuPage.UseVisualStyleBackColor = true;
             // 
-            // spelTab
+            // spelPage
             // 
-            this.spelTab.Location = new System.Drawing.Point(4, 22);
-            this.spelTab.Name = "spelTab";
-            this.spelTab.Size = new System.Drawing.Size(749, 561);
-            this.spelTab.TabIndex = 1;
-            this.spelTab.Text = "Spel";
-            this.spelTab.UseVisualStyleBackColor = true;
+            this.spelPage.Location = new System.Drawing.Point(4, 22);
+            this.spelPage.Name = "spelPage";
+            this.spelPage.Size = new System.Drawing.Size(749, 561);
+            this.spelPage.TabIndex = 1;
+            this.spelPage.Text = "Spel";
+            this.spelPage.UseVisualStyleBackColor = true;
             // 
-            // highscoreTab
+            // highScorePage
             // 
-            this.highscoreTab.Location = new System.Drawing.Point(4, 22);
-            this.highscoreTab.Name = "highscoreTab";
-            this.highscoreTab.Size = new System.Drawing.Size(749, 561);
-            this.highscoreTab.TabIndex = 2;
-            this.highscoreTab.Text = "Highscore";
-            this.highscoreTab.UseVisualStyleBackColor = true;
+            this.highScorePage.Location = new System.Drawing.Point(4, 22);
+            this.highScorePage.Name = "highScorePage";
+            this.highScorePage.Size = new System.Drawing.Size(749, 561);
+            this.highScorePage.TabIndex = 2;
+            this.highScorePage.Text = "Highscore";
+            this.highScorePage.UseVisualStyleBackColor = true;
             // 
             // Alex
             // 
@@ -89,7 +89,6 @@
             this.Name = "Alex";
             this.Text = "Alex";
             this.Load += new System.EventHandler(this.Alex_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Alex_KeyDown);
             this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -98,8 +97,8 @@
         #endregion
         private System.Windows.Forms.Timer turnTimer;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage hoofdMenuTab;
-        private System.Windows.Forms.TabPage spelTab;
-        private System.Windows.Forms.TabPage highscoreTab;
+        private System.Windows.Forms.TabPage hoofdMenuPage;
+        private System.Windows.Forms.TabPage spelPage;
+        private System.Windows.Forms.TabPage highScorePage;
     }
 }
