@@ -12,6 +12,7 @@ namespace MemoryGameProject.Code
         public int CurrentSelected = 0;
 
         private TabControl tabControl;
+        private bool allowChange;
 
         public PageController(TabControl tabControl, int startIndex)
         {
@@ -21,9 +22,11 @@ namespace MemoryGameProject.Code
             Move(CurrentSelected);
         }
 
-        public void Move(int index)
+        private void Move(int index)
         {
+            allowChange = true;
             tabControl.SelectedIndex = index;
+            allowChange = false;
         }
 
         public void ShowPage(string name)
@@ -36,6 +39,19 @@ namespace MemoryGameProject.Code
                     Move(i);
                     break;
                 }
+            }
+        }
+
+        public bool AllowChange()
+        {
+            return allowChange;
+        }
+
+        public void Update()
+        {
+            if(tabControl.SelectedIndex != CurrentSelected)
+            {
+                Move(CurrentSelected);
             }
         }
 

@@ -37,7 +37,7 @@
             this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colScore = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.spelTimerTurn = new System.Windows.Forms.Timer(this.components);
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.mainTabControl = new System.Windows.Forms.TabControl();
             this.hoofdMenuPage = new System.Windows.Forms.TabPage();
             this.hmBtnPlayerAdd = new System.Windows.Forms.Button();
             this.hmBtnExit = new System.Windows.Forms.Button();
@@ -67,8 +67,10 @@
             this.spelPbKaart31 = new System.Windows.Forms.PictureBox();
             this.spelPbKaart02 = new System.Windows.Forms.PictureBox();
             this.gameOverPage = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
             this.highScorePage = new System.Windows.Forms.TabPage();
-            this.tabControl1.SuspendLayout();
+            this.label1 = new System.Windows.Forms.Label();
+            this.mainTabControl.SuspendLayout();
             this.hoofdMenuPage.SuspendLayout();
             this.spelPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart00)).BeginInit();
@@ -87,6 +89,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart31)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart02)).BeginInit();
+            this.gameOverPage.SuspendLayout();
+            this.highScorePage.SuspendLayout();
             this.SuspendLayout();
             // 
             // spelLblTurn
@@ -144,19 +148,22 @@
             this.spelTimerTurn.Interval = 1000;
             this.spelTimerTurn.Tick += new System.EventHandler(this.spelTimerTurn_Tick);
             // 
-            // tabControl1
+            // mainTabControl
             // 
-            this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
-            this.tabControl1.Controls.Add(this.hoofdMenuPage);
-            this.tabControl1.Controls.Add(this.spelPage);
-            this.tabControl1.Controls.Add(this.gameOverPage);
-            this.tabControl1.Controls.Add(this.highScorePage);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(611, 451);
-            this.tabControl1.TabIndex = 35;
+            this.mainTabControl.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+            this.mainTabControl.Controls.Add(this.hoofdMenuPage);
+            this.mainTabControl.Controls.Add(this.spelPage);
+            this.mainTabControl.Controls.Add(this.gameOverPage);
+            this.mainTabControl.Controls.Add(this.highScorePage);
+            this.mainTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainTabControl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.mainTabControl.Location = new System.Drawing.Point(0, 0);
+            this.mainTabControl.Name = "mainTabControl";
+            this.mainTabControl.SelectedIndex = 0;
+            this.mainTabControl.Size = new System.Drawing.Size(611, 451);
+            this.mainTabControl.TabIndex = 35;
+            this.mainTabControl.TabStop = false;
+            this.mainTabControl.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.mainTabControl_Selecting);
             // 
             // hoofdMenuPage
             // 
@@ -340,6 +347,7 @@
             this.spelPage.Controls.Add(this.spelPbKaart12);
             this.spelPage.Controls.Add(this.spelPbKaart31);
             this.spelPage.Controls.Add(this.spelPbKaart02);
+            this.spelPage.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.spelPage.Location = new System.Drawing.Point(4, 25);
             this.spelPage.Name = "spelPage";
             this.spelPage.Padding = new System.Windows.Forms.Padding(3);
@@ -542,6 +550,7 @@
             // gameOverPage
             // 
             this.gameOverPage.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.gameOverPage.Controls.Add(this.label2);
             this.gameOverPage.Location = new System.Drawing.Point(4, 25);
             this.gameOverPage.Name = "gameOverPage";
             this.gameOverPage.Padding = new System.Windows.Forms.Padding(3);
@@ -549,14 +558,35 @@
             this.gameOverPage.TabIndex = 2;
             this.gameOverPage.Text = "Game Over";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(82, 179);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(447, 73);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "GAME_OVER";
+            // 
             // highScorePage
             // 
             this.highScorePage.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.highScorePage.Controls.Add(this.label1);
             this.highScorePage.Location = new System.Drawing.Point(4, 25);
             this.highScorePage.Name = "highScorePage";
             this.highScorePage.Size = new System.Drawing.Size(603, 422);
             this.highScorePage.TabIndex = 3;
             this.highScorePage.Text = "Highscore";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(84, 157);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(465, 73);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "HIGH_SCORE";
             // 
             // MainForm
             // 
@@ -564,7 +594,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(611, 451);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.mainTabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -572,7 +602,7 @@
             this.Name = "MainForm";
             this.Text = "Memory Game";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.tabControl1.ResumeLayout(false);
+            this.mainTabControl.ResumeLayout(false);
             this.hoofdMenuPage.ResumeLayout(false);
             this.hoofdMenuPage.PerformLayout();
             this.spelPage.ResumeLayout(false);
@@ -593,6 +623,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart31)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart02)).EndInit();
+            this.gameOverPage.ResumeLayout(false);
+            this.gameOverPage.PerformLayout();
+            this.highScorePage.ResumeLayout(false);
+            this.highScorePage.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -622,7 +656,7 @@
         private System.Windows.Forms.ColumnHeader colName;
         private System.Windows.Forms.ColumnHeader colScore;
         private System.Windows.Forms.Timer spelTimerTurn;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl mainTabControl;
         private System.Windows.Forms.TabPage spelPage;
         private System.Windows.Forms.TabPage hoofdMenuPage;
         private System.Windows.Forms.TextBox hmTbPlayername;
@@ -637,6 +671,8 @@
         private System.Windows.Forms.TabPage gameOverPage;
         private System.Windows.Forms.TabPage highScorePage;
         private System.Windows.Forms.Button hmBtnPlayerAdd;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

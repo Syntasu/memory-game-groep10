@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Windows.Forms;
 using MemoryGameProject.Code.Pages;
+using MemoryGameProject.Code;
 
 namespace MemoryGameProject
 {
     public partial class MainForm : Form
     {
-
         public MainForm()
         {
             InitializeComponent();
         }
 
+        private PageController pageController;
         private HoofdMenuPage hoofdmenuPage;
         private SpelPage gamePage;
 
@@ -42,6 +43,16 @@ namespace MemoryGameProject
                 spelTimerUpdate,spelLvSpelers, 
                 spelLblTurn, spelLblTime
             );
+
+            pageController = new PageController(mainTabControl, 0);
+        }
+
+        private void mainTabControl_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            if (!pageController.AllowChange())
+            {
+                e.Cancel = true;
+            }
         }
 
         #region Hoofdmenu
@@ -64,12 +75,13 @@ namespace MemoryGameProject
             {
                 string[] players = hoofdmenuPage.GetPlayerNames();
                 gamePage.BeginGame(players);
+                pageController.ShowPage(PageController.PAGE_SPEL);
             }
         }
 
         private void hmBtnHighscore_Click(object sender, EventArgs e)
         {
-            //pageControl.MoveTo(...);
+            pageController.ShowPage(PageController.PAGE_HIGHSCORE);
         }
 
         private void hmBtnExplanation_Click(object sender, EventArgs e)
@@ -111,5 +123,6 @@ namespace MemoryGameProject
         }
 
         #endregion
+
     }
 }
