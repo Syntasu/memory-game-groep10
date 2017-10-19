@@ -4,6 +4,9 @@ using System.Windows.Forms;
 
 namespace MemoryGameProject.Code.Pages
 {
+    /// <summary>
+    ///     Klasse die alle functionaliteit van het spel zelf heeft.
+    /// </summary>
     public class SpelPage
     {
         /// <summary>
@@ -27,7 +30,7 @@ namespace MemoryGameProject.Code.Pages
         private Bitmap backGraphic = Properties.Resources.sw0;
 
         /// <summary>
-        ///     Alle graphics die we gaan gebruiken.
+        ///     Alle graphics die we gaan gebruiken in een array gezet.
         ///     0 is de achterkant, 1 tot 7 zijn de voorkanten.
         /// </summary>
         private Bitmap[] cardGraphics =
@@ -55,15 +58,48 @@ namespace MemoryGameProject.Code.Pages
         /// <summary>
         ///     Een 2D array met alle pictureboxes gerelateerd aan de coordinaten.
         /// </summary>
-        private PageController pageController;
         private PictureBox[,] pictureBoxField;
+
+        /// <summary>
+        ///     De page controller die alle pagina beheerd.
+        /// </summary>
+        private PageController pageController;
+
+        /// <summary>
+        ///     De timer die bijhoud wanneer de beurt over is.
+        /// </summary>
         private Timer timerTurnCountdown;
+
+        /// <summary>
+        ///     De timer die constant alles update.
+        /// </summary>
         private Timer timerUpdateTimer;
+
+        /// <summary>
+        ///     De control met alle spelers (list view)
+        /// </summary>
         private ListView listViewPlayerList;
+
+        /// <summary>
+        ///     Label die de naam van de gene die aan de beurt is laat zien
+        /// </summary>
         private Label labelTurn;
+
+        /// <summary>
+        ///     Label met de tijd die nog over is voor de beurt.
+        /// </summary>
         private Label labelTime;
 
-
+        /// <summary>
+        ///     Contructor die alle argumenten assgined aan de variabelen.
+        /// </summary>
+        /// <param name="pageController">De page controller verantwoordelijk voor paginas te switchen.</param>
+        /// <param name="pictureBoxField">Een 2D array met alle pictureboxes.</param>
+        /// <param name="timerTurnCountdown">Timer die verantwoordelijk voor het aftellen is.</param>
+        /// <param name="timerUpdateTimer">Timer die gebruikers interface en logica update.</param>
+        /// <param name="listViewPlayerList">De list view voor de spelers lijst. </param>
+        /// <param name="labelTurn">De label met de naam van wie aan de beurt is.</param>
+        /// <param name="labelTime">De label met de tijd die er nog over is.</param>
         public SpelPage(PageController pageController, PictureBox[,] pictureBoxField, Timer timerTurnCountdown,
             Timer timerUpdateTimer, ListView listViewPlayerList, Label labelTurn, Label labelTime)
         {
@@ -76,7 +112,10 @@ namespace MemoryGameProject.Code.Pages
             this.labelTime = labelTime;
         }
 
-
+        /// <summary>
+        ///     Functie die het spel laat beginnen.
+        /// </summary>
+        /// <param name="players">Een array van spelers namen.</param>
         public void BeginGame(string[] players)
         {
             /*
@@ -94,22 +133,36 @@ namespace MemoryGameProject.Code.Pages
             SetupUserInterface();
             SetupCards();
 
+            //Start de update timer, zodat de user interface geupdate word.
             timerUpdateTimer.Start();
         }
 
+        /// <summary>
+        ///     Functie die het spel stil zet of compleet beeindiged.
+        /// </summary>
         public void EndGame()
         {
+            //Zet de update timer en de turn timer stil.
             timerUpdateTimer.Stop();
             timerTurnCountdown.Stop();
 
+            //Laat de "SPEL_END" pagina zien.
             pageController.ShowPage(PageController.PAGE_SPEL_END);
         }
 
+        /// <summary>
+        ///     Functie die aangeroept word waneer de speler op een kaart klikt.
+        /// </summary>
+        /// <param name="obj">De object die door de event word aangemaakt.</param>
         public void CardClicked(object obj)
         {
+            //Stuur door naar de card controller.
             cardController.CardClicked(obj);
         }
 
+        /// <summary>
+        ///     Reset de geraden kaarten, zodat de volgende beurt kan beginnen.
+        /// </summary>
         public void ResetGuess()
         {
             cardController.ResetGuesses();
@@ -121,6 +174,7 @@ namespace MemoryGameProject.Code.Pages
         /// </summary>
         private void SetupCards()
         { 
+            //Maak een nieuwe random object aan.
             Random rand = new Random();
 
             //Houd een array bij met hoe vaak een kaart gekozen is.
@@ -194,10 +248,15 @@ namespace MemoryGameProject.Code.Pages
 
         public void Update()
         {
+            //Update de UI, beurten en de spelers lijst.
             UpdateUserInterface();
             UpdateTurnController();
             UpdatePlayerList();
 
+            /*
+             * Kijk of het spel over is.
+             * Zo ja, roep de EndGame functie aan.
+             */
             if(cardController.CheckEndOfGame())
             {
                 EndGame();
@@ -241,24 +300,20 @@ namespace MemoryGameProject.Code.Pages
         /// </summary>
         private void UpdatePlayerList()
         {
+            //Maak de items van de list view helemaal leeg.
             listViewPlayerList.Items.Clear();
 
+            //Loop over alle spelers die in de klasse spelerslijst staan.
             for (int i = 0; i < playerList.GetPlayerCount(); i++)
             {
+                //Vraag de speler op.
                 Player player = playerList.GetPlayerById(i);
+
+                //Maak een nieuwe ListViewItem aan met de nieuwe waarden van de speler.
                 ListViewItem item = new ListViewItem(new[] { player.name, player.score.ToString() });
+
+                //Voeg deze weer toe aan de listview.
                 listViewPlayerList.Items.Add(item);
-
-                int playerTurnId = turnController.CurrentPlayerId;
-
-                if (i == playerTurnId)
-                {
-                    listViewPlayerList.Items[i].Selected = true;
-                }
-                else
-                {
-                    listViewPlayerList.Items[i].Selected = false;
-                }
             }
         }
 

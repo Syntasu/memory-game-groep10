@@ -3,8 +3,14 @@ using System.Windows.Forms;
 
 namespace MemoryGameProject.Code.Pages
 {
+    /// <summary>
+    ///     Klass met alle functionaliteit m.b.t het hoofdmenu.
+    /// </summary>
     public class HoofdMenuPage
     {
+        /// <summary>
+        ///     Lijst van alle spelers namen die door de spelers is ingevoerd.
+        /// </summary>
         private List<string> playerNames = new List<string>();
 
         /// <summary>
@@ -12,7 +18,9 @@ namespace MemoryGameProject.Code.Pages
         /// </summary>
         public bool CanBegin()
         {
+            //Controleer of we meer dan 0 spelers hebben.
             bool enoughPlayers = playerNames.Count > 0;
+
             return enoughPlayers;
         }
 
@@ -62,6 +70,7 @@ namespace MemoryGameProject.Code.Pages
         /// <returns>Een array van string, elke string is een spelernaam.</returns>
         public string[] GetPlayerNames()
         {
+            //Zet de List om naar een array.
             return playerNames.ToArray();
         }
 
@@ -70,6 +79,7 @@ namespace MemoryGameProject.Code.Pages
         /// </summary>
         public void ExitGame()
         {
+            //Sluit het programma.
             Application.Exit();
         }
     }

@@ -5,6 +5,9 @@ using System.Windows.Forms;
 
 namespace MemoryGameProject.Code
 {
+    /// <summary>
+    ///     Klasse die alle functionaliteit van de kaarten heeft.
+    /// </summary>
     public class CardController
     {
         /// <summary>
@@ -245,21 +248,34 @@ namespace MemoryGameProject.Code
         /// </summary>
         public void ResetGuesses()
         {
+            //Reset alle geraden kaarten.
             guessedCards.Clear();
+
+            //Draai de kaarten weer om (niet als ze al geraden zijn).
             ResetCards();
 
+            //Ga naar de volgende beurt.
             turnController.NextTurn();
 
+            //Zeg dat we hebben gewacht totdat de timer afgelopen is.
             timeout = false;
+
+            //Stop de timer.
             timeoutTimer.Stop();
         }
 
+        /// <summary>
+        ///     Functie die controleert of het spel uitgespeeld is.
+        /// </summary>
+        /// <returns>Een bool, true als alle kaarten geraden zijn en false als dit niet zo is.</returns>
         public bool CheckEndOfGame()
         {
+            //Loop over alle kaarten heen.
             for (int x = 0; x < 4; x++)
             {
                 for (int y = 0; y < 4; y++)
                 {
+                    //Als 1 kaart niet geraden is, dan is het spel niet over.
                     if(!cards[x,y].isGuessed)
                     {
                         return false;
@@ -276,6 +292,7 @@ namespace MemoryGameProject.Code
         /// <param name="card">De kaart die we willen omdraaien.</param>
         public void ShowCardFront(Card card)
         {
+            //Zet het plaatje die we opvragen uit de graphic array.
             card.pictureBox.Image = graphics[card.front];
         }
     }

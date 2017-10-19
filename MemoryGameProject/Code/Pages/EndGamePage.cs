@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MemoryGameProject.Code.Pages
+﻿namespace MemoryGameProject.Code.Pages
 {
-    class EndGamePage
+    /// <summary>
+    ///     Klasse met alle functionaliteit met betrekking tot de eind pagina.
+    /// </summary>
+    public class EndGamePage
     {
     }
 }
