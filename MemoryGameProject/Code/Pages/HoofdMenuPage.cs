@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace MemoryGameProject.Code.Pages
@@ -14,6 +15,22 @@ namespace MemoryGameProject.Code.Pages
         private List<string> playerNames = new List<string>();
 
         /// <summary>
+        ///     Referentie naar de listbox in het hoofdmenu dat de speler namen bijhoud.
+        /// </summary>
+        private ListBox playerList;
+
+        /// <summary>
+        ///     Referentie naar de tekstbox in het hoofdmenu die de gebruiker gebruikt om de naam in te voeren.
+        /// </summary>
+        private TextBox playerInputBox;
+
+        public HoofdMenuPage(ListBox playerList, TextBox playerInputBox)
+        {
+            this.playerList = playerList;
+            this.playerInputBox = playerInputBox;
+        }
+
+        /// <summary>
         ///     Functie die controleert of het spel kan beginnen.
         /// </summary>
         public bool CanBegin()
@@ -27,15 +44,16 @@ namespace MemoryGameProject.Code.Pages
         /// <summary>
         ///     Voeg een speler toe aan de spelers lijst in het hoofdmenu.
         /// </summary>
-        /// <param name="playerName">De naam die we willen toevoegen (in dit geval de waarde uit de textbox).</param>
-        /// <returns>Een bool, true als het een valide naam is en false als dit niet zo is.</returns>
-        public bool AddPlayer(string playerName)
+        public void AddPlayer()
         {
+            string playerName = playerInputBox.Text;
+            playerInputBox.Clear();
+
             //Controleer of we niet meer dan 4 spelers hebben.
             if(playerNames.Count >= 4)
             {
                 MessageBox.Show("Meer spelers kunnen niet toegevoegd worden! (maximaal 4)");
-                return false;
+                return;
             }
 
             /*
@@ -47,7 +65,7 @@ namespace MemoryGameProject.Code.Pages
                 if (playerNames[i].Trim().ToLower() == playerName.Trim().ToLower())
                 {
                     MessageBox.Show("Naam komt al een keer voor in de spelers lijst!");
-                    return false;
+                    return;
                 }
             }
 
@@ -55,12 +73,13 @@ namespace MemoryGameProject.Code.Pages
             if (playerName.Length < 2 || playerName.Length > 16)
             {
                 MessageBox.Show("Naam moet tussen 3 - 16 characters zijn.");
-                return false;
+                return;
             }
 
             //Als alles correct is, voeg de speler naam toe.
             playerNames.Add(playerName);
-            return true;
+            playerList.Items.Add(playerName);
+
         }
 
         /// <summary>
@@ -81,6 +100,15 @@ namespace MemoryGameProject.Code.Pages
         {
             //Sluit het programma.
             Application.Exit();
+        }
+
+        public void Reset()
+        {
+            //Maak de input box leeg.
+            playerInputBox.Clear();
+            
+            //Maak de player list leeg.
+            playerList.Items.Clear();
         }
     }
 }

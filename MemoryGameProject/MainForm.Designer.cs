@@ -71,6 +71,8 @@
             this.spelPbKaart31 = new System.Windows.Forms.PictureBox();
             this.spelPbKaart02 = new System.Windows.Forms.PictureBox();
             this.endPbCrown = new System.Windows.Forms.PictureBox();
+            this.endBtnBack = new System.Windows.Forms.Button();
+            this.endBtnAgain = new System.Windows.Forms.Button();
             this.mainTabControl.SuspendLayout();
             this.hoofdMenuPage.SuspendLayout();
             this.spelPage.SuspendLayout();
@@ -360,6 +362,8 @@
             // gameOverPage
             // 
             this.gameOverPage.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.gameOverPage.Controls.Add(this.endBtnAgain);
+            this.gameOverPage.Controls.Add(this.endBtnBack);
             this.gameOverPage.Controls.Add(this.endLblWinners);
             this.gameOverPage.Controls.Add(this.endPbCrown);
             this.gameOverPage.Location = new System.Drawing.Point(4, 25);
@@ -375,7 +379,7 @@
             this.endLblWinners.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.endLblWinners.Location = new System.Drawing.Point(3, 146);
             this.endLblWinners.Name = "endLblWinners";
-            this.endLblWinners.Size = new System.Drawing.Size(597, 159);
+            this.endLblWinners.Size = new System.Drawing.Size(597, 183);
             this.endLblWinners.TabIndex = 0;
             this.endLblWinners.Text = "Speler1";
             this.endLblWinners.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -605,6 +609,35 @@
             this.endPbCrown.TabIndex = 1;
             this.endPbCrown.TabStop = false;
             // 
+            // endBtnBack
+            // 
+            this.endBtnBack.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.endBtnBack.Dock = System.Windows.Forms.DockStyle.Top;
+            this.endBtnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.endBtnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endBtnBack.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.endBtnBack.Location = new System.Drawing.Point(3, 329);
+            this.endBtnBack.Name = "endBtnBack";
+            this.endBtnBack.Size = new System.Drawing.Size(597, 48);
+            this.endBtnBack.TabIndex = 2;
+            this.endBtnBack.Text = "Naar het hoofdmenu";
+            this.endBtnBack.UseVisualStyleBackColor = false;
+            this.endBtnBack.Click += new System.EventHandler(this.endBtnBack_Click);
+            // 
+            // endBtnAgain
+            // 
+            this.endBtnAgain.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.endBtnAgain.Dock = System.Windows.Forms.DockStyle.Top;
+            this.endBtnAgain.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.endBtnAgain.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endBtnAgain.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.endBtnAgain.Location = new System.Drawing.Point(3, 377);
+            this.endBtnAgain.Name = "endBtnAgain";
+            this.endBtnAgain.Size = new System.Drawing.Size(597, 43);
+            this.endBtnAgain.TabIndex = 3;
+            this.endBtnAgain.Text = "Nog een keer spelen!";
+            this.endBtnAgain.UseVisualStyleBackColor = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -691,6 +724,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label endLblWinners;
         private System.Windows.Forms.PictureBox endPbCrown;
+        private System.Windows.Forms.Button endBtnAgain;
+        private System.Windows.Forms.Button endBtnBack;
     }
 }
 

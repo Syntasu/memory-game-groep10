@@ -58,7 +58,7 @@ namespace MemoryGameProject
             pageController = new PageController(mainTabControl, 0);
 
             //Maak een nieuwe hoofdmenu aan.
-            hoofdmenuPage = new HoofdMenuPage();
+            hoofdmenuPage = new HoofdMenuPage(hmLbPlayers, hmTbPlayername);
 
             //Maak een eind pagina aan.
             endGamePage = new EndGamePage(endLblWinners);
@@ -92,20 +92,7 @@ namespace MemoryGameProject
         /// </summary>
         private void hmBtnPlayerAdd_Click(object sender, EventArgs e)
         {
-            //Verkrijg de speler naam uit de textbox.
-            string playerName = hmTbPlayername.Text;
-
-            //Controleer of de naam correct is.
-            bool success = hoofdmenuPage.AddPlayer(playerName);
-
-            //Als dat zo is, voeg deze aan de listbox toe.
-            if(success)
-            {
-                hmLbPlayers.Items.Add(playerName);
-            }
-
-            //Maak de textbox leeg.
-            hmTbPlayername.Clear();
+            hoofdmenuPage.AddPlayer();
         }
 
         /// <summary>
@@ -154,7 +141,7 @@ namespace MemoryGameProject
         {
             //Laat textbox zien.
             string title = "Over...";
-            string message = "Gemaakt door groep 10 (Valeria, Alexander en Alex)!";
+            string message = "Gemaakt door groep 10 \n\rDoor Valeria, Alexander en Alex.";
             MessageBox.Show(message, title);
         }
 
@@ -199,5 +186,14 @@ namespace MemoryGameProject
         }
 
         #endregion
+
+        private void endBtnBack_Click(object sender, EventArgs e)
+        {
+            //Naar het hoofdmenu.
+            pageController.ShowPage(PageController.PAGE_HOOFDMENU);
+
+            //Reset de hoofdmenu.
+            hoofdmenuPage.Reset();
+        }
     }
 }
