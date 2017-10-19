@@ -187,6 +187,7 @@ namespace MemoryGameProject
 
         #endregion
 
+        #region End game 
         private void endBtnBack_Click(object sender, EventArgs e)
         {
             //Naar het hoofdmenu.
@@ -195,5 +196,15 @@ namespace MemoryGameProject
             //Reset de hoofdmenu.
             hoofdmenuPage.Reset();
         }
+
+        private void endBtnAgain_Click(object sender, EventArgs e)
+        {
+            //Reset de game.
+            gamePage.ResetGame();
+
+            //Laat de spel pagina zien.
+            pageController.ShowPage(PageController.PAGE_SPEL);
+        }
+#endregion
     }
 }

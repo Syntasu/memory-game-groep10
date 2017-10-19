@@ -637,6 +637,7 @@
             this.endBtnAgain.TabIndex = 3;
             this.endBtnAgain.Text = "Nog een keer spelen!";
             this.endBtnAgain.UseVisualStyleBackColor = false;
+            this.endBtnAgain.Click += new System.EventHandler(this.endBtnAgain_Click);
             // 
             // MainForm
             // 

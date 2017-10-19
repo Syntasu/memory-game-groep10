@@ -26,7 +26,7 @@ namespace MemoryGameProject.Code
 
     public class PlayerList
     {
-        public Player[] playerList;
+        private Player[] playerList;
 
         /// <summary>
         ///     Constructor voor de player list. Het zet een array van strings om in een array van Player objecten.

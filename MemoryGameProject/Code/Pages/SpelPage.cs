@@ -385,5 +385,17 @@ namespace MemoryGameProject.Code.Pages
                 turnController.NextTurn();
             }
         }
+
+        public void ResetGame()
+        {
+            string[] players = new string[playerList.GetPlayerCount()];
+
+            for (int i = 0; i < players.Length; i++)
+            {
+                players[i] = playerList.GetPlayerById(i).name;
+            }
+
+            BeginGame(players);
+        }
     }
 }
