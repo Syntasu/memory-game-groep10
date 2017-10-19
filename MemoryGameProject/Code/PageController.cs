@@ -7,6 +7,7 @@ namespace MemoryGameProject.Code
     {
         public static string PAGE_HOOFDMENU = "hoofdMenuPage";
         public static string PAGE_SPEL = "spelPage";
+        public static string PAGE_SPEL_END = "gameOverPage";
         public static string PAGE_HIGHSCORE = "highScorePage";
 
         public int CurrentSelected = 0;

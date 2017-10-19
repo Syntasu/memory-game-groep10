@@ -7,20 +7,17 @@ namespace MemoryGameProject.Code.Pages
     public class SpelPage
     {
         /// <summary>
-        ///     Referentie naar de spelers lijst. (Wordt op Form1_load aangemaakt).
-        ///     Spelers lijst handelt alles af m.b.t spelers.
+        ///     Referentie naar de spelers lijst, Spelers lijst handelt alles af m.b.t spelers.
         /// </summary>
         private PlayerList playerList;
 
         /// <summary>
-        ///     Referentie naar de turn controller (Wordt op Form1_Load aangemaakt).
-        ///     Turn controller handelt alles af m.b.t. beurten.
+        ///     Referentie naar de turn controllerm, Turn controller handelt alles af m.b.t. beurten.
         /// </summary>
         private TurnController turnController;
 
         /// <summary>
-        ///     Referentie naar de card controller
-        ///     Card controller handelt alles af m.b.t. kaarten.
+        ///     Referentie naar de card controller, Card controller handelt alles af m.b.t. kaarten.
         /// </summary>
         private CardController cardController;
 
@@ -58,6 +55,7 @@ namespace MemoryGameProject.Code.Pages
         /// <summary>
         ///     Een 2D array met alle pictureboxes gerelateerd aan de coordinaten.
         /// </summary>
+        private PageController pageController;
         private PictureBox[,] pictureBoxField;
         private Timer timerTurnCountdown;
         private Timer timerUpdateTimer;
@@ -66,9 +64,10 @@ namespace MemoryGameProject.Code.Pages
         private Label labelTime;
 
 
-        public SpelPage(PictureBox[,] pictureBoxField, Timer timerTurnCountdown,
+        public SpelPage(PageController pageController, PictureBox[,] pictureBoxField, Timer timerTurnCountdown,
             Timer timerUpdateTimer, ListView listViewPlayerList, Label labelTurn, Label labelTime)
         {
+            this.pageController = pageController;
             this.pictureBoxField = pictureBoxField;
             this.timerTurnCountdown = timerTurnCountdown;
             this.timerUpdateTimer = timerUpdateTimer;
@@ -102,6 +101,8 @@ namespace MemoryGameProject.Code.Pages
         {
             timerUpdateTimer.Stop();
             timerTurnCountdown.Stop();
+
+            pageController.ShowPage(PageController.PAGE_SPEL_END);
         }
 
         public void CardClicked(object obj)
@@ -197,11 +198,10 @@ namespace MemoryGameProject.Code.Pages
             UpdateTurnController();
             UpdatePlayerList();
 
-            //if(cardController.CheckEndOfGame())
-            //{
-            //    updateTimer.Stop();
-            //    MessageBox.Show("Game over!");
-            //}
+            if(cardController.CheckEndOfGame())
+            {
+                EndGame();
+            }
         }
 
         /// <summary>

@@ -36,15 +36,15 @@ namespace MemoryGameProject
             playingField[2, 3] = spelPbKaart23;
             playingField[3, 3] = spelPbKaart33;
 
+            pageController = new PageController(mainTabControl, 0);
+
             hoofdmenuPage = new HoofdMenuPage();
 
             gamePage = new SpelPage(
-                playingField, spelTimerTurn, 
-                spelTimerUpdate,spelLvSpelers, 
-                spelLblTurn, spelLblTime
+                pageController, playingField, spelTimerTurn, 
+                spelTimerUpdate, spelLvSpelers, spelLblTurn, spelLblTime
             );
 
-            pageController = new PageController(mainTabControl, 0);
         }
 
         private void mainTabControl_Selecting(object sender, TabControlCancelEventArgs e)
