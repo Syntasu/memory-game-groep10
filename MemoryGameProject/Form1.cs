@@ -277,5 +277,10 @@ namespace MemoryGameProject
         {
             cardController.ResetGuesses();
         }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
