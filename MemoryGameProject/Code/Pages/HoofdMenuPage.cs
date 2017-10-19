@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace MemoryGameProject.Code.Pages
@@ -109,6 +108,9 @@ namespace MemoryGameProject.Code.Pages
             
             //Maak de player list leeg.
             playerList.Items.Clear();
+
+            //Maak opgeslagen speler namen leeg.
+            playerNames.Clear();
         }
     }
 }
