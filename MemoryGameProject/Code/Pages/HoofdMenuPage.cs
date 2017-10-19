@@ -3,19 +3,17 @@ using System.Windows.Forms;
 
 namespace MemoryGameProject.Code.Pages
 {
-    public class Hoofdmenu
+    public class HoofdMenuPage
     {
         private List<string> playerNames = new List<string>();
 
         /// <summary>
-        ///     Functie om het spel te beginnen vanuit het hoofdmenu.
+        ///     Functie die controleert of het spel kan beginnen.
         /// </summary>
-        public void BeginGame()
+        public bool CanBegin()
         {
-            if(playerNames.Count > 0)
-            {
-                //Start game.
-            }
+            bool enoughPlayers = playerNames.Count > 0;
+            return enoughPlayers;
         }
 
         /// <summary>

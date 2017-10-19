@@ -30,14 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.turnTimer = new System.Windows.Forms.Timer(this.components);
-            this.lblBeurt = new System.Windows.Forms.Label();
-            this.updateTimer = new System.Windows.Forms.Timer(this.components);
-            this.lblTijd = new System.Windows.Forms.Label();
-            this.lvSpelers = new System.Windows.Forms.ListView();
+            this.spelLblTurn = new System.Windows.Forms.Label();
+            this.spelTimerUpdate = new System.Windows.Forms.Timer(this.components);
+            this.spelLblTime = new System.Windows.Forms.Label();
+            this.spelLvSpelers = new System.Windows.Forms.ListView();
             this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colScore = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.turnEndTimer = new System.Windows.Forms.Timer(this.components);
+            this.spelTimerTurn = new System.Windows.Forms.Timer(this.components);
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.hoofdMenuPage = new System.Windows.Forms.TabPage();
             this.hmBtnPlayerAdd = new System.Windows.Forms.Button();
@@ -51,89 +50,84 @@
             this.hmLblTitle = new System.Windows.Forms.Label();
             this.hmBtnPlay = new System.Windows.Forms.Button();
             this.spelPage = new System.Windows.Forms.TabPage();
-            this.kaart00 = new System.Windows.Forms.PictureBox();
-            this.kaart10 = new System.Windows.Forms.PictureBox();
-            this.kaart33 = new System.Windows.Forms.PictureBox();
-            this.kaart20 = new System.Windows.Forms.PictureBox();
-            this.kaart23 = new System.Windows.Forms.PictureBox();
-            this.kaart30 = new System.Windows.Forms.PictureBox();
-            this.kaart13 = new System.Windows.Forms.PictureBox();
-            this.kaart03 = new System.Windows.Forms.PictureBox();
-            this.kaart01 = new System.Windows.Forms.PictureBox();
-            this.kaart32 = new System.Windows.Forms.PictureBox();
-            this.kaart11 = new System.Windows.Forms.PictureBox();
-            this.kaart22 = new System.Windows.Forms.PictureBox();
-            this.kaart21 = new System.Windows.Forms.PictureBox();
-            this.kaart12 = new System.Windows.Forms.PictureBox();
-            this.kaart31 = new System.Windows.Forms.PictureBox();
-            this.kaart02 = new System.Windows.Forms.PictureBox();
+            this.spelPbKaart00 = new System.Windows.Forms.PictureBox();
+            this.spelPbKaart10 = new System.Windows.Forms.PictureBox();
+            this.spelPbKaart33 = new System.Windows.Forms.PictureBox();
+            this.spelPbKaart20 = new System.Windows.Forms.PictureBox();
+            this.spelPbKaart23 = new System.Windows.Forms.PictureBox();
+            this.spelPbKaart30 = new System.Windows.Forms.PictureBox();
+            this.spelPbKaart13 = new System.Windows.Forms.PictureBox();
+            this.spelPbKaart03 = new System.Windows.Forms.PictureBox();
+            this.spelPbKaart01 = new System.Windows.Forms.PictureBox();
+            this.spelPbKaart32 = new System.Windows.Forms.PictureBox();
+            this.spelPbKaart11 = new System.Windows.Forms.PictureBox();
+            this.spelPbKaart22 = new System.Windows.Forms.PictureBox();
+            this.spelPbKaart21 = new System.Windows.Forms.PictureBox();
+            this.spelPbKaart12 = new System.Windows.Forms.PictureBox();
+            this.spelPbKaart31 = new System.Windows.Forms.PictureBox();
+            this.spelPbKaart02 = new System.Windows.Forms.PictureBox();
             this.gameOverPage = new System.Windows.Forms.TabPage();
             this.highScorePage = new System.Windows.Forms.TabPage();
             this.tabControl1.SuspendLayout();
             this.hoofdMenuPage.SuspendLayout();
             this.spelPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart00)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart33)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart20)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart23)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart30)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart13)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart03)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart01)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart32)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart22)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart21)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart31)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart02)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart00)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart33)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart30)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart03)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart01)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart32)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart31)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart02)).BeginInit();
             this.SuspendLayout();
             // 
-            // turnTimer
+            // spelLblTurn
             // 
-            this.turnTimer.Interval = 1000;
+            this.spelLblTurn.AutoSize = true;
+            this.spelLblTurn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.spelLblTurn.Location = new System.Drawing.Point(201, 8);
+            this.spelLblTurn.Name = "spelLblTurn";
+            this.spelLblTurn.Size = new System.Drawing.Size(53, 18);
+            this.spelLblTurn.TabIndex = 16;
+            this.spelLblTurn.Text = "Beurt:";
             // 
-            // lblBeurt
+            // spelTimerUpdate
             // 
-            this.lblBeurt.AutoSize = true;
-            this.lblBeurt.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBeurt.Location = new System.Drawing.Point(201, 8);
-            this.lblBeurt.Name = "lblBeurt";
-            this.lblBeurt.Size = new System.Drawing.Size(47, 18);
-            this.lblBeurt.TabIndex = 16;
-            this.lblBeurt.Text = "Beurt:";
+            this.spelTimerUpdate.Interval = 250;
+            this.spelTimerUpdate.Tick += new System.EventHandler(this.spelTimerUpdate_Tick);
             // 
-            // updateTimer
+            // spelLblTime
             // 
-            this.updateTimer.Enabled = true;
-            this.updateTimer.Interval = 250;
-            this.updateTimer.Tick += new System.EventHandler(this.updateTimer_Tick);
+            this.spelLblTime.AutoSize = true;
+            this.spelLblTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.spelLblTime.Location = new System.Drawing.Point(391, 9);
+            this.spelLblTime.Name = "spelLblTime";
+            this.spelLblTime.Size = new System.Drawing.Size(86, 18);
+            this.spelLblTime.TabIndex = 32;
+            this.spelLblTime.Text = "Tijd: 00:00";
             // 
-            // lblTijd
+            // spelLvSpelers
             // 
-            this.lblTijd.AutoSize = true;
-            this.lblTijd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTijd.Location = new System.Drawing.Point(391, 9);
-            this.lblTijd.Name = "lblTijd";
-            this.lblTijd.Size = new System.Drawing.Size(75, 18);
-            this.lblTijd.TabIndex = 32;
-            this.lblTijd.Text = "Tijd: 00:00";
-            // 
-            // lvSpelers
-            // 
-            this.lvSpelers.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.lvSpelers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lvSpelers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.spelLvSpelers.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.spelLvSpelers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.spelLvSpelers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colName,
             this.colScore});
-            this.lvSpelers.FullRowSelect = true;
-            this.lvSpelers.Location = new System.Drawing.Point(6, 27);
-            this.lvSpelers.Name = "lvSpelers";
-            this.lvSpelers.Size = new System.Drawing.Size(185, 371);
-            this.lvSpelers.TabIndex = 33;
-            this.lvSpelers.UseCompatibleStateImageBehavior = false;
-            this.lvSpelers.View = System.Windows.Forms.View.Details;
+            this.spelLvSpelers.FullRowSelect = true;
+            this.spelLvSpelers.Location = new System.Drawing.Point(6, 27);
+            this.spelLvSpelers.Name = "spelLvSpelers";
+            this.spelLvSpelers.Size = new System.Drawing.Size(185, 371);
+            this.spelLvSpelers.TabIndex = 33;
+            this.spelLvSpelers.UseCompatibleStateImageBehavior = false;
+            this.spelLvSpelers.View = System.Windows.Forms.View.Details;
             // 
             // colName
             // 
@@ -145,10 +139,10 @@
             this.colScore.Text = "Score";
             this.colScore.Width = 80;
             // 
-            // turnEndTimer
+            // spelTimerTurn
             // 
-            this.turnEndTimer.Interval = 1000;
-            this.turnEndTimer.Tick += new System.EventHandler(this.turnEndTimer_tick);
+            this.spelTimerTurn.Interval = 1000;
+            this.spelTimerTurn.Tick += new System.EventHandler(this.spelTimerTurn_Tick);
             // 
             // tabControl1
             // 
@@ -188,12 +182,12 @@
             // 
             this.hmBtnPlayerAdd.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.hmBtnPlayerAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.hmBtnPlayerAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.hmBtnPlayerAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hmBtnPlayerAdd.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.hmBtnPlayerAdd.Location = new System.Drawing.Point(485, 344);
+            this.hmBtnPlayerAdd.Location = new System.Drawing.Point(485, 354);
             this.hmBtnPlayerAdd.Margin = new System.Windows.Forms.Padding(2);
             this.hmBtnPlayerAdd.Name = "hmBtnPlayerAdd";
-            this.hmBtnPlayerAdd.Size = new System.Drawing.Size(91, 32);
+            this.hmBtnPlayerAdd.Size = new System.Drawing.Size(91, 22);
             this.hmBtnPlayerAdd.TabIndex = 19;
             this.hmBtnPlayerAdd.Text = "Voeg toe";
             this.hmBtnPlayerAdd.UseVisualStyleBackColor = false;
@@ -264,11 +258,10 @@
             this.hmTbPlayername.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.hmTbPlayername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.hmTbPlayername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.hmTbPlayername.Location = new System.Drawing.Point(353, 344);
+            this.hmTbPlayername.Location = new System.Drawing.Point(353, 359);
             this.hmTbPlayername.Margin = new System.Windows.Forms.Padding(2);
-            this.hmTbPlayername.Multiline = true;
             this.hmTbPlayername.Name = "hmTbPlayername";
-            this.hmTbPlayername.Size = new System.Drawing.Size(128, 32);
+            this.hmTbPlayername.Size = new System.Drawing.Size(128, 17);
             this.hmTbPlayername.TabIndex = 4;
             // 
             // hmLblPlayers
@@ -295,7 +288,7 @@
             this.hmLbPlayers.Margin = new System.Windows.Forms.Padding(2);
             this.hmLbPlayers.Name = "hmLbPlayers";
             this.hmLbPlayers.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.hmLbPlayers.Size = new System.Drawing.Size(223, 216);
+            this.hmLbPlayers.Size = new System.Drawing.Size(223, 234);
             this.hmLbPlayers.TabIndex = 17;
             // 
             // hmLblTitle
@@ -328,25 +321,25 @@
             // spelPage
             // 
             this.spelPage.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.spelPage.Controls.Add(this.lvSpelers);
-            this.spelPage.Controls.Add(this.lblTijd);
-            this.spelPage.Controls.Add(this.lblBeurt);
-            this.spelPage.Controls.Add(this.kaart00);
-            this.spelPage.Controls.Add(this.kaart10);
-            this.spelPage.Controls.Add(this.kaart33);
-            this.spelPage.Controls.Add(this.kaart20);
-            this.spelPage.Controls.Add(this.kaart23);
-            this.spelPage.Controls.Add(this.kaart30);
-            this.spelPage.Controls.Add(this.kaart13);
-            this.spelPage.Controls.Add(this.kaart03);
-            this.spelPage.Controls.Add(this.kaart01);
-            this.spelPage.Controls.Add(this.kaart32);
-            this.spelPage.Controls.Add(this.kaart11);
-            this.spelPage.Controls.Add(this.kaart22);
-            this.spelPage.Controls.Add(this.kaart21);
-            this.spelPage.Controls.Add(this.kaart12);
-            this.spelPage.Controls.Add(this.kaart31);
-            this.spelPage.Controls.Add(this.kaart02);
+            this.spelPage.Controls.Add(this.spelLvSpelers);
+            this.spelPage.Controls.Add(this.spelLblTime);
+            this.spelPage.Controls.Add(this.spelLblTurn);
+            this.spelPage.Controls.Add(this.spelPbKaart00);
+            this.spelPage.Controls.Add(this.spelPbKaart10);
+            this.spelPage.Controls.Add(this.spelPbKaart33);
+            this.spelPage.Controls.Add(this.spelPbKaart20);
+            this.spelPage.Controls.Add(this.spelPbKaart23);
+            this.spelPage.Controls.Add(this.spelPbKaart30);
+            this.spelPage.Controls.Add(this.spelPbKaart13);
+            this.spelPage.Controls.Add(this.spelPbKaart03);
+            this.spelPage.Controls.Add(this.spelPbKaart01);
+            this.spelPage.Controls.Add(this.spelPbKaart32);
+            this.spelPage.Controls.Add(this.spelPbKaart11);
+            this.spelPage.Controls.Add(this.spelPbKaart22);
+            this.spelPage.Controls.Add(this.spelPbKaart21);
+            this.spelPage.Controls.Add(this.spelPbKaart12);
+            this.spelPage.Controls.Add(this.spelPbKaart31);
+            this.spelPage.Controls.Add(this.spelPbKaart02);
             this.spelPage.Location = new System.Drawing.Point(4, 25);
             this.spelPage.Name = "spelPage";
             this.spelPage.Padding = new System.Windows.Forms.Padding(3);
@@ -354,197 +347,197 @@
             this.spelPage.TabIndex = 0;
             this.spelPage.Text = "Spel";
             // 
-            // kaart00
+            // spelPbKaart00
             // 
-            this.kaart00.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.kaart00.Location = new System.Drawing.Point(202, 29);
-            this.kaart00.Margin = new System.Windows.Forms.Padding(2);
-            this.kaart00.Name = "kaart00";
-            this.kaart00.Size = new System.Drawing.Size(90, 90);
-            this.kaart00.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.kaart00.TabIndex = 0;
-            this.kaart00.TabStop = false;
-            this.kaart00.Click += new System.EventHandler(this.kaartklikken);
+            this.spelPbKaart00.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.spelPbKaart00.Location = new System.Drawing.Point(202, 29);
+            this.spelPbKaart00.Margin = new System.Windows.Forms.Padding(2);
+            this.spelPbKaart00.Name = "spelPbKaart00";
+            this.spelPbKaart00.Size = new System.Drawing.Size(90, 90);
+            this.spelPbKaart00.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.spelPbKaart00.TabIndex = 0;
+            this.spelPbKaart00.TabStop = false;
+            this.spelPbKaart00.Click += new System.EventHandler(this.spelPbClick);
             // 
-            // kaart10
+            // spelPbKaart10
             // 
-            this.kaart10.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.kaart10.Location = new System.Drawing.Point(202, 123);
-            this.kaart10.Margin = new System.Windows.Forms.Padding(2);
-            this.kaart10.Name = "kaart10";
-            this.kaart10.Size = new System.Drawing.Size(90, 90);
-            this.kaart10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.kaart10.TabIndex = 4;
-            this.kaart10.TabStop = false;
-            this.kaart10.Click += new System.EventHandler(this.kaartklikken);
+            this.spelPbKaart10.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.spelPbKaart10.Location = new System.Drawing.Point(202, 123);
+            this.spelPbKaart10.Margin = new System.Windows.Forms.Padding(2);
+            this.spelPbKaart10.Name = "spelPbKaart10";
+            this.spelPbKaart10.Size = new System.Drawing.Size(90, 90);
+            this.spelPbKaart10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.spelPbKaart10.TabIndex = 4;
+            this.spelPbKaart10.TabStop = false;
+            this.spelPbKaart10.Click += new System.EventHandler(this.spelPbClick);
             // 
-            // kaart33
+            // spelPbKaart33
             // 
-            this.kaart33.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.kaart33.Location = new System.Drawing.Point(486, 310);
-            this.kaart33.Margin = new System.Windows.Forms.Padding(2);
-            this.kaart33.Name = "kaart33";
-            this.kaart33.Size = new System.Drawing.Size(90, 90);
-            this.kaart33.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.kaart33.TabIndex = 30;
-            this.kaart33.TabStop = false;
-            this.kaart33.Click += new System.EventHandler(this.kaartklikken);
+            this.spelPbKaart33.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.spelPbKaart33.Location = new System.Drawing.Point(486, 310);
+            this.spelPbKaart33.Margin = new System.Windows.Forms.Padding(2);
+            this.spelPbKaart33.Name = "spelPbKaart33";
+            this.spelPbKaart33.Size = new System.Drawing.Size(90, 90);
+            this.spelPbKaart33.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.spelPbKaart33.TabIndex = 30;
+            this.spelPbKaart33.TabStop = false;
+            this.spelPbKaart33.Click += new System.EventHandler(this.spelPbClick);
             // 
-            // kaart20
+            // spelPbKaart20
             // 
-            this.kaart20.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.kaart20.Location = new System.Drawing.Point(202, 217);
-            this.kaart20.Margin = new System.Windows.Forms.Padding(2);
-            this.kaart20.Name = "kaart20";
-            this.kaart20.Size = new System.Drawing.Size(90, 90);
-            this.kaart20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.kaart20.TabIndex = 8;
-            this.kaart20.TabStop = false;
-            this.kaart20.Click += new System.EventHandler(this.kaartklikken);
+            this.spelPbKaart20.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.spelPbKaart20.Location = new System.Drawing.Point(202, 217);
+            this.spelPbKaart20.Margin = new System.Windows.Forms.Padding(2);
+            this.spelPbKaart20.Name = "spelPbKaart20";
+            this.spelPbKaart20.Size = new System.Drawing.Size(90, 90);
+            this.spelPbKaart20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.spelPbKaart20.TabIndex = 8;
+            this.spelPbKaart20.TabStop = false;
+            this.spelPbKaart20.Click += new System.EventHandler(this.spelPbClick);
             // 
-            // kaart23
+            // spelPbKaart23
             // 
-            this.kaart23.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.kaart23.Location = new System.Drawing.Point(486, 215);
-            this.kaart23.Margin = new System.Windows.Forms.Padding(2);
-            this.kaart23.Name = "kaart23";
-            this.kaart23.Size = new System.Drawing.Size(90, 90);
-            this.kaart23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.kaart23.TabIndex = 29;
-            this.kaart23.TabStop = false;
-            this.kaart23.Click += new System.EventHandler(this.kaartklikken);
+            this.spelPbKaart23.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.spelPbKaart23.Location = new System.Drawing.Point(486, 215);
+            this.spelPbKaart23.Margin = new System.Windows.Forms.Padding(2);
+            this.spelPbKaart23.Name = "spelPbKaart23";
+            this.spelPbKaart23.Size = new System.Drawing.Size(90, 90);
+            this.spelPbKaart23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.spelPbKaart23.TabIndex = 29;
+            this.spelPbKaart23.TabStop = false;
+            this.spelPbKaart23.Click += new System.EventHandler(this.spelPbClick);
             // 
-            // kaart30
+            // spelPbKaart30
             // 
-            this.kaart30.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.kaart30.Location = new System.Drawing.Point(202, 310);
-            this.kaart30.Margin = new System.Windows.Forms.Padding(2);
-            this.kaart30.Name = "kaart30";
-            this.kaart30.Size = new System.Drawing.Size(90, 90);
-            this.kaart30.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.kaart30.TabIndex = 12;
-            this.kaart30.TabStop = false;
-            this.kaart30.Click += new System.EventHandler(this.kaartklikken);
+            this.spelPbKaart30.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.spelPbKaart30.Location = new System.Drawing.Point(202, 310);
+            this.spelPbKaart30.Margin = new System.Windows.Forms.Padding(2);
+            this.spelPbKaart30.Name = "spelPbKaart30";
+            this.spelPbKaart30.Size = new System.Drawing.Size(90, 90);
+            this.spelPbKaart30.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.spelPbKaart30.TabIndex = 12;
+            this.spelPbKaart30.TabStop = false;
+            this.spelPbKaart30.Click += new System.EventHandler(this.spelPbClick);
             // 
-            // kaart13
+            // spelPbKaart13
             // 
-            this.kaart13.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.kaart13.Location = new System.Drawing.Point(486, 122);
-            this.kaart13.Margin = new System.Windows.Forms.Padding(2);
-            this.kaart13.Name = "kaart13";
-            this.kaart13.Size = new System.Drawing.Size(90, 90);
-            this.kaart13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.kaart13.TabIndex = 28;
-            this.kaart13.TabStop = false;
-            this.kaart13.Click += new System.EventHandler(this.kaartklikken);
+            this.spelPbKaart13.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.spelPbKaart13.Location = new System.Drawing.Point(486, 122);
+            this.spelPbKaart13.Margin = new System.Windows.Forms.Padding(2);
+            this.spelPbKaart13.Name = "spelPbKaart13";
+            this.spelPbKaart13.Size = new System.Drawing.Size(90, 90);
+            this.spelPbKaart13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.spelPbKaart13.TabIndex = 28;
+            this.spelPbKaart13.TabStop = false;
+            this.spelPbKaart13.Click += new System.EventHandler(this.spelPbClick);
             // 
-            // kaart03
+            // spelPbKaart03
             // 
-            this.kaart03.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.kaart03.Location = new System.Drawing.Point(486, 29);
-            this.kaart03.Margin = new System.Windows.Forms.Padding(2);
-            this.kaart03.Name = "kaart03";
-            this.kaart03.Size = new System.Drawing.Size(90, 90);
-            this.kaart03.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.kaart03.TabIndex = 27;
-            this.kaart03.TabStop = false;
-            this.kaart03.Click += new System.EventHandler(this.kaartklikken);
+            this.spelPbKaart03.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.spelPbKaart03.Location = new System.Drawing.Point(486, 29);
+            this.spelPbKaart03.Margin = new System.Windows.Forms.Padding(2);
+            this.spelPbKaart03.Name = "spelPbKaart03";
+            this.spelPbKaart03.Size = new System.Drawing.Size(90, 90);
+            this.spelPbKaart03.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.spelPbKaart03.TabIndex = 27;
+            this.spelPbKaart03.TabStop = false;
+            this.spelPbKaart03.Click += new System.EventHandler(this.spelPbClick);
             // 
-            // kaart01
+            // spelPbKaart01
             // 
-            this.kaart01.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.kaart01.Location = new System.Drawing.Point(297, 29);
-            this.kaart01.Margin = new System.Windows.Forms.Padding(2);
-            this.kaart01.Name = "kaart01";
-            this.kaart01.Size = new System.Drawing.Size(90, 90);
-            this.kaart01.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.kaart01.TabIndex = 19;
-            this.kaart01.TabStop = false;
-            this.kaart01.Click += new System.EventHandler(this.kaartklikken);
+            this.spelPbKaart01.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.spelPbKaart01.Location = new System.Drawing.Point(297, 29);
+            this.spelPbKaart01.Margin = new System.Windows.Forms.Padding(2);
+            this.spelPbKaart01.Name = "spelPbKaart01";
+            this.spelPbKaart01.Size = new System.Drawing.Size(90, 90);
+            this.spelPbKaart01.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.spelPbKaart01.TabIndex = 19;
+            this.spelPbKaart01.TabStop = false;
+            this.spelPbKaart01.Click += new System.EventHandler(this.spelPbClick);
             // 
-            // kaart32
+            // spelPbKaart32
             // 
-            this.kaart32.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.kaart32.Location = new System.Drawing.Point(391, 310);
-            this.kaart32.Margin = new System.Windows.Forms.Padding(2);
-            this.kaart32.Name = "kaart32";
-            this.kaart32.Size = new System.Drawing.Size(90, 90);
-            this.kaart32.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.kaart32.TabIndex = 34;
-            this.kaart32.TabStop = false;
-            this.kaart32.Click += new System.EventHandler(this.kaartklikken);
+            this.spelPbKaart32.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.spelPbKaart32.Location = new System.Drawing.Point(391, 310);
+            this.spelPbKaart32.Margin = new System.Windows.Forms.Padding(2);
+            this.spelPbKaart32.Name = "spelPbKaart32";
+            this.spelPbKaart32.Size = new System.Drawing.Size(90, 90);
+            this.spelPbKaart32.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.spelPbKaart32.TabIndex = 34;
+            this.spelPbKaart32.TabStop = false;
+            this.spelPbKaart32.Click += new System.EventHandler(this.spelPbClick);
             // 
-            // kaart11
+            // spelPbKaart11
             // 
-            this.kaart11.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.kaart11.Location = new System.Drawing.Point(297, 123);
-            this.kaart11.Margin = new System.Windows.Forms.Padding(2);
-            this.kaart11.Name = "kaart11";
-            this.kaart11.Size = new System.Drawing.Size(90, 90);
-            this.kaart11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.kaart11.TabIndex = 20;
-            this.kaart11.TabStop = false;
-            this.kaart11.Click += new System.EventHandler(this.kaartklikken);
+            this.spelPbKaart11.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.spelPbKaart11.Location = new System.Drawing.Point(297, 123);
+            this.spelPbKaart11.Margin = new System.Windows.Forms.Padding(2);
+            this.spelPbKaart11.Name = "spelPbKaart11";
+            this.spelPbKaart11.Size = new System.Drawing.Size(90, 90);
+            this.spelPbKaart11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.spelPbKaart11.TabIndex = 20;
+            this.spelPbKaart11.TabStop = false;
+            this.spelPbKaart11.Click += new System.EventHandler(this.spelPbClick);
             // 
-            // kaart22
+            // spelPbKaart22
             // 
-            this.kaart22.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.kaart22.Location = new System.Drawing.Point(391, 215);
-            this.kaart22.Margin = new System.Windows.Forms.Padding(2);
-            this.kaart22.Name = "kaart22";
-            this.kaart22.Size = new System.Drawing.Size(90, 90);
-            this.kaart22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.kaart22.TabIndex = 25;
-            this.kaart22.TabStop = false;
-            this.kaart22.Click += new System.EventHandler(this.kaartklikken);
+            this.spelPbKaart22.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.spelPbKaart22.Location = new System.Drawing.Point(391, 215);
+            this.spelPbKaart22.Margin = new System.Windows.Forms.Padding(2);
+            this.spelPbKaart22.Name = "spelPbKaart22";
+            this.spelPbKaart22.Size = new System.Drawing.Size(90, 90);
+            this.spelPbKaart22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.spelPbKaart22.TabIndex = 25;
+            this.spelPbKaart22.TabStop = false;
+            this.spelPbKaart22.Click += new System.EventHandler(this.spelPbClick);
             // 
-            // kaart21
+            // spelPbKaart21
             // 
-            this.kaart21.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.kaart21.Location = new System.Drawing.Point(297, 217);
-            this.kaart21.Margin = new System.Windows.Forms.Padding(2);
-            this.kaart21.Name = "kaart21";
-            this.kaart21.Size = new System.Drawing.Size(90, 90);
-            this.kaart21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.kaart21.TabIndex = 21;
-            this.kaart21.TabStop = false;
-            this.kaart21.Click += new System.EventHandler(this.kaartklikken);
+            this.spelPbKaart21.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.spelPbKaart21.Location = new System.Drawing.Point(297, 217);
+            this.spelPbKaart21.Margin = new System.Windows.Forms.Padding(2);
+            this.spelPbKaart21.Name = "spelPbKaart21";
+            this.spelPbKaart21.Size = new System.Drawing.Size(90, 90);
+            this.spelPbKaart21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.spelPbKaart21.TabIndex = 21;
+            this.spelPbKaart21.TabStop = false;
+            this.spelPbKaart21.Click += new System.EventHandler(this.spelPbClick);
             // 
-            // kaart12
+            // spelPbKaart12
             // 
-            this.kaart12.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.kaart12.Location = new System.Drawing.Point(391, 122);
-            this.kaart12.Margin = new System.Windows.Forms.Padding(2);
-            this.kaart12.Name = "kaart12";
-            this.kaart12.Size = new System.Drawing.Size(90, 90);
-            this.kaart12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.kaart12.TabIndex = 24;
-            this.kaart12.TabStop = false;
-            this.kaart12.Click += new System.EventHandler(this.kaartklikken);
+            this.spelPbKaart12.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.spelPbKaart12.Location = new System.Drawing.Point(391, 122);
+            this.spelPbKaart12.Margin = new System.Windows.Forms.Padding(2);
+            this.spelPbKaart12.Name = "spelPbKaart12";
+            this.spelPbKaart12.Size = new System.Drawing.Size(90, 90);
+            this.spelPbKaart12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.spelPbKaart12.TabIndex = 24;
+            this.spelPbKaart12.TabStop = false;
+            this.spelPbKaart12.Click += new System.EventHandler(this.spelPbClick);
             // 
-            // kaart31
+            // spelPbKaart31
             // 
-            this.kaart31.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.kaart31.Location = new System.Drawing.Point(297, 310);
-            this.kaart31.Margin = new System.Windows.Forms.Padding(2);
-            this.kaart31.Name = "kaart31";
-            this.kaart31.Size = new System.Drawing.Size(90, 90);
-            this.kaart31.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.kaart31.TabIndex = 22;
-            this.kaart31.TabStop = false;
-            this.kaart31.Click += new System.EventHandler(this.kaartklikken);
+            this.spelPbKaart31.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.spelPbKaart31.Location = new System.Drawing.Point(297, 310);
+            this.spelPbKaart31.Margin = new System.Windows.Forms.Padding(2);
+            this.spelPbKaart31.Name = "spelPbKaart31";
+            this.spelPbKaart31.Size = new System.Drawing.Size(90, 90);
+            this.spelPbKaart31.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.spelPbKaart31.TabIndex = 22;
+            this.spelPbKaart31.TabStop = false;
+            this.spelPbKaart31.Click += new System.EventHandler(this.spelPbClick);
             // 
-            // kaart02
+            // spelPbKaart02
             // 
-            this.kaart02.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.kaart02.Location = new System.Drawing.Point(391, 29);
-            this.kaart02.Margin = new System.Windows.Forms.Padding(2);
-            this.kaart02.Name = "kaart02";
-            this.kaart02.Size = new System.Drawing.Size(90, 90);
-            this.kaart02.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.kaart02.TabIndex = 23;
-            this.kaart02.TabStop = false;
-            this.kaart02.Click += new System.EventHandler(this.kaartklikken);
+            this.spelPbKaart02.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.spelPbKaart02.Location = new System.Drawing.Point(391, 29);
+            this.spelPbKaart02.Margin = new System.Windows.Forms.Padding(2);
+            this.spelPbKaart02.Name = "spelPbKaart02";
+            this.spelPbKaart02.Size = new System.Drawing.Size(90, 90);
+            this.spelPbKaart02.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.spelPbKaart02.TabIndex = 23;
+            this.spelPbKaart02.TabStop = false;
+            this.spelPbKaart02.Click += new System.EventHandler(this.spelPbClick);
             // 
             // gameOverPage
             // 
@@ -584,52 +577,51 @@
             this.hoofdMenuPage.PerformLayout();
             this.spelPage.ResumeLayout(false);
             this.spelPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart00)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart33)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart20)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart23)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart30)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart13)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart03)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart01)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart32)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart22)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart21)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart31)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.kaart02)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart00)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart33)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart30)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart03)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart01)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart32)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart31)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart02)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox kaart00;
-        private System.Windows.Forms.PictureBox kaart10;
-        private System.Windows.Forms.PictureBox kaart20;
-        private System.Windows.Forms.PictureBox kaart30;
-        private System.Windows.Forms.Timer turnTimer;
-        private System.Windows.Forms.Label lblBeurt;
-        private System.Windows.Forms.PictureBox kaart31;
-        private System.Windows.Forms.PictureBox kaart21;
-        private System.Windows.Forms.PictureBox kaart11;
-        private System.Windows.Forms.PictureBox kaart01;
-        private System.Windows.Forms.PictureBox kaart33;
-        private System.Windows.Forms.PictureBox kaart23;
-        private System.Windows.Forms.PictureBox kaart13;
-        private System.Windows.Forms.PictureBox kaart03;
-        private System.Windows.Forms.PictureBox kaart32;
-        private System.Windows.Forms.PictureBox kaart22;
-        private System.Windows.Forms.PictureBox kaart12;
-        private System.Windows.Forms.PictureBox kaart02;
-        private System.Windows.Forms.Timer updateTimer;
-        private System.Windows.Forms.Label lblTijd;
-        private System.Windows.Forms.ListView lvSpelers;
+        private System.Windows.Forms.PictureBox spelPbKaart00;
+        private System.Windows.Forms.PictureBox spelPbKaart10;
+        private System.Windows.Forms.PictureBox spelPbKaart20;
+        private System.Windows.Forms.PictureBox spelPbKaart30;
+        private System.Windows.Forms.Label spelLblTurn;
+        private System.Windows.Forms.PictureBox spelPbKaart31;
+        private System.Windows.Forms.PictureBox spelPbKaart21;
+        private System.Windows.Forms.PictureBox spelPbKaart11;
+        private System.Windows.Forms.PictureBox spelPbKaart01;
+        private System.Windows.Forms.PictureBox spelPbKaart33;
+        private System.Windows.Forms.PictureBox spelPbKaart23;
+        private System.Windows.Forms.PictureBox spelPbKaart13;
+        private System.Windows.Forms.PictureBox spelPbKaart03;
+        private System.Windows.Forms.PictureBox spelPbKaart32;
+        private System.Windows.Forms.PictureBox spelPbKaart22;
+        private System.Windows.Forms.PictureBox spelPbKaart12;
+        private System.Windows.Forms.PictureBox spelPbKaart02;
+        private System.Windows.Forms.Timer spelTimerUpdate;
+        private System.Windows.Forms.Label spelLblTime;
+        private System.Windows.Forms.ListView spelLvSpelers;
         private System.Windows.Forms.ColumnHeader colName;
         private System.Windows.Forms.ColumnHeader colScore;
-        private System.Windows.Forms.Timer turnEndTimer;
+        private System.Windows.Forms.Timer spelTimerTurn;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage spelPage;
         private System.Windows.Forms.TabPage hoofdMenuPage;

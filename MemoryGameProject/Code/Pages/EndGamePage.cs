@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MemoryGameProject.Code.Pages
 {
-    class Spel
+    class EndGamePage
     {
     }
 }

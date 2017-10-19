@@ -75,10 +75,10 @@
     <Compile Include="Code\CardController.cs" />
     <Compile Include="Code\PageController.cs" />
     <Compile Include="Card.cs" />
-    <Compile Include="Code\Pages\EndGame.cs" />
-    <Compile Include="Code\Pages\Highscore.cs" />
-    <Compile Include="Code\Pages\Hoofdmenu.cs" />
-    <Compile Include="Code\Pages\Spel.cs" />
+    <Compile Include="Code\Pages\EndGamePage.cs" />
+    <Compile Include="Code\Pages\HighscorePage.cs" />
+    <Compile Include="Code\Pages\HoofdMenuPage.cs" />
+    <Compile Include="Code\Pages\SpelPage.cs" />
     <Compile Include="Code\PlayerList.cs" />
     <Compile Include="Code\TurnController.cs" />
     <Compile Include="MainForm.cs">
