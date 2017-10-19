@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -148,6 +149,48 @@ namespace MemoryGameProject.Code.Pages
 
             //Laat de "SPEL_END" pagina zien.
             pageController.ShowPage(PageController.PAGE_SPEL_END);
+        }
+
+        /// <summary>
+        ///     Returned de winnaar van het spel, meerdere spelers als er een gelijkspel is.
+        /// </summary>
+        /// <returns>Een array van spelers die het spel hebben gewonnen.</returns>
+        public Player[] DetermineWinner()
+        {
+            //Lijst met alle winnaars.
+            List<Player> winners = new List<Player>();
+
+            //Zoek uit wat de hoogste score is in het spel en welke spelers dit zijn.
+            int highestScore = -1;
+
+            for (int i = 0; i < playerList.GetPlayerCount(); i++)
+            {
+                //Verkrijg het speler object.
+                Player p = playerList.GetPlayerById(i);
+
+                //Als de score van de speler hoger is dan hoogste score tot nu toe...
+                if(p.score > highestScore)
+                {
+                    //Hoogste score zetten we naar de spelers score.
+                    highestScore = p.score;
+
+                    /*
+                     * En we winners list wordt geleegd, omdat we nu een speler hebben 
+                     * met nog een hogere score. Daarvoor zijn de vorige winnaars geen "winnaars" meer.
+                     */
+                    winners.Clear();
+                }
+
+                //Als je score gelijk is aan de hoogste score, dan ben je ook een winnaar.
+                if(p.score == highestScore)
+                {
+                    //Voeg de speler aan de winnaar lijst toe.
+                    winners.Add(p);
+                }
+            }
+
+            //Geef een nieuwe array terug op basis van de winnaars lijst.
+            return winners.ToArray();
         }
 
         /// <summary>
