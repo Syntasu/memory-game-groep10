@@ -50,6 +50,10 @@
             this.hmLblTitle = new System.Windows.Forms.Label();
             this.hmBtnPlay = new System.Windows.Forms.Button();
             this.spelPage = new System.Windows.Forms.TabPage();
+            this.gameOverPage = new System.Windows.Forms.TabPage();
+            this.endLblWinners = new System.Windows.Forms.Label();
+            this.highScorePage = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.spelPbKaart00 = new System.Windows.Forms.PictureBox();
             this.spelPbKaart10 = new System.Windows.Forms.PictureBox();
             this.spelPbKaart33 = new System.Windows.Forms.PictureBox();
@@ -66,13 +70,12 @@
             this.spelPbKaart12 = new System.Windows.Forms.PictureBox();
             this.spelPbKaart31 = new System.Windows.Forms.PictureBox();
             this.spelPbKaart02 = new System.Windows.Forms.PictureBox();
-            this.gameOverPage = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
-            this.highScorePage = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
+            this.endPbCrown = new System.Windows.Forms.PictureBox();
             this.mainTabControl.SuspendLayout();
             this.hoofdMenuPage.SuspendLayout();
             this.spelPage.SuspendLayout();
+            this.gameOverPage.SuspendLayout();
+            this.highScorePage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart00)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart33)).BeginInit();
@@ -89,8 +92,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart31)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart02)).BeginInit();
-            this.gameOverPage.SuspendLayout();
-            this.highScorePage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.endPbCrown)).BeginInit();
             this.SuspendLayout();
             // 
             // spelLblTurn
@@ -355,6 +357,49 @@
             this.spelPage.TabIndex = 0;
             this.spelPage.Text = "Spel";
             // 
+            // gameOverPage
+            // 
+            this.gameOverPage.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.gameOverPage.Controls.Add(this.endLblWinners);
+            this.gameOverPage.Controls.Add(this.endPbCrown);
+            this.gameOverPage.Location = new System.Drawing.Point(4, 25);
+            this.gameOverPage.Name = "gameOverPage";
+            this.gameOverPage.Padding = new System.Windows.Forms.Padding(3);
+            this.gameOverPage.Size = new System.Drawing.Size(603, 422);
+            this.gameOverPage.TabIndex = 2;
+            this.gameOverPage.Text = "Game Over";
+            // 
+            // endLblWinners
+            // 
+            this.endLblWinners.Dock = System.Windows.Forms.DockStyle.Top;
+            this.endLblWinners.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endLblWinners.Location = new System.Drawing.Point(3, 146);
+            this.endLblWinners.Name = "endLblWinners";
+            this.endLblWinners.Size = new System.Drawing.Size(597, 159);
+            this.endLblWinners.TabIndex = 0;
+            this.endLblWinners.Text = "Speler1";
+            this.endLblWinners.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // highScorePage
+            // 
+            this.highScorePage.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.highScorePage.Controls.Add(this.label1);
+            this.highScorePage.Location = new System.Drawing.Point(4, 25);
+            this.highScorePage.Name = "highScorePage";
+            this.highScorePage.Size = new System.Drawing.Size(603, 422);
+            this.highScorePage.TabIndex = 3;
+            this.highScorePage.Text = "Highscore";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(84, 157);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(465, 73);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "HIGH_SCORE";
+            // 
             // spelPbKaart00
             // 
             this.spelPbKaart00.BackColor = System.Drawing.SystemColors.InactiveCaption;
@@ -547,46 +592,18 @@
             this.spelPbKaart02.TabStop = false;
             this.spelPbKaart02.Click += new System.EventHandler(this.spelPbClick);
             // 
-            // gameOverPage
+            // endPbCrown
             // 
-            this.gameOverPage.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.gameOverPage.Controls.Add(this.label2);
-            this.gameOverPage.Location = new System.Drawing.Point(4, 25);
-            this.gameOverPage.Name = "gameOverPage";
-            this.gameOverPage.Padding = new System.Windows.Forms.Padding(3);
-            this.gameOverPage.Size = new System.Drawing.Size(603, 422);
-            this.gameOverPage.TabIndex = 2;
-            this.gameOverPage.Text = "Game Over";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(67, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(447, 73);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "GAME_OVER";
-            // 
-            // highScorePage
-            // 
-            this.highScorePage.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.highScorePage.Controls.Add(this.label1);
-            this.highScorePage.Location = new System.Drawing.Point(4, 25);
-            this.highScorePage.Name = "highScorePage";
-            this.highScorePage.Size = new System.Drawing.Size(603, 422);
-            this.highScorePage.TabIndex = 3;
-            this.highScorePage.Text = "Highscore";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(84, 157);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(465, 73);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "HIGH_SCORE";
+            this.endPbCrown.BackColor = System.Drawing.Color.Transparent;
+            this.endPbCrown.Dock = System.Windows.Forms.DockStyle.Top;
+            this.endPbCrown.Image = global::MemoryGameProject.Properties.Resources.crown;
+            this.endPbCrown.InitialImage = null;
+            this.endPbCrown.Location = new System.Drawing.Point(3, 3);
+            this.endPbCrown.Name = "endPbCrown";
+            this.endPbCrown.Size = new System.Drawing.Size(597, 143);
+            this.endPbCrown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.endPbCrown.TabIndex = 1;
+            this.endPbCrown.TabStop = false;
             // 
             // MainForm
             // 
@@ -607,6 +624,9 @@
             this.hoofdMenuPage.PerformLayout();
             this.spelPage.ResumeLayout(false);
             this.spelPage.PerformLayout();
+            this.gameOverPage.ResumeLayout(false);
+            this.highScorePage.ResumeLayout(false);
+            this.highScorePage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart00)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart33)).EndInit();
@@ -623,10 +643,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart31)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart02)).EndInit();
-            this.gameOverPage.ResumeLayout(false);
-            this.gameOverPage.PerformLayout();
-            this.highScorePage.ResumeLayout(false);
-            this.highScorePage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.endPbCrown)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -672,7 +689,8 @@
         private System.Windows.Forms.TabPage highScorePage;
         private System.Windows.Forms.Button hmBtnPlayerAdd;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label endLblWinners;
+        private System.Windows.Forms.PictureBox endPbCrown;
     }
 }
 

@@ -27,6 +27,12 @@ namespace MemoryGameProject
         /// </summary>
         private SpelPage gamePage;
 
+        /// <summary>
+        ///     De eind spel pagina instantie.
+        /// </summary>
+        private EndGamePage endGamePage;
+
+
         private void Form1_Load(object sender, EventArgs e)
         {
             //Maak een 2D array die alle pictueboxes aan een index linkt.
@@ -54,10 +60,15 @@ namespace MemoryGameProject
             //Maak een nieuwe hoofdmenu aan.
             hoofdmenuPage = new HoofdMenuPage();
 
+            //Maak een eind pagina aan.
+            endGamePage = new EndGamePage(endLblWinners);
+
             //Maak een nieuwe spel pagina aan.
             gamePage = new SpelPage(
-                pageController, playingField, spelTimerTurn, 
-                spelTimerUpdate, spelLvSpelers, spelLblTurn, spelLblTime
+                pageController, endGamePage,
+                playingField, spelTimerTurn, 
+                spelTimerUpdate, spelLvSpelers, 
+                spelLblTurn, spelLblTime
             );
         }
 

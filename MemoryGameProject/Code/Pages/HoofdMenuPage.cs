@@ -52,7 +52,7 @@ namespace MemoryGameProject.Code.Pages
             }
 
             //Kijk of de naam meer dan 3 characters heeft en minder als 16.
-            if (playerName.Length < 3 || playerName.Length > 16)
+            if (playerName.Length < 2 || playerName.Length > 16)
             {
                 MessageBox.Show("Naam moet tussen 3 - 16 characters zijn.");
                 return false;

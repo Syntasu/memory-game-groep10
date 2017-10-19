@@ -91,8 +91,18 @@ namespace MemoryGameProject.Code
             //Als de kaart is geraden, dan moet je een nieuwe kaart pakken.
             if (card.isGuessed)
             {
-                MessageBox.Show("De kaart is al geraden, probeer opniew");
+                MessageBox.Show("De kaart is al geraden, probeer opnieuw");
                 return;
+            }
+
+            //Controleer of de kaart al omgedraaid is.
+            for (int i = 0; i < guessedCards.Count; i++)
+            {
+                if(card == guessedCards[i])
+                {
+                    MessageBox.Show("De kaart is al omgedraaid, probeer opnieuw");
+                    return;
+                }
             }
 
             /*

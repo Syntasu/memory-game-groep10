@@ -26,6 +26,11 @@ namespace MemoryGameProject.Code.Pages
         private CardController cardController;
 
         /// <summary>
+        ///     Referentie naar de end game pagina.
+        /// </summary>
+        private EndGamePage endGamePage;
+
+        /// <summary>
         ///     Het plaatje van de achterkant van de kaarten.
         /// </summary>
         private Bitmap backGraphic = Properties.Resources.sw0;
@@ -101,10 +106,13 @@ namespace MemoryGameProject.Code.Pages
         /// <param name="listViewPlayerList">De list view voor de spelers lijst. </param>
         /// <param name="labelTurn">De label met de naam van wie aan de beurt is.</param>
         /// <param name="labelTime">De label met de tijd die er nog over is.</param>
-        public SpelPage(PageController pageController, PictureBox[,] pictureBoxField, Timer timerTurnCountdown,
-            Timer timerUpdateTimer, ListView listViewPlayerList, Label labelTurn, Label labelTime)
+        public SpelPage(PageController pageController, EndGamePage endGamePage,
+            PictureBox[,] pictureBoxField, Timer timerTurnCountdown,
+            Timer timerUpdateTimer, ListView listViewPlayerList, 
+            Label labelTurn, Label labelTime)
         {
             this.pageController = pageController;
+            this.endGamePage = endGamePage;
             this.pictureBoxField = pictureBoxField;
             this.timerTurnCountdown = timerTurnCountdown;
             this.timerUpdateTimer = timerUpdateTimer;
@@ -149,6 +157,9 @@ namespace MemoryGameProject.Code.Pages
 
             //Laat de "SPEL_END" pagina zien.
             pageController.ShowPage(PageController.PAGE_SPEL_END);
+
+            Player[] players = DetermineWinner();
+            endGamePage.ShowWinners(players);
         }
 
         /// <summary>
