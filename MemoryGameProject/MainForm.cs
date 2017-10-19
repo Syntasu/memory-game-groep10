@@ -2,10 +2,11 @@
 using System;
 using System.Windows.Forms;
  using System.Drawing;
+using MemoryGameProject.Code.Pages;
 
 namespace MemoryGameProject
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         /// <summary>
         ///     Referentie naar de spelers lijst. (Wordt op Form1_load aangemaakt).
@@ -53,13 +54,17 @@ namespace MemoryGameProject
         /// </summary>
         private int timePerTurn = 60;
 
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
 
+        private Hoofdmenu hoofdmenuPage;
+
         private void Form1_Load(object sender, EventArgs e)
         {
+            hoofdmenuPage = new Hoofdmenu();
+
             //TODO: De array van speler namen generen via de user interface.
             string[] playerNames = new string[3];
             playerNames[0] = "Alex";
@@ -278,9 +283,46 @@ namespace MemoryGameProject
             cardController.ResetGuesses();
         }
 
-        private void Exit_Click(object sender, EventArgs e)
+        private void hmBtnPlayerAdd_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            string playerName = hmTbPlayername.Text;
+            bool success = hoofdmenuPage.AddPlayer(playerName);
+
+            if(success)
+            {
+                hmLbPlayers.Items.Add(playerName);
+            }
+
+            hmTbPlayername.Clear();
+        }
+
+        private void hmBtnPlay_Click(object sender, EventArgs e)
+        {
+            hoofdmenuPage.BeginGame();
+        }
+
+        private void hmBtnHighscore_Click(object sender, EventArgs e)
+        {
+            //pageControl.MoveTo(...);
+        }
+
+        private void hmBtnExplanation_Click(object sender, EventArgs e)
+        {
+            string title = "Uitleg";
+            string message = "Speel het spel met 2 tot 4 spelers. Ben je met een grotere groep, maak dan teams." + "\n" + "\n" + "Probeer zoveel mogelijk twee dezelfde kaartjes om te draaien. Als je aan de beurt bent, draai je een kaartje naar keuze om en daarna draai je een tweede kaartje om." + "\n" + "\n" + "Als de kaartjes gelijk zijn, dan mag je nog een keer tot je twee kaartjes hebt omgedraaid die geen paar vormen." + "\n" + "\n" + "Als je twee kaartjes omdraait die niet gelijk zijn, draaien de kaartjes weer om en de volgende speler is aan de beurt. Ga zo door tot alle kaartjes op zijn. De speler met de meeste kaartjes wint." + "\n" + "\n";
+            MessageBox.Show(message, title);
+        }
+
+        private void hmBtnAbout_Click(object sender, EventArgs e)
+        {
+            string title = "Over...";
+            string message = "Gemaakt door groep 10 (Valeria, Alexander en Alex)!";
+            MessageBox.Show(message, title);
+        }
+
+        private void hmBtnExit_Click(object sender, EventArgs e)
+        {
+            hoofdmenuPage.ExitGame();
         }
     }
 }
