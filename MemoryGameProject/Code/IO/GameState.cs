@@ -1,4 +1,6 @@
-﻿namespace MemoryGameProject.Code.IO
+﻿using MemoryGameProject.Code.Game;
+
+namespace MemoryGameProject.Code.IO
 {
     public class GameState
     {

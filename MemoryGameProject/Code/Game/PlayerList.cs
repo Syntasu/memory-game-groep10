@@ -1,7 +1,7 @@
 ﻿using MemoryGameProject.Code.IO;
 using System;
 
-namespace MemoryGameProject.Code
+namespace MemoryGameProject.Code.Game
 {
     /// <summary>
     ///     Een speler object.

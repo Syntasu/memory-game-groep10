@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace MemoryGameProject.Code
+namespace MemoryGameProject.Code.UI
 {
     public class PageController
     {

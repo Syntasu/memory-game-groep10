@@ -1,4 +1,5 @@
-﻿using System.Windows.Forms;
+﻿using MemoryGameProject.Code.Game;
+using System.Windows.Forms;
 
 namespace MemoryGameProject.Code.Pages
 {

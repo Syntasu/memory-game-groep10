@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace MemoryGameProject.Code
+namespace MemoryGameProject.Code.Game
 {
     /// <summary>
     ///     Klasse die alle functionaliteit van de kaarten heeft.

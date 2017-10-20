@@ -1,4 +1,6 @@
-﻿using MemoryGameProject.Code.IO;
+﻿using MemoryGameProject.Code.Game;
+using MemoryGameProject.Code.IO;
+using MemoryGameProject.Code.UI;
 using System;
 using System.Collections.Generic;
 using System.Drawing;

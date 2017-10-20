@@ -2,7 +2,7 @@
 using System;
 using System.Diagnostics;
 
-namespace MemoryGameProject.Code
+namespace MemoryGameProject.Code.Game
 {
 
     public class TurnController

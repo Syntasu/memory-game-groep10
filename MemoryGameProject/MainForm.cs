@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using MemoryGameProject.Code.Pages;
 using MemoryGameProject.Code;
+using MemoryGameProject.Code.UI;
 
 namespace MemoryGameProject
 {

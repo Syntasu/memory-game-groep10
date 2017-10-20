@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MemoryGameProject.Code.Game;
+using System;
 using System.Diagnostics;
 
 namespace MemoryGameProject.Code.IO
