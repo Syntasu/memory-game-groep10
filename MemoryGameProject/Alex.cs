@@ -20,11 +20,6 @@ namespace MemoryGameProject
 
         private void button1_Click(object sender, System.EventArgs e)
         {
-            PlayerList playerList = new PlayerList(new[]{"SP1", "SP2", "SP3"});
-            byte[] data = playerList.ToBytes();
-
-            PlayerList playerList2 = new PlayerList();
-            playerList2.FromBytes(data);
         }
     }
 }

@@ -68,14 +68,14 @@ namespace MemoryGameProject.Code
             return null;
         }
 
-        public byte[] ToBytes()
+        public PlayerListContext GetContext()
         {
-            return GameSerializer.SerializePlayerList(playerList);
+            return new PlayerListContext(playerList);
         }
 
-        public void FromBytes(byte[] data)
+        public void SetContext(PlayerListContext context)
         {
-            playerList = GameSerializer.DeserializePlayerList(data);
+            playerList = context.players;
         }
 
         /// <summary>

@@ -5,23 +5,23 @@ namespace MemoryGameProject.Code.IO
 {
     public class GameSerializer
     {
-        public static byte[] SerializePlayerList(Player[] players)
+        public static byte[] SerializePlayerList(PlayerListContext context)
         {
             using (MemoryStream stream = new MemoryStream())
             {
                 BinaryFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(stream, players);
+                formatter.Serialize(stream, context);
 
                 return stream.ToArray();
             }
         }
 
-        public static Player[] DeserializePlayerList(byte[] data)
+        public static PlayerListContext DeserializePlayerList(byte[] data)
         {
             using (MemoryStream stream = new MemoryStream(data))
             {
                 BinaryFormatter formatter = new BinaryFormatter();
-                return (Player[])formatter.Deserialize(stream);
+                return (PlayerListContext)formatter.Deserialize(stream);
             }
         }
 

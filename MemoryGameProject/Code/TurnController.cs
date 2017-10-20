@@ -1,16 +1,17 @@
-﻿using System;
+﻿using MemoryGameProject.Code.IO;
+using System;
 using System.Diagnostics;
-using System.Windows.Forms;
 
 namespace MemoryGameProject.Code
 {
+
     public class TurnController
     {
         /// <summary>
         ///     Referentie naar de spelerslijst (via argumenten geassigned).
         /// </summary>
         private PlayerList playerList;
-        
+
         /// <summary>
         ///     Een stopwatch object die de tijd van elke beurt bijhoud.
         /// </summary>
@@ -92,6 +93,18 @@ namespace MemoryGameProject.Code
             {
                 CurrentPlayerId = 0;
             }
+        }
+
+        public TurnControllerContext GetContext()
+        {
+            return new TurnControllerContext(turnTimeInSeconds, turnTimer, CurrentPlayerId);
+        }
+
+        public void SetContext(TurnControllerContext context)
+        {
+            turnTimeInSeconds = context.turnTimeInSeconds;
+            turnTimer = context.turnTimer;
+            CurrentPlayerId = context.currentPlayerId;
         }
     }
 }

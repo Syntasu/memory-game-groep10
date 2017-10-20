@@ -43,8 +43,7 @@ namespace MemoryGameProject.Code
         private bool timeout;
 
         /// <summary>
-        ///     De timer control die we gebruiken om de tijd te laten verstrijken.
-        ///     
+        ///     De timer control die we gebruiken om de tijd te laten verstrijken. 
         /// </summary>
         private Timer timeoutTimer;
 
@@ -307,14 +306,14 @@ namespace MemoryGameProject.Code
             card.pictureBox.Image = graphics[card.front];
         }
 
-        public byte[] ToBytes()
+        public CardControllerContext GetContext()
         {
-            return GameSerializer.SerializeCardController(cards);
+            return new CardControllerContext(cards);
         }
 
-        public void FromBytes(byte[] data)
+        public void SetContext(CardControllerContext context)
         {
-            cards = GameSerializer.DeserializeCardController(data);
+            cards = context.cards;
         }
     }
 }
