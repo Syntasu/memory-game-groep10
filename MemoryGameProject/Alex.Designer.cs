@@ -30,75 +30,39 @@
         {
             this.components = new System.ComponentModel.Container();
             this.turnTimer = new System.Windows.Forms.Timer(this.components);
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.hoofdMenuPage = new System.Windows.Forms.TabPage();
-            this.spelPage = new System.Windows.Forms.TabPage();
-            this.highScorePage = new System.Windows.Forms.TabPage();
-            this.tabControl1.SuspendLayout();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // turnTimer
             // 
             this.turnTimer.Interval = 1000;
             // 
-            // tabControl1
+            // button1
             // 
-            this.tabControl1.Controls.Add(this.hoofdMenuPage);
-            this.tabControl1.Controls.Add(this.spelPage);
-            this.tabControl1.Controls.Add(this.highScorePage);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(757, 587);
-            this.tabControl1.TabIndex = 0;
-            // 
-            // hoofdMenuPage
-            // 
-            this.hoofdMenuPage.Location = new System.Drawing.Point(4, 22);
-            this.hoofdMenuPage.Name = "hoofdMenuPage";
-            this.hoofdMenuPage.Size = new System.Drawing.Size(749, 561);
-            this.hoofdMenuPage.TabIndex = 0;
-            this.hoofdMenuPage.Text = "Hoofdmenu";
-            this.hoofdMenuPage.UseVisualStyleBackColor = true;
-            // 
-            // spelPage
-            // 
-            this.spelPage.Location = new System.Drawing.Point(4, 22);
-            this.spelPage.Name = "spelPage";
-            this.spelPage.Size = new System.Drawing.Size(749, 561);
-            this.spelPage.TabIndex = 1;
-            this.spelPage.Text = "Spel";
-            this.spelPage.UseVisualStyleBackColor = true;
-            // 
-            // highScorePage
-            // 
-            this.highScorePage.Location = new System.Drawing.Point(4, 22);
-            this.highScorePage.Name = "highScorePage";
-            this.highScorePage.Size = new System.Drawing.Size(749, 561);
-            this.highScorePage.TabIndex = 2;
-            this.highScorePage.Text = "Highscore";
-            this.highScorePage.UseVisualStyleBackColor = true;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(12, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(323, 176);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "DO STUFF";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Alex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(757, 587);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(363, 204);
+            this.Controls.Add(this.button1);
             this.Name = "Alex";
             this.Text = "Alex";
             this.Load += new System.EventHandler(this.Alex_Load);
-            this.tabControl1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Timer turnTimer;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage hoofdMenuPage;
-        private System.Windows.Forms.TabPage spelPage;
-        private System.Windows.Forms.TabPage highScorePage;
+        private System.Windows.Forms.Button button1;
     }
 }

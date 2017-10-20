@@ -1,4 +1,5 @@
 ﻿using MemoryGameProject.Code;
+using MemoryGameProject.Code.IO;
 using System.Windows.Forms;
 
 namespace MemoryGameProject
@@ -10,13 +11,20 @@ namespace MemoryGameProject
             InitializeComponent();
         }
 
-        private PageController pageController;
+        private GameFiles gameFiles;
 
         private void Alex_Load(object sender, System.EventArgs e)
         {
-            pageController = new PageController(tabControl1, 0);
-            pageController.ShowPage("BANANAS");
+            gameFiles = new GameFiles();
         }
 
+        private void button1_Click(object sender, System.EventArgs e)
+        {
+            PlayerList playerList = new PlayerList(new[]{"SP1", "SP2", "SP3"});
+            byte[] data = playerList.ToBytes();
+
+            PlayerList playerList2 = new PlayerList();
+            playerList2.FromBytes(data);
+        }
     }
 }

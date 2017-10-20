@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MemoryGameProject.Code.IO;
+using System;
 
 namespace MemoryGameProject.Code
 {
     /// <summary>
     ///     Een speler object.
     /// </summary>
+    [Serializable]
     public class Player
     {
         /// <summary>
@@ -22,11 +23,15 @@ namespace MemoryGameProject.Code
         ///     Score van de speler
         /// </summary>
         public int score;
+
+        public int wins;
     }
 
     public class PlayerList
     {
         private Player[] playerList;
+
+        public PlayerList() { }
 
         /// <summary>
         ///     Constructor voor de player list. Het zet een array van strings om in een array van Player objecten.
@@ -63,6 +68,16 @@ namespace MemoryGameProject.Code
             }
 
             return null;
+        }
+
+        public byte[] ToBytes()
+        {
+            return GameSerializer.SerializePlayerList(playerList);
+        }
+
+        public void FromBytes(byte[] data)
+        {
+            playerList = GameSerializer.DeserializePlayerList(data);
         }
 
         /// <summary>

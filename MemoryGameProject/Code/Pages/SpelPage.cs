@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MemoryGameProject.Code.IO;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -144,6 +145,16 @@ namespace MemoryGameProject.Code.Pages
 
             //Start de update timer, zodat de user interface geupdate word.
             timerUpdateTimer.Start();
+        }
+
+        public GameState SaveGame()
+        {
+            return null;
+        }
+
+        public void LoadGame(GameState state)
+        {
+
         }
 
         /// <summary>
