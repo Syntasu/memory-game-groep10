@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Media;
 
 namespace MemoryGameProject.Code.Game
 {
@@ -75,6 +76,8 @@ namespace MemoryGameProject.Code.Game
         /// <param name="obj">object die in de event word mee gegeven.</param>
         public void CardClicked(object obj)
         {
+            SoundPlayer clicksound = new SoundPlayer(@"C:\School\Memory Game\geluid1.wav");
+            clicksound.Play();
             //Zoek de kaart via de FindCard methode.
             Card card = FindCard(obj);
 
@@ -139,6 +142,7 @@ namespace MemoryGameProject.Code.Game
                  */
                 if(match)
                 {
+
                     int playerId = turnController.CurrentPlayerId;
                     Player player = playerList.GetPlayerById(playerId);
                     player.score++;
@@ -187,7 +191,9 @@ namespace MemoryGameProject.Code.Game
                     //Zet beide kaarten naar geraden.
                     card.isGuessed = true;
                     guessedCards[i].isGuessed = true;
-
+                    // geluid bij het goed raden van de kaarten
+                    SoundPlayer matchsound = new SoundPlayer(@"C:\School\Memory Game\geluid2.wav");
+                    matchsound.Play();
                     return true;
                 }
             }
@@ -292,7 +298,9 @@ namespace MemoryGameProject.Code.Game
                     }
                 }
             }
-
+            // geluid bij het uitspelen van het spel
+            SoundPlayer Finishsound = new SoundPlayer(@"C:\School\Memory Game\geluid6.wav");
+            Finishsound.Play();
             return true;
         }
 
