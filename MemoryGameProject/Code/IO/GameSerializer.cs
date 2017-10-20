@@ -24,5 +24,25 @@ namespace MemoryGameProject.Code.IO
                 return (Player[])formatter.Deserialize(stream);
             }
         }
+
+        public static byte[] SerializeCardController(Card[,] cards)
+        {
+            using (MemoryStream stream = new MemoryStream())
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                formatter.Serialize(stream, cards);
+
+                return stream.ToArray();
+            }
+        }
+
+        public static Card[,] DeserializeCardController(byte[] data)
+        {
+            using (MemoryStream stream = new MemoryStream(data))
+            {
+                BinaryFormatter formatter = new BinaryFormatter();
+                return (Card[,])formatter.Deserialize(stream);
+            }
+        }
     }
 }

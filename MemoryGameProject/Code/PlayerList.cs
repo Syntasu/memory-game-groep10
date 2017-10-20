@@ -23,8 +23,6 @@ namespace MemoryGameProject.Code
         ///     Score van de speler
         /// </summary>
         public int score;
-
-        public int wins;
     }
 
     public class PlayerList

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MemoryGameProject.Code.IO;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -304,6 +305,16 @@ namespace MemoryGameProject.Code
         {
             //Zet het plaatje die we opvragen uit de graphic array.
             card.pictureBox.Image = graphics[card.front];
+        }
+
+        public byte[] ToBytes()
+        {
+            return GameSerializer.SerializeCardController(cards);
+        }
+
+        public void FromBytes(byte[] data)
+        {
+            cards = GameSerializer.DeserializeCardController(data);
         }
     }
 }
