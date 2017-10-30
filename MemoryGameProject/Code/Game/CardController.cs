@@ -76,8 +76,10 @@ namespace MemoryGameProject.Code.Game
         /// <param name="obj">object die in de event word mee gegeven.</param>
         public void CardClicked(object obj)
         {
-            SoundPlayer clicksound = new SoundPlayer(@"C:\School\Memory Game\geluid1.wav");
-            clicksound.Play();
+            //TODO: Voeg audio toe aan de resources, niet lokaal op je PC.
+            //SoundPlayer clicksound = new SoundPlayer(@"C:\School\Memory Game\geluid1.wav");
+            //clicksound.Play();
+
             //Zoek de kaart via de FindCard methode.
             Card card = FindCard(obj);
 
@@ -191,9 +193,11 @@ namespace MemoryGameProject.Code.Game
                     //Zet beide kaarten naar geraden.
                     card.isGuessed = true;
                     guessedCards[i].isGuessed = true;
+
                     // geluid bij het goed raden van de kaarten
-                    SoundPlayer matchsound = new SoundPlayer(@"C:\School\Memory Game\geluid2.wav");
-                    matchsound.Play();
+                    //TODO: Voeg audio toe aan de resources, niet lokaal op je PC.
+                    //SoundPlayer matchsound = new SoundPlayer(@"C:\School\Memory Game\geluid2.wav");
+                    //matchsound.Play();
                     return true;
                 }
             }
@@ -299,8 +303,9 @@ namespace MemoryGameProject.Code.Game
                 }
             }
             // geluid bij het uitspelen van het spel
-            SoundPlayer Finishsound = new SoundPlayer(@"C:\School\Memory Game\geluid6.wav");
-            Finishsound.Play();
+            //TODO: Voeg audio toe aan de resources, niet lokaal op je PC. (https://stackoverflow.com/a/28560858)
+            //SoundPlayer Finishsound = new SoundPlayer(@"C:\School\Memory Game\geluid6.wav");
+            //Finishsound.Play();
             return true;
         }
 

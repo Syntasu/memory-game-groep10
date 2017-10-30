@@ -1,9 +1,13 @@
 ﻿using MemoryGameProject.Code.Game;
 using System;
 using System.Diagnostics;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Windows.Forms;
 
 namespace MemoryGameProject.Code.IO
-{
+{ 
+
     [Serializable]
     public class GameContext
     {
@@ -15,9 +19,44 @@ namespace MemoryGameProject.Code.IO
         {
             playerListContext = playerList.GetContext();
             turnControllerContext = turnController.GetContext();
+            cardControllerContext = cardController.GetContext();
+        }
+
+        public byte[] Serialize()
+        {
+            try
+            {
+                using (MemoryStream stream = new MemoryStream())
+                {
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    formatter.Serialize(stream, this);
+                    return stream.ToArray();
+                }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Kan het spel niet opslaan: " + e.Message, "Woops");
+                throw;
+            }
+        }
+
+        public GameContext Deserialize(byte[] data)
+        {
+            try
+            {
+                using (MemoryStream stream = new MemoryStream(data))
+                {
+                    BinaryFormatter formatter = new BinaryFormatter();
+                    return (GameContext)formatter.Deserialize(stream);
+                }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("Kan het opgeslagen spel niet laden: " + e.Message, "Woops");
+                return null;
+            }
         }
     }
-
 
     [Serializable]
     public class TurnControllerContext
