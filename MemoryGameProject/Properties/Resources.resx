@@ -175,6 +175,30 @@
   <data name="et8" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\et8.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="geluid1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\geluid1.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="geluid10" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\geluid10.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="geluid2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\geluid2.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="geluid3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\geluid3.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="geluid6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\geluid6.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="geluid7" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\geluid7.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="geluid8" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\geluid8.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="geluid9" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\geluid9.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="sw0" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sw0.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

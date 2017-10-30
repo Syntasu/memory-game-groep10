@@ -77,8 +77,8 @@ namespace MemoryGameProject.Code.Game
         public void CardClicked(object obj)
         {
             //TODO: Voeg audio toe aan de resources, niet lokaal op je PC.
-            //SoundPlayer clicksound = new SoundPlayer(@"C:\School\Memory Game\geluid1.wav");
-            //clicksound.Play();
+            SoundPlayer clicksound = new SoundPlayer(Properties.Resources.geluid2);
+            clicksound.Play();
 
             //Zoek de kaart via de FindCard methode.
             Card card = FindCard(obj);
@@ -196,8 +196,8 @@ namespace MemoryGameProject.Code.Game
 
                     // geluid bij het goed raden van de kaarten
                     //TODO: Voeg audio toe aan de resources, niet lokaal op je PC.
-                    //SoundPlayer matchsound = new SoundPlayer(@"C:\School\Memory Game\geluid2.wav");
-                    //matchsound.Play();
+                    SoundPlayer matchsound = new SoundPlayer(Properties.Resources.geluid1);
+                    matchsound.Play();
                     return true;
                 }
             }
@@ -304,8 +304,8 @@ namespace MemoryGameProject.Code.Game
             }
             // geluid bij het uitspelen van het spel
             //TODO: Voeg audio toe aan de resources, niet lokaal op je PC. (https://stackoverflow.com/a/28560858)
-            //SoundPlayer Finishsound = new SoundPlayer(@"C:\School\Memory Game\geluid6.wav");
-            //Finishsound.Play();
+            SoundPlayer Finishsound = new SoundPlayer(Properties.Resources.geluid6);
+            Finishsound.Play();
             return true;
         }
 

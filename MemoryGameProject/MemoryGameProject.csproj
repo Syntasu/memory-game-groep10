@@ -228,5 +228,29 @@
   <ItemGroup>
     <None Include="Resources\crown.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\geluid1.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\geluid2.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\geluid3.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\geluid6.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\geluid7.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\geluid8.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\geluid9.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\geluid10.wav" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
