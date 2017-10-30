@@ -23,12 +23,12 @@ namespace MemoryGameProject.Code.IO
             return File.Exists(DefaultPath + "/game.sav");
         }
 
-        public GameState ReadSaveGame()
+        public GameContext ReadSaveGame()
         {
-            return new GameState(new byte[0]);
+            return new GameContext(null, null, null);
         }
 
-        public void WriteSaveGame(GameState gameState)
+        public void WriteSaveGame(GameContext gameState)
         {
 
         }

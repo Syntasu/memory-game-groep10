@@ -50,10 +50,6 @@
             this.hmLblTitle = new System.Windows.Forms.Label();
             this.hmBtnPlay = new System.Windows.Forms.Button();
             this.spelPage = new System.Windows.Forms.TabPage();
-            this.gameOverPage = new System.Windows.Forms.TabPage();
-            this.endLblWinners = new System.Windows.Forms.Label();
-            this.highScorePage = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
             this.spelPbKaart00 = new System.Windows.Forms.PictureBox();
             this.spelPbKaart10 = new System.Windows.Forms.PictureBox();
             this.spelPbKaart33 = new System.Windows.Forms.PictureBox();
@@ -70,14 +66,16 @@
             this.spelPbKaart12 = new System.Windows.Forms.PictureBox();
             this.spelPbKaart31 = new System.Windows.Forms.PictureBox();
             this.spelPbKaart02 = new System.Windows.Forms.PictureBox();
-            this.endPbCrown = new System.Windows.Forms.PictureBox();
-            this.endBtnBack = new System.Windows.Forms.Button();
+            this.gameOverPage = new System.Windows.Forms.TabPage();
             this.endBtnAgain = new System.Windows.Forms.Button();
+            this.endBtnBack = new System.Windows.Forms.Button();
+            this.endLblWinners = new System.Windows.Forms.Label();
+            this.endPbCrown = new System.Windows.Forms.PictureBox();
+            this.highScorePage = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
             this.mainTabControl.SuspendLayout();
             this.hoofdMenuPage.SuspendLayout();
             this.spelPage.SuspendLayout();
-            this.gameOverPage.SuspendLayout();
-            this.highScorePage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart00)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart33)).BeginInit();
@@ -94,7 +92,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart31)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart02)).BeginInit();
+            this.gameOverPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.endPbCrown)).BeginInit();
+            this.highScorePage.SuspendLayout();
             this.SuspendLayout();
             // 
             // spelLblTurn
@@ -164,7 +164,7 @@
             this.mainTabControl.Location = new System.Drawing.Point(0, 0);
             this.mainTabControl.Name = "mainTabControl";
             this.mainTabControl.SelectedIndex = 0;
-            this.mainTabControl.Size = new System.Drawing.Size(611, 451);
+            this.mainTabControl.Size = new System.Drawing.Size(611, 472);
             this.mainTabControl.TabIndex = 35;
             this.mainTabControl.TabStop = false;
             this.mainTabControl.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.mainTabControl_Selecting);
@@ -185,7 +185,7 @@
             this.hoofdMenuPage.Location = new System.Drawing.Point(4, 25);
             this.hoofdMenuPage.Name = "hoofdMenuPage";
             this.hoofdMenuPage.Padding = new System.Windows.Forms.Padding(3);
-            this.hoofdMenuPage.Size = new System.Drawing.Size(603, 422);
+            this.hoofdMenuPage.Size = new System.Drawing.Size(603, 443);
             this.hoofdMenuPage.TabIndex = 1;
             this.hoofdMenuPage.Text = "Hoofdmenu";
             // 
@@ -355,54 +355,9 @@
             this.spelPage.Location = new System.Drawing.Point(4, 25);
             this.spelPage.Name = "spelPage";
             this.spelPage.Padding = new System.Windows.Forms.Padding(3);
-            this.spelPage.Size = new System.Drawing.Size(603, 422);
+            this.spelPage.Size = new System.Drawing.Size(603, 443);
             this.spelPage.TabIndex = 0;
             this.spelPage.Text = "Spel";
-            // 
-            // gameOverPage
-            // 
-            this.gameOverPage.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.gameOverPage.Controls.Add(this.endBtnAgain);
-            this.gameOverPage.Controls.Add(this.endBtnBack);
-            this.gameOverPage.Controls.Add(this.endLblWinners);
-            this.gameOverPage.Controls.Add(this.endPbCrown);
-            this.gameOverPage.Location = new System.Drawing.Point(4, 25);
-            this.gameOverPage.Name = "gameOverPage";
-            this.gameOverPage.Padding = new System.Windows.Forms.Padding(3);
-            this.gameOverPage.Size = new System.Drawing.Size(603, 422);
-            this.gameOverPage.TabIndex = 2;
-            this.gameOverPage.Text = "Game Over";
-            // 
-            // endLblWinners
-            // 
-            this.endLblWinners.Dock = System.Windows.Forms.DockStyle.Top;
-            this.endLblWinners.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.endLblWinners.Location = new System.Drawing.Point(3, 146);
-            this.endLblWinners.Name = "endLblWinners";
-            this.endLblWinners.Size = new System.Drawing.Size(597, 183);
-            this.endLblWinners.TabIndex = 0;
-            this.endLblWinners.Text = "Speler1";
-            this.endLblWinners.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // highScorePage
-            // 
-            this.highScorePage.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.highScorePage.Controls.Add(this.label1);
-            this.highScorePage.Location = new System.Drawing.Point(4, 25);
-            this.highScorePage.Name = "highScorePage";
-            this.highScorePage.Size = new System.Drawing.Size(603, 422);
-            this.highScorePage.TabIndex = 3;
-            this.highScorePage.Text = "Highscore";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(84, 157);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(465, 73);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "HIGH_SCORE";
             // 
             // spelPbKaart00
             // 
@@ -596,33 +551,19 @@
             this.spelPbKaart02.TabStop = false;
             this.spelPbKaart02.Click += new System.EventHandler(this.spelPbClick);
             // 
-            // endPbCrown
+            // gameOverPage
             // 
-            this.endPbCrown.BackColor = System.Drawing.Color.Transparent;
-            this.endPbCrown.Dock = System.Windows.Forms.DockStyle.Top;
-            this.endPbCrown.Image = global::MemoryGameProject.Properties.Resources.crown;
-            this.endPbCrown.InitialImage = null;
-            this.endPbCrown.Location = new System.Drawing.Point(3, 3);
-            this.endPbCrown.Name = "endPbCrown";
-            this.endPbCrown.Size = new System.Drawing.Size(597, 143);
-            this.endPbCrown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.endPbCrown.TabIndex = 1;
-            this.endPbCrown.TabStop = false;
-            // 
-            // endBtnBack
-            // 
-            this.endBtnBack.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.endBtnBack.Dock = System.Windows.Forms.DockStyle.Top;
-            this.endBtnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.endBtnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.endBtnBack.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.endBtnBack.Location = new System.Drawing.Point(3, 329);
-            this.endBtnBack.Name = "endBtnBack";
-            this.endBtnBack.Size = new System.Drawing.Size(597, 48);
-            this.endBtnBack.TabIndex = 2;
-            this.endBtnBack.Text = "Naar het hoofdmenu";
-            this.endBtnBack.UseVisualStyleBackColor = false;
-            this.endBtnBack.Click += new System.EventHandler(this.endBtnBack_Click);
+            this.gameOverPage.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.gameOverPage.Controls.Add(this.endBtnAgain);
+            this.gameOverPage.Controls.Add(this.endBtnBack);
+            this.gameOverPage.Controls.Add(this.endLblWinners);
+            this.gameOverPage.Controls.Add(this.endPbCrown);
+            this.gameOverPage.Location = new System.Drawing.Point(4, 25);
+            this.gameOverPage.Name = "gameOverPage";
+            this.gameOverPage.Padding = new System.Windows.Forms.Padding(3);
+            this.gameOverPage.Size = new System.Drawing.Size(603, 422);
+            this.gameOverPage.TabIndex = 2;
+            this.gameOverPage.Text = "Game Over";
             // 
             // endBtnAgain
             // 
@@ -639,12 +580,71 @@
             this.endBtnAgain.UseVisualStyleBackColor = false;
             this.endBtnAgain.Click += new System.EventHandler(this.endBtnAgain_Click);
             // 
+            // endBtnBack
+            // 
+            this.endBtnBack.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.endBtnBack.Dock = System.Windows.Forms.DockStyle.Top;
+            this.endBtnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.endBtnBack.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endBtnBack.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.endBtnBack.Location = new System.Drawing.Point(3, 329);
+            this.endBtnBack.Name = "endBtnBack";
+            this.endBtnBack.Size = new System.Drawing.Size(597, 48);
+            this.endBtnBack.TabIndex = 2;
+            this.endBtnBack.Text = "Naar het hoofdmenu";
+            this.endBtnBack.UseVisualStyleBackColor = false;
+            this.endBtnBack.Click += new System.EventHandler(this.endBtnBack_Click);
+            // 
+            // endLblWinners
+            // 
+            this.endLblWinners.Dock = System.Windows.Forms.DockStyle.Top;
+            this.endLblWinners.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.endLblWinners.Location = new System.Drawing.Point(3, 146);
+            this.endLblWinners.Name = "endLblWinners";
+            this.endLblWinners.Size = new System.Drawing.Size(597, 183);
+            this.endLblWinners.TabIndex = 0;
+            this.endLblWinners.Text = "Speler1";
+            this.endLblWinners.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // endPbCrown
+            // 
+            this.endPbCrown.BackColor = System.Drawing.Color.Transparent;
+            this.endPbCrown.Dock = System.Windows.Forms.DockStyle.Top;
+            this.endPbCrown.Image = global::MemoryGameProject.Properties.Resources.crown;
+            this.endPbCrown.InitialImage = null;
+            this.endPbCrown.Location = new System.Drawing.Point(3, 3);
+            this.endPbCrown.Name = "endPbCrown";
+            this.endPbCrown.Size = new System.Drawing.Size(597, 143);
+            this.endPbCrown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.endPbCrown.TabIndex = 1;
+            this.endPbCrown.TabStop = false;
+            // 
+            // highScorePage
+            // 
+            this.highScorePage.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.highScorePage.Controls.Add(this.label1);
+            this.highScorePage.Location = new System.Drawing.Point(4, 25);
+            this.highScorePage.Name = "highScorePage";
+            this.highScorePage.Size = new System.Drawing.Size(603, 422);
+            this.highScorePage.TabIndex = 3;
+            this.highScorePage.Text = "Highscore";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(84, 157);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(465, 73);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "HIGH_SCORE";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(611, 451);
+            this.ClientSize = new System.Drawing.Size(611, 472);
             this.Controls.Add(this.mainTabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -658,9 +658,6 @@
             this.hoofdMenuPage.PerformLayout();
             this.spelPage.ResumeLayout(false);
             this.spelPage.PerformLayout();
-            this.gameOverPage.ResumeLayout(false);
-            this.highScorePage.ResumeLayout(false);
-            this.highScorePage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart00)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart33)).EndInit();
@@ -677,7 +674,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart31)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.spelPbKaart02)).EndInit();
+            this.gameOverPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.endPbCrown)).EndInit();
+            this.highScorePage.ResumeLayout(false);
+            this.highScorePage.PerformLayout();
             this.ResumeLayout(false);
 
         }
