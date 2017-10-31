@@ -1,6 +1,7 @@
 ﻿using MemoryGameProject.Code.Game;
 using MemoryGameProject.Code.IO;
 using MemoryGameProject.Code.UI;
+
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -149,12 +150,18 @@ namespace MemoryGameProject.Code.Pages
             timerUpdateTimer.Start();
         }
 
-        public void SaveGame()
+        public bool SaveGame()
         {
             GameContext ctx = new GameContext(playerList, turnController, cardController);
             byte[] data = ctx.Serialize();
 
-            GameFiles.WriteSaveGame(data);
+            if(!GameFiles.WriteSaveGame(data))
+            {
+                MessageBox.Show("Kan het spel niet opslaan!");
+                return false;
+            }
+
+            return true;
         }
 
         public GameContext LoadGame()
