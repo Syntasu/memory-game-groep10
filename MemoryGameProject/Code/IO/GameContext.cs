@@ -15,6 +15,8 @@ namespace MemoryGameProject.Code.IO
         public TurnControllerContext turnControllerContext;
         public CardControllerContext cardControllerContext;
 
+        public GameContext() { }
+
         public GameContext(PlayerList playerList, TurnController turnController, CardController cardController)
         {
             playerListContext = playerList.GetContext();
@@ -62,13 +64,13 @@ namespace MemoryGameProject.Code.IO
     public class TurnControllerContext
     {
         public int turnTimeInSeconds;
-        public Stopwatch turnTimer;
+        //public Stopwatch turnTimer;
         public int currentPlayerId;
 
-        public TurnControllerContext(int turnTimeInSeconds, Stopwatch turnTimer, int currentPlayerId)
+        public TurnControllerContext(int turnTimeInSeconds, int currentPlayerId)
         {
             this.turnTimeInSeconds = turnTimeInSeconds;
-            this.turnTimer = turnTimer;
+            //this.turnTimer = turnTimer;
             this.currentPlayerId = currentPlayerId;
         }
     }

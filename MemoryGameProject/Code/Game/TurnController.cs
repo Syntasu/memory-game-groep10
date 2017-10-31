@@ -97,13 +97,12 @@ namespace MemoryGameProject.Code.Game
 
         public TurnControllerContext GetContext()
         {
-            return new TurnControllerContext(turnTimeInSeconds, turnTimer, CurrentPlayerId);
+            return new TurnControllerContext(turnTimeInSeconds, CurrentPlayerId);
         }
 
         public void SetContext(TurnControllerContext context)
         {
             turnTimeInSeconds = context.turnTimeInSeconds;
-            turnTimer = context.turnTimer;
             CurrentPlayerId = context.currentPlayerId;
         }
     }

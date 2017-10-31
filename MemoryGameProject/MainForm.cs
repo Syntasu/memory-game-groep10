@@ -186,6 +186,18 @@ namespace MemoryGameProject
             gamePage.CardClicked(sender);
         }
 
+        private void spelBtnSave_Click(object sender, EventArgs e)
+        {
+            gamePage.SaveGame();
+            MessageBox.Show("Het spel is opgeslagen.", "Success");
+        }
+
+        private void spelBtnLoad_Click(object sender, EventArgs e)
+        {
+            gamePage.LoadGame();
+            MessageBox.Show("Het spel is geladen.", "Success");
+        }
+
         #endregion
 
         #region End game 
@@ -206,6 +218,7 @@ namespace MemoryGameProject
             //Laat de spel pagina zien.
             pageController.ShowPage(PageController.PAGE_SPEL);
         }
-#endregion
+
+        #endregion
     }
 }

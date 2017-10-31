@@ -1,10 +1,12 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace MemoryGameProject
 {
     /// <summary>
     ///     De object kaart.
     /// </summary>
+    [Serializable]
     public class Card
     {
         //De positie van de kaart op de X as.
@@ -14,6 +16,7 @@ namespace MemoryGameProject
         public int Y;
 
         //Met welke picture box het verbonden is.
+        [NonSerialized]
         public PictureBox pictureBox;
 
         //Welke ID de voorkant is.
