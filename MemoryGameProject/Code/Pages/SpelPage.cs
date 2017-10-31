@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
+
 namespace MemoryGameProject.Code.Pages
 {
     /// <summary>
@@ -55,6 +56,7 @@ namespace MemoryGameProject.Code.Pages
             Properties.Resources.sw8,
         };
 
+        private HighScorePage highScorePage = new HighScorePage();
         /// <summary>
         ///     Een array met de kaarten van het spel.
         /// </summary>
@@ -183,7 +185,18 @@ namespace MemoryGameProject.Code.Pages
             pageController.ShowPage(PageController.PAGE_SPEL_END);
 
             Player[] players = DetermineWinner();
+            if (players.Length == 1)
+            {
+                highScorePage.checkHighscore(players[0].name, players[0].score);
+            }
+            else
+            {
+                highScorePage.checkHighscore(players[0].name, players[0].score, players[1].name, players[1].score);
+            }
             endGamePage.ShowWinners(players);
+            
+            
+            
         }
 
         /// <summary>

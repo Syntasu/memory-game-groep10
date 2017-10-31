@@ -1,0 +1,6 @@
+[Valeria, 5]
+[abc, 4]
+[def, 4]
+[Speler 1, 0]
+[Speler 2, 0]
+[Speler 4, 0]
