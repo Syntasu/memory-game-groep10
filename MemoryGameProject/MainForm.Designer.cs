@@ -188,7 +188,11 @@
             this.mainTabControl.Margin = new System.Windows.Forms.Padding(4);
             this.mainTabControl.Name = "mainTabControl";
             this.mainTabControl.SelectedIndex = 0;
+<<<<<<< Updated upstream
+            this.mainTabControl.Size = new System.Drawing.Size(611, 460);
+=======
             this.mainTabControl.Size = new System.Drawing.Size(815, 581);
+>>>>>>> Stashed changes
             this.mainTabControl.TabIndex = 35;
             this.mainTabControl.TabStop = false;
             this.mainTabControl.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.mainTabControl_Selecting);
@@ -209,8 +213,13 @@
             this.hoofdMenuPage.Location = new System.Drawing.Point(4, 28);
             this.hoofdMenuPage.Margin = new System.Windows.Forms.Padding(4);
             this.hoofdMenuPage.Name = "hoofdMenuPage";
+<<<<<<< Updated upstream
+            this.hoofdMenuPage.Padding = new System.Windows.Forms.Padding(3);
+            this.hoofdMenuPage.Size = new System.Drawing.Size(603, 431);
+=======
             this.hoofdMenuPage.Padding = new System.Windows.Forms.Padding(4);
             this.hoofdMenuPage.Size = new System.Drawing.Size(807, 549);
+>>>>>>> Stashed changes
             this.hoofdMenuPage.TabIndex = 1;
             this.hoofdMenuPage.Text = "Hoofdmenu";
             // 
@@ -380,8 +389,13 @@
             this.spelPage.Location = new System.Drawing.Point(4, 28);
             this.spelPage.Margin = new System.Windows.Forms.Padding(4);
             this.spelPage.Name = "spelPage";
+<<<<<<< Updated upstream
+            this.spelPage.Padding = new System.Windows.Forms.Padding(3);
+            this.spelPage.Size = new System.Drawing.Size(603, 431);
+=======
             this.spelPage.Padding = new System.Windows.Forms.Padding(4);
             this.spelPage.Size = new System.Drawing.Size(807, 549);
+>>>>>>> Stashed changes
             this.spelPage.TabIndex = 0;
             this.spelPage.Text = "Spel";
             // 
@@ -607,8 +621,13 @@
             this.gameOverPage.Location = new System.Drawing.Point(4, 28);
             this.gameOverPage.Margin = new System.Windows.Forms.Padding(4);
             this.gameOverPage.Name = "gameOverPage";
+<<<<<<< Updated upstream
+            this.gameOverPage.Padding = new System.Windows.Forms.Padding(3);
+            this.gameOverPage.Size = new System.Drawing.Size(603, 431);
+=======
             this.gameOverPage.Padding = new System.Windows.Forms.Padding(4);
             this.gameOverPage.Size = new System.Drawing.Size(807, 549);
+>>>>>>> Stashed changes
             this.gameOverPage.TabIndex = 2;
             this.gameOverPage.Text = "Game Over";
             // 
@@ -695,7 +714,11 @@
             this.highScorePage.Location = new System.Drawing.Point(4, 28);
             this.highScorePage.Margin = new System.Windows.Forms.Padding(4);
             this.highScorePage.Name = "highScorePage";
+<<<<<<< Updated upstream
+            this.highScorePage.Size = new System.Drawing.Size(603, 431);
+=======
             this.highScorePage.Size = new System.Drawing.Size(807, 549);
+>>>>>>> Stashed changes
             this.highScorePage.TabIndex = 3;
             this.highScorePage.Text = "Highscore";
             this.highScorePage.Click += new System.EventHandler(this.highScorePage_Click);
@@ -921,7 +944,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+<<<<<<< Updated upstream
+            this.ClientSize = new System.Drawing.Size(611, 460);
+=======
             this.ClientSize = new System.Drawing.Size(815, 581);
+>>>>>>> Stashed changes
             this.Controls.Add(this.mainTabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -1003,6 +1030,10 @@
         private System.Windows.Forms.PictureBox endPbCrown;
         private System.Windows.Forms.Button endBtnAgain;
         private System.Windows.Forms.Button endBtnBack;
+<<<<<<< Updated upstream
+        private System.Windows.Forms.Button spelBtnSave;
+        private System.Windows.Forms.Button spelBtnLoad;
+=======
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
@@ -1022,6 +1053,7 @@
         private System.Windows.Forms.Label Player4Naam;
         private System.Windows.Forms.Label Player1Score;
         private System.Windows.Forms.Label Player1Naam;
+>>>>>>> Stashed changes
     }
 }
 

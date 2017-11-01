@@ -256,6 +256,8 @@ namespace MemoryGameProject
         }
 
         #endregion
+<<<<<<< Updated upstream
+=======
 
         private void label8_Click(object sender, EventArgs e)
         {
@@ -327,5 +329,6 @@ namespace MemoryGameProject
         {
             pageController.ShowPage(PageController.PAGE_HOOFDMENU);
         }
+>>>>>>> Stashed changes
     }
 }
