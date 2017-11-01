@@ -50,8 +50,6 @@
             this.hmLblTitle = new System.Windows.Forms.Label();
             this.hmBtnPlay = new System.Windows.Forms.Button();
             this.spelPage = new System.Windows.Forms.TabPage();
-            this.spelBtnLoad = new System.Windows.Forms.Button();
-            this.spelBtnSave = new System.Windows.Forms.Button();
             this.spelPbKaart00 = new System.Windows.Forms.PictureBox();
             this.spelPbKaart10 = new System.Windows.Forms.PictureBox();
             this.spelPbKaart33 = new System.Windows.Forms.PictureBox();
@@ -364,8 +362,6 @@
             // spelPage
             // 
             this.spelPage.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.spelPage.Controls.Add(this.spelBtnLoad);
-            this.spelPage.Controls.Add(this.spelBtnSave);
             this.spelPage.Controls.Add(this.spelLvSpelers);
             this.spelPage.Controls.Add(this.spelLblTime);
             this.spelPage.Controls.Add(this.spelLblTurn);
@@ -398,26 +394,6 @@
 >>>>>>> Stashed changes
             this.spelPage.TabIndex = 0;
             this.spelPage.Text = "Spel";
-            // 
-            // spelBtnLoad
-            // 
-            this.spelBtnLoad.Location = new System.Drawing.Point(391, 403);
-            this.spelBtnLoad.Name = "spelBtnLoad";
-            this.spelBtnLoad.Size = new System.Drawing.Size(89, 23);
-            this.spelBtnLoad.TabIndex = 36;
-            this.spelBtnLoad.Text = "Laden";
-            this.spelBtnLoad.UseVisualStyleBackColor = true;
-            this.spelBtnLoad.Click += new System.EventHandler(this.spelBtnLoad_Click);
-            // 
-            // spelBtnSave
-            // 
-            this.spelBtnSave.Location = new System.Drawing.Point(486, 403);
-            this.spelBtnSave.Name = "spelBtnSave";
-            this.spelBtnSave.Size = new System.Drawing.Size(90, 23);
-            this.spelBtnSave.TabIndex = 35;
-            this.spelBtnSave.Text = "Opslaan";
-            this.spelBtnSave.UseVisualStyleBackColor = true;
-            this.spelBtnSave.Click += new System.EventHandler(this.spelBtnSave_Click);
             // 
             // spelPbKaart00
             // 
