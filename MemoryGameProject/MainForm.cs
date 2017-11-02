@@ -4,6 +4,7 @@ using MemoryGameProject.Code.Pages;
 using MemoryGameProject.Code;
 using MemoryGameProject.Code.UI;
 using System.Collections.Generic;
+using MemoryGameProject.Code.Game;
 
 namespace MemoryGameProject
 {
@@ -70,23 +71,24 @@ namespace MemoryGameProject
             //player6Score = Player6Score;
 
             //Maak een 2D array die alle pictueboxes aan een index linkt.
-            PictureBox[,] playingField = new PictureBox[4, 4];
-            playingField[0, 0] = spelPbKaart00;
-            playingField[1, 0] = spelPbKaart10;
-            playingField[2, 0] = spelPbKaart20;
-            playingField[3, 0] = spelPbKaart30;
-            playingField[0, 1] = spelPbKaart01;
-            playingField[1, 1] = spelPbKaart11;
-            playingField[2, 1] = spelPbKaart21;
-            playingField[3, 1] = spelPbKaart31;
-            playingField[0, 2] = spelPbKaart02;
-            playingField[1, 2] = spelPbKaart12;
-            playingField[2, 2] = spelPbKaart22;
-            playingField[3, 2] = spelPbKaart32;
-            playingField[0, 3] = spelPbKaart03;
-            playingField[1, 3] = spelPbKaart13;
-            playingField[2, 3] = spelPbKaart23;
-            playingField[3, 3] = spelPbKaart33;
+            PictureBox[,] pictureBoxes = new PictureBox[4, 4];
+            pictureBoxes[0, 0] = spelPbKaart00;
+            pictureBoxes[1, 0] = spelPbKaart10;
+            pictureBoxes[2, 0] = spelPbKaart20;
+            pictureBoxes[3, 0] = spelPbKaart30;
+            pictureBoxes[0, 1] = spelPbKaart01;
+            pictureBoxes[1, 1] = spelPbKaart11;
+            pictureBoxes[2, 1] = spelPbKaart21;
+            pictureBoxes[3, 1] = spelPbKaart31;
+            pictureBoxes[0, 2] = spelPbKaart02;
+            pictureBoxes[1, 2] = spelPbKaart12;
+            pictureBoxes[2, 2] = spelPbKaart22;
+            pictureBoxes[3, 2] = spelPbKaart32;
+            pictureBoxes[0, 3] = spelPbKaart03;
+            pictureBoxes[1, 3] = spelPbKaart13;
+            pictureBoxes[2, 3] = spelPbKaart23;
+            pictureBoxes[3, 3] = spelPbKaart33;
+
 
             //Maak een nieuwe page controller aan.
             pageController = new PageController(mainTabControl, 0);
@@ -97,17 +99,17 @@ namespace MemoryGameProject
             //Maak een eind pagina aan.
             endGamePage = new EndGamePage(endLblWinners);
 
+            PlayingField playingField = new PlayingField(pictureBoxes, 4, 4);
+
             //Maak een nieuwe spel pagina aan.
             gamePage = new SpelPage(
                 pageController, endGamePage,
                 playingField, spelTimerTurn, 
-                spelTimerUpdate, spelLvSpelers, 
-                spelLblTurn, spelLblTime
+                spelTimerUpdate, spelTimerResetCards,
+                spelLvSpelers,spelLblTurn, spelLblTime
             );
 
             highscorePage = new HighScorePage();
-           
-           
         }
 
         /// <summary>
@@ -210,7 +212,13 @@ namespace MemoryGameProject
         /// </summary>
         private void spelTimerTurn_Tick(object sender, EventArgs e)
         {
-            //Reset alle geraden kaarten.
+            //Reset de beurt als je beurt over is.
+            gamePage.ResetGuess();
+        }
+
+        private void spelTimerResetCards_Tick(object sender, EventArgs e)
+        {
+            //Reset de beurt als kaarten gekozen of geraden zijn.
             gamePage.ResetGuess();
         }
 

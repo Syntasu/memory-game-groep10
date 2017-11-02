@@ -20,7 +20,8 @@ namespace MemoryGameProject.Code.IO
         {
             playerListContext = playerList.GetContext();
             turnControllerContext = turnController.GetContext();
-            cardControllerContext = cardController.GetContext();
+            //TODO: Replace.
+            //cardControllerContext = cardController.GetContext();
         }
 
         public byte[] Serialize()

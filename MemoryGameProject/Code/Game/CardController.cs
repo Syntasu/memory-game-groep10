@@ -23,19 +23,9 @@ namespace MemoryGameProject.Code.Game
         private PlayerList playerList;
 
         /// <summary>
-        ///     Array van kaart objecten.
+        ///     Referntie naar het speelveld.
         /// </summary>
-        private Card[,] cards;
-
-        /// <summary>
-        ///     Array met alle voorkanten van de kaarten.
-        /// </summary>
-        private Bitmap[] cardFronts;
-
-        /// <summary>
-        ///     Bitmap met de achterkant van de kaarten.
-        /// </summary>
-        private Bitmap cardBack;
+        private PlayingField playingField;
 
         /// <summary>
         ///     De timeout zorgt er voor dat de kaarten even op het scherm blijven staan.
@@ -58,16 +48,18 @@ namespace MemoryGameProject.Code.Game
         /// </summary>
         private List<Card> guessedCards = new List<Card>();
 
-        public CardController(Card[,] cards, Bitmap[] cardFronts, Bitmap cardBack, Timer timeoutTimer, 
-            int maxGuesses, TurnController turnController, PlayerList playerList )
+        public CardController(PlayingField playingField, Timer timeoutTimer,
+            int maxGuesses, TurnController turnController, PlayerList playerList)
         {
+            this.playingField = playingField;
+            this.playingField.Shuffle();
+
             this.turnController = turnController;
             this.playerList = playerList;
-            this.cards = cards;
-            this.cardFronts = cardFronts;
-            this.cardBack = cardBack;
             this.timeoutTimer = timeoutTimer;
             this.maxGuesses = maxGuesses;
+
+            Update();
         }
 
         /// <summary>
@@ -76,10 +68,6 @@ namespace MemoryGameProject.Code.Game
         /// <param name="obj">object die in de event word mee gegeven.</param>
         public void CardClicked(object obj)
         {
-            //Speel geluid af als je op kaart klikt.
-            SoundPlayer clicksound = new SoundPlayer(Properties.Resources.geluid2);
-            clicksound.Play();
-
             //Zoek de kaart via de FindCard methode.
             Card card = FindCard(obj);
 
@@ -103,7 +91,7 @@ namespace MemoryGameProject.Code.Game
             //Controleer of de kaart al omgedraaid is.
             for (int i = 0; i < guessedCards.Count; i++)
             {
-                if(card == guessedCards[i])
+                if (card == guessedCards[i])
                 {
                     MessageBox.Show("De kaart is al omgedraaid, probeer opnieuw");
                     return;
@@ -129,11 +117,17 @@ namespace MemoryGameProject.Code.Game
         /// <param name="card">De kaart die geklikt is.</param>
         private void HandleCardClick(Card card)
         {
+            Console.WriteLine("CLICK");
+
             //Controleer of we nog kaarten kunnen kiezen, of we aan de limiet voor het max aantal keer raden zitten.
             if (guessedCards.Count < maxGuesses)
             {
                 //Laat de voorkant van de kaart zien.
                 card.isFlipped = true;
+
+                //Speel geluid af als je op kaart klikt.
+                SoundPlayer clicksound = new SoundPlayer(Properties.Resources.geluid2);
+                clicksound.Play();
 
                 //Kijk of we een match hebben.
                 bool match = CheckForMatch(card);
@@ -142,23 +136,19 @@ namespace MemoryGameProject.Code.Game
                  * Als we een match hebben...
                  * Dan willen meteen alles reseten.
                  */
-                if(match)
+                if (match)
                 {
-
                     int playerId = turnController.CurrentPlayerId;
                     Player player = playerList.GetPlayerById(playerId);
                     player.score++;
-
-                    ResetGuesses();
-                    return;
                 }
-                
+
                 //Voeg de kaart toe aan de geraden kaarten.
                 guessedCards.Add(card);
             }
-
-            //Als we het maximaal aantal keer raden hebben gedaan dan:
-            if (guessedCards.Count == maxGuesses)
+            
+            //Controleer of we de maximaal aantal geraden is bereikt.
+            if(guessedCards.Count == maxGuesses)
             {
                 /*
                  * We willen een x aantal milliseconden wachten voor dat we de kaarten weer willen omdraaien.
@@ -166,6 +156,7 @@ namespace MemoryGameProject.Code.Game
                 */
                 timeout = true;
                 timeoutTimer.Start();
+                Console.WriteLine("WAIT");
             }
         }
 
@@ -176,6 +167,9 @@ namespace MemoryGameProject.Code.Game
         /// <returns>Returned true als we een match hebben en false als we geen match hebben.</returns>
         private bool CheckForMatch(Card card)
         {
+            //Als we 1 kaart hebben kunnen we nooit een match hebben.
+            if (guessedCards.Count == 0) return false;
+
             /*
              1) Loop over de array
              2) Sla de kaart over die we willen checken.
@@ -184,12 +178,12 @@ namespace MemoryGameProject.Code.Game
              */
             for (int i = 0; i < guessedCards.Count; i++)
             {
-                if(guessedCards[i] == card)
+                if (guessedCards[i] == card)
                 {
                     continue;
                 }
 
-                if(guessedCards[i].front == card.front)
+                if (guessedCards[i].front == card.front)
                 {
                     //Zet beide kaarten naar geraden.
                     card.isGuessed = true;
@@ -215,10 +209,10 @@ namespace MemoryGameProject.Code.Game
         public Card FindCard(object obj)
         {
             //Zet obj om in een picture box.
-            //TODO: Geeft error als je een obj meegeeft wat geen picturebox is.
             PictureBox pictureBox = null;
 
-            if(obj.GetType().IsAssignableFrom(typeof(PictureBox)))
+            //Controleer of het "object" van de type "PictureBox" is.
+            if (obj.GetType().IsAssignableFrom(typeof(PictureBox)))
             {
                 pictureBox = obj as PictureBox;
             }
@@ -227,57 +221,21 @@ namespace MemoryGameProject.Code.Game
                 throw new Exception("Gegeven object is geen kaart!");
             }
 
-            //Loop over de kaarten array.
-            for (int x = 0; x < 4; x++)
-            {
-                for (int y = 0; y < 4; y++)
-                {
-                    //Als de kaart object het zelfde picture box heeft naar die we willen.
-                    //Return dan de kaart object.
-                    if(cards[x,y].pictureBox == pictureBox )
-                    {
-                        return cards[x, y];
-                    }
-                }
-            }
+            int x = -1;
+            int y = -1;
 
-            return null;
+            playingField.GetCoordinates(pictureBox, out x, out y);
+            return playingField.GetCardAt(x, y);
         }
 
-        /// <summary>
-        ///     Reset de kaarten naar de plaatje van de achterkant, behalve geraden kaartjes.
-        /// </summary>
-        public void ResetCards()
-        {
-            //Loop over de kaarten array.
-            for (int x = 0; x < 4; x++)
-            {
-                for (int y = 0; y < 4; y++)
-                {
-                    //Sla kaart tijdelijk op.
-                    Card card = cards[x, y];
-
-                    /*
-                     * Als de kaart nog niet is geraden, laat de achterkant zien.
-                     * Zet anders de voorkant van de kaart als plaatje.
-                     */
-                    if(!card.isGuessed)
-                    {
-                        card.pictureBox.Image = cardBack;
-                    }
-                    else
-                    {
-                        card.pictureBox.Image = cardFronts[card.front];
-                    }
-                }
-            }
-        }
 
         /// <summary>
         ///     Reset de geraden kaarten en alle variabelen die er mee te maken hebben.
         /// </summary>
         public void ResetGuesses()
         {
+            Console.WriteLine("RESET");
+
             //Flip alle kaarten weer op die de gebruiker heeft geraden.
             for (int i = 0; i < guessedCards.Count; i++)
             {
@@ -308,8 +266,10 @@ namespace MemoryGameProject.Code.Game
             {
                 for (int y = 0; y < 4; y++)
                 {
+                    Card card = playingField.GetCardAt(x, y);
+
                     //Als 1 kaart niet geraden is, dan is het spel niet over.
-                    if(!cards[x,y].isGuessed)
+                    if (!card.isGuessed)
                     {
                         return false;
                     }
@@ -329,7 +289,12 @@ namespace MemoryGameProject.Code.Game
             {
                 for (int y = 0; y < 4; y++)
                 {
-                    Card card = this.cards[x, y];
+                    Card card = playingField.GetCardAt(x,y);
+
+                    if(card == null)
+                    {
+                        continue;
+                    }
 
                     if(card.isFlipped)
                     {
@@ -343,7 +308,7 @@ namespace MemoryGameProject.Code.Game
                         continue;
                     }
 
-                    HideCardFront(card);
+                    ShowCardBack(card);
                 }
             }
         }
@@ -354,39 +319,26 @@ namespace MemoryGameProject.Code.Game
         /// <param name="card">De kaart die we willen omdraaien.</param>
         public void ShowCardFront(Card card)
         {
-            //TODO: Remove, this is an result of tight coupling.
-            if (card.pictureBox == null) return;
+            //Vind de picture box die bij de kaart hoort.
+            PictureBox pb = playingField.GetPictureBox(card.X, card.Y);
 
-            //Zet het plaatje die we opvragen uit de graphic array.
-            /*
-             * TODO: Card is niet verantwoordelijk om pictureboxes bij te houden.
-             *       Dit zorgt een tight coupling tussen de kaart en picturebox.
-             */
-   
-            card.pictureBox.Image = cardFronts[card.front];
+            //Vind de voorkant van de kaart d.m.v. een id.
+            Bitmap front = playingField.GetFrontImageById(card.front);
+
+            //Zet het plaatje naar de voorkant.
+            pb.Image = front;
         }
 
-        public void HideCardFront(Card card)
+        public void ShowCardBack(Card card)
         {
-            //TODO: Remove, this is an result of tight coupling.
-            if (card.pictureBox == null) return;
+            //Vind de picture box die bij de kaart hoort.
+            PictureBox pb = playingField.GetPictureBox(card.X, card.Y);
 
-            /*
-             * TODO: Card is niet verantwoordelijk om pictureboxes bij te houden.
-             *       Dit zorgt een tight coupling tussen de kaart en picturebox.
-             */
-            card.pictureBox.Image = cardBack;
+            //Vind de achterkant van de kaart.
+            Bitmap back = playingField.GetBackImage();
+
+            //Zet het plaatje naar de achterkant.
+            pb.Image = back;
         }
-
-        public CardControllerContext GetContext()
-        {
-            return new CardControllerContext(cards);
-        }
-
-        public void SetContext(GameContext context)
-        {
-            cards = context.cardControllerContext.cards;
-        }
-
     }
 }

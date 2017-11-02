@@ -36,27 +36,15 @@ namespace MemoryGameProject.Code.Pages
         private EndGamePage endGamePage;
 
         /// <summary>
-        ///     Het plaatje van de achterkant van de kaarten.
+        ///     Referentie naar het speelveld.
         /// </summary>
-        private Bitmap backGraphic = Properties.Resources.sw0;
+        private PlayingField playingField;
 
         /// <summary>
-        ///     Alle graphics die we gaan gebruiken in een array gezet.
-        ///     0 is de achterkant, 1 tot 7 zijn de voorkanten.
+        ///     Referentie naar de highscore pagina.
         /// </summary>
-        private Bitmap[] cardGraphics =
-        {
-            Properties.Resources.sw1,
-            Properties.Resources.sw2,
-            Properties.Resources.sw3,
-            Properties.Resources.sw4,
-            Properties.Resources.sw5,
-            Properties.Resources.sw6,
-            Properties.Resources.sw7,
-            Properties.Resources.sw8,
-        };
-
         private HighScorePage highScorePage = new HighScorePage();
+
         /// <summary>
         ///     Een array met de kaarten van het spel.
         /// </summary>
@@ -66,11 +54,6 @@ namespace MemoryGameProject.Code.Pages
         ///     Hoeveel tijd je hebt voor elke beurt.
         /// </summary>
         private int timePerTurn = 60;
-
-        /// <summary>
-        ///     Een 2D array met alle pictureboxes gerelateerd aan de coordinaten.
-        /// </summary>
-        private PictureBox[,] pictureBoxField;
 
         /// <summary>
         ///     De page controller die alle pagina beheerd.
@@ -86,6 +69,11 @@ namespace MemoryGameProject.Code.Pages
         ///     De timer die constant alles update.
         /// </summary>
         private Timer timerUpdateTimer;
+
+        /// <summary>
+        ///     De timer die bijhoud of de kaarten weer omgedraaid moet worden.
+        /// </summary>
+        private Timer timerCardReset;
 
         /// <summary>
         ///     De control met alle spelers (list view)
@@ -105,23 +93,16 @@ namespace MemoryGameProject.Code.Pages
         /// <summary>
         ///     Contructor die alle argumenten assgined aan de variabelen.
         /// </summary>
-        /// <param name="pageController">De page controller verantwoordelijk voor paginas te switchen.</param>
-        /// <param name="pictureBoxField">Een 2D array met alle pictureboxes.</param>
-        /// <param name="timerTurnCountdown">Timer die verantwoordelijk voor het aftellen is.</param>
-        /// <param name="timerUpdateTimer">Timer die gebruikers interface en logica update.</param>
-        /// <param name="listViewPlayerList">De list view voor de spelers lijst. </param>
-        /// <param name="labelTurn">De label met de naam van wie aan de beurt is.</param>
-        /// <param name="labelTime">De label met de tijd die er nog over is.</param>
-        public SpelPage(PageController pageController, EndGamePage endGamePage,
-            PictureBox[,] pictureBoxField, Timer timerTurnCountdown,
-            Timer timerUpdateTimer, ListView listViewPlayerList, 
-            Label labelTurn, Label labelTime)
+        public SpelPage(PageController pageController, EndGamePage endGamePage, PlayingField playingField, 
+                        Timer timerTurnCountdown, Timer timerUpdateTimer, Timer timerCardReset,
+                        ListView listViewPlayerList, Label labelTurn, Label labelTime)
         {
             this.pageController = pageController;
             this.endGamePage = endGamePage;
-            this.pictureBoxField = pictureBoxField;
+            this.playingField = playingField;
             this.timerTurnCountdown = timerTurnCountdown;
             this.timerUpdateTimer = timerUpdateTimer;
+            this.timerCardReset = timerCardReset;
             this.listViewPlayerList = listViewPlayerList;
             this.labelTurn = labelTurn;
             this.labelTime = labelTime;
@@ -140,13 +121,13 @@ namespace MemoryGameProject.Code.Pages
              */
             playerList = new PlayerList(players);
             turnController = new TurnController(timePerTurn, playerList);
+            cardController = new CardController(playingField, timerCardReset, 2, turnController, playerList);
 
             //Start de turn controller, normaal roepen we dit aan als het spel begint.
             turnController.BeginTurn();
 
             //Vul alles in (labels, listboxes) op de user interface.
             SetupUserInterface();
-            SetupCards();
 
             //Start de update timer, zodat de user interface geupdate word.
             timerUpdateTimer.Start();
@@ -176,7 +157,8 @@ namespace MemoryGameProject.Code.Pages
 
             playerList.SetContext(context);
             turnController.SetContext(context);
-            cardController.SetContext(context);
+            //TODO: Serialize playing field
+            //cardController.SetContext(context);
 
             return true;
 
@@ -195,6 +177,7 @@ namespace MemoryGameProject.Code.Pages
             pageController.ShowPage(PageController.PAGE_SPEL_END);
 
             Player[] players = DetermineWinner();
+
             if (players.Length == 1)
             {
                 highScorePage.checkHighscore(players[0].name, players[0].score);
@@ -203,10 +186,8 @@ namespace MemoryGameProject.Code.Pages
             {
                 highScorePage.checkHighscore(players[0].name, players[0].score, players[1].name, players[1].score);
             }
+
             endGamePage.ShowWinners(players);
-            
-            
-            
         }
 
         /// <summary>
@@ -267,67 +248,6 @@ namespace MemoryGameProject.Code.Pages
         public void ResetGuess()
         {
             cardController.ResetGuesses();
-        }
-
-        /// <summary>
-        ///     Alle kaarten aanmaken, een picture box linken aan de coordinaten.
-        ///     Daarna over alle kaarten loopen en een random voorkant geven.
-        /// </summary>
-        private void SetupCards()
-        { 
-            //Maak een nieuwe random object aan.
-            Random rand = new Random();
-
-            //Houd een array bij met hoe vaak een kaart gekozen is.
-            int[] picked = new int[8];
-
-            //Loop over de 2d array heen.
-            for (int x = 0; x < 4; x++)
-            {
-                for (int y = 0; y < 4; y++)
-                {
-                    //Maak een nieuwe object van de kaart aan.
-                    cards[x, y] = new Card(x, y, pictureBoxField[x, y]);
-
-                    bool haspicked = false;
-
-                    //Pak een random nummer tussen 0 en 8.
-                    int kaart = rand.Next(0, 8);
-
-                    // Zolang we nog geen kaart hebben gepakt, dan...
-                    while (!haspicked)
-                    {
-                        //Als de kaart minder dan 2x gekozen is, gebruik deze kaart.
-                        if (picked[kaart] <= 1)
-                        {
-                            //Zeg welke id deze kaart heeft.
-                            cards[x, y].front = kaart;
-
-                            //Plus 1 in de picked array.
-                            picked[kaart] = picked[kaart] + 1;
-
-                            //En we hebben gekozen dus we willen uit de while loop weg.
-                            haspicked = true;
-                        }
-                        //Als de kaart al meer dan 2 keer gekozen is...
-                        //Trek een nieuwe random nummer en probeer opnieuw
-                        else
-                        {
-                            kaart = rand.Next(0, 8);
-                        }
-                    }
-
-                }
-            }
-
-            //Initialiseer de card controller.
-            cardController = new CardController(
-                cards, cardGraphics, backGraphic,
-                timerTurnCountdown, 2, turnController, playerList
-            );
-
-            //Reset alle kaarten.
-            cardController.ResetCards();
         }
 
         /// <summary>

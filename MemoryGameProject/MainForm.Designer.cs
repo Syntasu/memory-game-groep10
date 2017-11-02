@@ -93,6 +93,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.spelTimerResetCards = new System.Windows.Forms.Timer(this.components);
             this.mainTabControl.SuspendLayout();
             this.hoofdMenuPage.SuspendLayout();
             this.spelPage.SuspendLayout();
@@ -204,8 +205,8 @@
             this.hoofdMenuPage.Controls.Add(this.hmBtnPlay);
             this.hoofdMenuPage.Location = new System.Drawing.Point(4, 25);
             this.hoofdMenuPage.Name = "hoofdMenuPage";
-            this.hoofdMenuPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.hoofdMenuPage.Size = new System.Drawing.Size(603, 443);
+            this.hoofdMenuPage.Padding = new System.Windows.Forms.Padding(3);
+            this.hoofdMenuPage.Size = new System.Drawing.Size(585, 429);
             this.hoofdMenuPage.TabIndex = 1;
             this.hoofdMenuPage.Text = "Hoofdmenu";
             // 
@@ -216,7 +217,7 @@
             this.hmBtnPlayerAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hmBtnPlayerAdd.ForeColor = System.Drawing.SystemColors.ControlText;
             this.hmBtnPlayerAdd.Location = new System.Drawing.Point(485, 354);
-            this.hmBtnPlayerAdd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.hmBtnPlayerAdd.Margin = new System.Windows.Forms.Padding(2);
             this.hmBtnPlayerAdd.Name = "hmBtnPlayerAdd";
             this.hmBtnPlayerAdd.Size = new System.Drawing.Size(91, 22);
             this.hmBtnPlayerAdd.TabIndex = 19;
@@ -231,7 +232,7 @@
             this.hmBtnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hmBtnExit.ForeColor = System.Drawing.SystemColors.ControlText;
             this.hmBtnExit.Location = new System.Drawing.Point(204, 312);
-            this.hmBtnExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.hmBtnExit.Margin = new System.Windows.Forms.Padding(2);
             this.hmBtnExit.Name = "hmBtnExit";
             this.hmBtnExit.Size = new System.Drawing.Size(132, 64);
             this.hmBtnExit.TabIndex = 7;
@@ -246,7 +247,7 @@
             this.hmBtnAbout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hmBtnAbout.ForeColor = System.Drawing.SystemColors.ControlText;
             this.hmBtnAbout.Location = new System.Drawing.Point(24, 312);
-            this.hmBtnAbout.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.hmBtnAbout.Margin = new System.Windows.Forms.Padding(2);
             this.hmBtnAbout.Name = "hmBtnAbout";
             this.hmBtnAbout.Size = new System.Drawing.Size(176, 64);
             this.hmBtnAbout.TabIndex = 6;
@@ -261,7 +262,7 @@
             this.hmBtnExplanation.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hmBtnExplanation.ForeColor = System.Drawing.SystemColors.ControlText;
             this.hmBtnExplanation.Location = new System.Drawing.Point(24, 244);
-            this.hmBtnExplanation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.hmBtnExplanation.Margin = new System.Windows.Forms.Padding(2);
             this.hmBtnExplanation.Name = "hmBtnExplanation";
             this.hmBtnExplanation.Size = new System.Drawing.Size(312, 64);
             this.hmBtnExplanation.TabIndex = 2;
@@ -276,7 +277,7 @@
             this.hmBtnHighscore.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hmBtnHighscore.ForeColor = System.Drawing.SystemColors.ControlText;
             this.hmBtnHighscore.Location = new System.Drawing.Point(24, 176);
-            this.hmBtnHighscore.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.hmBtnHighscore.Margin = new System.Windows.Forms.Padding(2);
             this.hmBtnHighscore.Name = "hmBtnHighscore";
             this.hmBtnHighscore.Size = new System.Drawing.Size(312, 64);
             this.hmBtnHighscore.TabIndex = 1;
@@ -290,7 +291,7 @@
             this.hmTbPlayername.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.hmTbPlayername.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hmTbPlayername.Location = new System.Drawing.Point(353, 359);
-            this.hmTbPlayername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.hmTbPlayername.Margin = new System.Windows.Forms.Padding(2);
             this.hmTbPlayername.Name = "hmTbPlayername";
             this.hmTbPlayername.Size = new System.Drawing.Size(128, 17);
             this.hmTbPlayername.TabIndex = 4;
@@ -316,7 +317,7 @@
             this.hmLbPlayers.FormattingEnabled = true;
             this.hmLbPlayers.ItemHeight = 18;
             this.hmLbPlayers.Location = new System.Drawing.Point(353, 116);
-            this.hmLbPlayers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.hmLbPlayers.Margin = new System.Windows.Forms.Padding(2);
             this.hmLbPlayers.Name = "hmLbPlayers";
             this.hmLbPlayers.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.hmLbPlayers.Size = new System.Drawing.Size(223, 234);
@@ -341,7 +342,7 @@
             this.hmBtnPlay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hmBtnPlay.ForeColor = System.Drawing.SystemColors.ControlText;
             this.hmBtnPlay.Location = new System.Drawing.Point(24, 108);
-            this.hmBtnPlay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.hmBtnPlay.Margin = new System.Windows.Forms.Padding(2);
             this.hmBtnPlay.Name = "hmBtnPlay";
             this.hmBtnPlay.Size = new System.Drawing.Size(312, 64);
             this.hmBtnPlay.TabIndex = 0;
@@ -376,7 +377,7 @@
             this.spelPage.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.spelPage.Location = new System.Drawing.Point(4, 25);
             this.spelPage.Name = "spelPage";
-            this.spelPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.spelPage.Padding = new System.Windows.Forms.Padding(3);
             this.spelPage.Size = new System.Drawing.Size(585, 429);
             this.spelPage.TabIndex = 0;
             this.spelPage.Text = "Spel";
@@ -384,7 +385,7 @@
             // spelBtnLoad
             // 
             this.spelBtnLoad.Location = new System.Drawing.Point(438, 404);
-            this.spelBtnLoad.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.spelBtnLoad.Margin = new System.Windows.Forms.Padding(2);
             this.spelBtnLoad.Name = "spelBtnLoad";
             this.spelBtnLoad.Size = new System.Drawing.Size(67, 19);
             this.spelBtnLoad.TabIndex = 36;
@@ -395,7 +396,7 @@
             // spelBtnSave
             // 
             this.spelBtnSave.Location = new System.Drawing.Point(509, 404);
-            this.spelBtnSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.spelBtnSave.Margin = new System.Windows.Forms.Padding(2);
             this.spelBtnSave.Name = "spelBtnSave";
             this.spelBtnSave.Size = new System.Drawing.Size(68, 19);
             this.spelBtnSave.TabIndex = 35;
@@ -407,7 +408,7 @@
             // 
             this.spelPbKaart00.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.spelPbKaart00.Location = new System.Drawing.Point(202, 29);
-            this.spelPbKaart00.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.spelPbKaart00.Margin = new System.Windows.Forms.Padding(2);
             this.spelPbKaart00.Name = "spelPbKaart00";
             this.spelPbKaart00.Size = new System.Drawing.Size(90, 90);
             this.spelPbKaart00.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -419,7 +420,7 @@
             // 
             this.spelPbKaart10.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.spelPbKaart10.Location = new System.Drawing.Point(202, 123);
-            this.spelPbKaart10.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.spelPbKaart10.Margin = new System.Windows.Forms.Padding(2);
             this.spelPbKaart10.Name = "spelPbKaart10";
             this.spelPbKaart10.Size = new System.Drawing.Size(90, 90);
             this.spelPbKaart10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -431,7 +432,7 @@
             // 
             this.spelPbKaart33.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.spelPbKaart33.Location = new System.Drawing.Point(486, 310);
-            this.spelPbKaart33.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.spelPbKaart33.Margin = new System.Windows.Forms.Padding(2);
             this.spelPbKaart33.Name = "spelPbKaart33";
             this.spelPbKaart33.Size = new System.Drawing.Size(90, 90);
             this.spelPbKaart33.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -443,7 +444,7 @@
             // 
             this.spelPbKaart20.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.spelPbKaart20.Location = new System.Drawing.Point(202, 217);
-            this.spelPbKaart20.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.spelPbKaart20.Margin = new System.Windows.Forms.Padding(2);
             this.spelPbKaart20.Name = "spelPbKaart20";
             this.spelPbKaart20.Size = new System.Drawing.Size(90, 90);
             this.spelPbKaart20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -455,7 +456,7 @@
             // 
             this.spelPbKaart23.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.spelPbKaart23.Location = new System.Drawing.Point(486, 215);
-            this.spelPbKaart23.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.spelPbKaart23.Margin = new System.Windows.Forms.Padding(2);
             this.spelPbKaart23.Name = "spelPbKaart23";
             this.spelPbKaart23.Size = new System.Drawing.Size(90, 90);
             this.spelPbKaart23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -467,7 +468,7 @@
             // 
             this.spelPbKaart30.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.spelPbKaart30.Location = new System.Drawing.Point(202, 310);
-            this.spelPbKaart30.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.spelPbKaart30.Margin = new System.Windows.Forms.Padding(2);
             this.spelPbKaart30.Name = "spelPbKaart30";
             this.spelPbKaart30.Size = new System.Drawing.Size(90, 90);
             this.spelPbKaart30.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -479,7 +480,7 @@
             // 
             this.spelPbKaart13.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.spelPbKaart13.Location = new System.Drawing.Point(486, 122);
-            this.spelPbKaart13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.spelPbKaart13.Margin = new System.Windows.Forms.Padding(2);
             this.spelPbKaart13.Name = "spelPbKaart13";
             this.spelPbKaart13.Size = new System.Drawing.Size(90, 90);
             this.spelPbKaart13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -491,7 +492,7 @@
             // 
             this.spelPbKaart03.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.spelPbKaart03.Location = new System.Drawing.Point(486, 29);
-            this.spelPbKaart03.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.spelPbKaart03.Margin = new System.Windows.Forms.Padding(2);
             this.spelPbKaart03.Name = "spelPbKaart03";
             this.spelPbKaart03.Size = new System.Drawing.Size(90, 90);
             this.spelPbKaart03.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -503,7 +504,7 @@
             // 
             this.spelPbKaart01.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.spelPbKaart01.Location = new System.Drawing.Point(297, 29);
-            this.spelPbKaart01.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.spelPbKaart01.Margin = new System.Windows.Forms.Padding(2);
             this.spelPbKaart01.Name = "spelPbKaart01";
             this.spelPbKaart01.Size = new System.Drawing.Size(90, 90);
             this.spelPbKaart01.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -515,7 +516,7 @@
             // 
             this.spelPbKaart32.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.spelPbKaart32.Location = new System.Drawing.Point(391, 310);
-            this.spelPbKaart32.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.spelPbKaart32.Margin = new System.Windows.Forms.Padding(2);
             this.spelPbKaart32.Name = "spelPbKaart32";
             this.spelPbKaart32.Size = new System.Drawing.Size(90, 90);
             this.spelPbKaart32.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -527,7 +528,7 @@
             // 
             this.spelPbKaart11.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.spelPbKaart11.Location = new System.Drawing.Point(297, 123);
-            this.spelPbKaart11.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.spelPbKaart11.Margin = new System.Windows.Forms.Padding(2);
             this.spelPbKaart11.Name = "spelPbKaart11";
             this.spelPbKaart11.Size = new System.Drawing.Size(90, 90);
             this.spelPbKaart11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -539,7 +540,7 @@
             // 
             this.spelPbKaart22.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.spelPbKaart22.Location = new System.Drawing.Point(391, 215);
-            this.spelPbKaart22.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.spelPbKaart22.Margin = new System.Windows.Forms.Padding(2);
             this.spelPbKaart22.Name = "spelPbKaart22";
             this.spelPbKaart22.Size = new System.Drawing.Size(90, 90);
             this.spelPbKaart22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -551,7 +552,7 @@
             // 
             this.spelPbKaart21.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.spelPbKaart21.Location = new System.Drawing.Point(297, 217);
-            this.spelPbKaart21.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.spelPbKaart21.Margin = new System.Windows.Forms.Padding(2);
             this.spelPbKaart21.Name = "spelPbKaart21";
             this.spelPbKaart21.Size = new System.Drawing.Size(90, 90);
             this.spelPbKaart21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -563,7 +564,7 @@
             // 
             this.spelPbKaart12.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.spelPbKaart12.Location = new System.Drawing.Point(391, 122);
-            this.spelPbKaart12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.spelPbKaart12.Margin = new System.Windows.Forms.Padding(2);
             this.spelPbKaart12.Name = "spelPbKaart12";
             this.spelPbKaart12.Size = new System.Drawing.Size(90, 90);
             this.spelPbKaart12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -575,7 +576,7 @@
             // 
             this.spelPbKaart31.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.spelPbKaart31.Location = new System.Drawing.Point(297, 310);
-            this.spelPbKaart31.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.spelPbKaart31.Margin = new System.Windows.Forms.Padding(2);
             this.spelPbKaart31.Name = "spelPbKaart31";
             this.spelPbKaart31.Size = new System.Drawing.Size(90, 90);
             this.spelPbKaart31.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -587,7 +588,7 @@
             // 
             this.spelPbKaart02.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.spelPbKaart02.Location = new System.Drawing.Point(391, 29);
-            this.spelPbKaart02.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.spelPbKaart02.Margin = new System.Windows.Forms.Padding(2);
             this.spelPbKaart02.Name = "spelPbKaart02";
             this.spelPbKaart02.Size = new System.Drawing.Size(90, 90);
             this.spelPbKaart02.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -604,8 +605,8 @@
             this.gameOverPage.Controls.Add(this.endPbCrown);
             this.gameOverPage.Location = new System.Drawing.Point(4, 25);
             this.gameOverPage.Name = "gameOverPage";
-            this.gameOverPage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.gameOverPage.Size = new System.Drawing.Size(603, 443);
+            this.gameOverPage.Padding = new System.Windows.Forms.Padding(3);
+            this.gameOverPage.Size = new System.Drawing.Size(585, 429);
             this.gameOverPage.TabIndex = 2;
             this.gameOverPage.Text = "Game Over";
             // 
@@ -618,7 +619,7 @@
             this.endBtnAgain.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.endBtnAgain.Location = new System.Drawing.Point(3, 377);
             this.endBtnAgain.Name = "endBtnAgain";
-            this.endBtnAgain.Size = new System.Drawing.Size(597, 43);
+            this.endBtnAgain.Size = new System.Drawing.Size(579, 43);
             this.endBtnAgain.TabIndex = 3;
             this.endBtnAgain.Text = "Nog een keer spelen!";
             this.endBtnAgain.UseVisualStyleBackColor = false;
@@ -633,7 +634,7 @@
             this.endBtnBack.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.endBtnBack.Location = new System.Drawing.Point(3, 329);
             this.endBtnBack.Name = "endBtnBack";
-            this.endBtnBack.Size = new System.Drawing.Size(597, 48);
+            this.endBtnBack.Size = new System.Drawing.Size(579, 48);
             this.endBtnBack.TabIndex = 2;
             this.endBtnBack.Text = "Naar het hoofdmenu";
             this.endBtnBack.UseVisualStyleBackColor = false;
@@ -645,7 +646,7 @@
             this.endLblWinners.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.endLblWinners.Location = new System.Drawing.Point(3, 146);
             this.endLblWinners.Name = "endLblWinners";
-            this.endLblWinners.Size = new System.Drawing.Size(597, 183);
+            this.endLblWinners.Size = new System.Drawing.Size(579, 183);
             this.endLblWinners.TabIndex = 0;
             this.endLblWinners.Text = "Speler1";
             this.endLblWinners.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -658,7 +659,7 @@
             this.endPbCrown.InitialImage = null;
             this.endPbCrown.Location = new System.Drawing.Point(3, 3);
             this.endPbCrown.Name = "endPbCrown";
-            this.endPbCrown.Size = new System.Drawing.Size(597, 143);
+            this.endPbCrown.Size = new System.Drawing.Size(579, 143);
             this.endPbCrown.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.endPbCrown.TabIndex = 1;
             this.endPbCrown.TabStop = false;
@@ -687,7 +688,7 @@
             this.highScorePage.Controls.Add(this.label1);
             this.highScorePage.Location = new System.Drawing.Point(4, 25);
             this.highScorePage.Name = "highScorePage";
-            this.highScorePage.Size = new System.Drawing.Size(603, 443);
+            this.highScorePage.Size = new System.Drawing.Size(585, 429);
             this.highScorePage.TabIndex = 3;
             this.highScorePage.Text = "Highscore";
             // 
@@ -843,6 +844,11 @@
             this.label1.Size = new System.Drawing.Size(75, 19);
             this.label1.TabIndex = 18;
             // 
+            // spelTimerResetCards
+            // 
+            this.spelTimerResetCards.Interval = 1000;
+            this.spelTimerResetCards.Tick += new System.EventHandler(this.spelTimerResetCards_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -852,7 +858,7 @@
             this.Controls.Add(this.mainTabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Memory Game";
@@ -950,6 +956,7 @@
         private System.Windows.Forms.Label Player4Naam;
         private System.Windows.Forms.Label Player1Score;
         private System.Windows.Forms.Label Player1Naam;
+        private System.Windows.Forms.Timer spelTimerResetCards;
     }
 }
 

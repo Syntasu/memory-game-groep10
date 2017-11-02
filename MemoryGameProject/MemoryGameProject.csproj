@@ -73,6 +73,7 @@
       <DependentUpon>Alexander.cs</DependentUpon>
     </Compile>
     <Compile Include="Code\Game\CardController.cs" />
+    <Compile Include="Code\Game\PlayingField.cs" />
     <Compile Include="Code\IO\GameContext.cs" />
     <Compile Include="Code\IO\GameFiles.cs" />
     <Compile Include="Code\UI\PageController.cs" />

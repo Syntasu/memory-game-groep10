@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows.Forms;
 
 namespace MemoryGameProject
 {
@@ -15,10 +14,6 @@ namespace MemoryGameProject
         //De positie van de kaart op de Y as.
         public int Y;
 
-        //Met welke picture box het verbonden is.
-        [NonSerialized]
-        public PictureBox pictureBox;
-
         //Welke ID de voorkant is.
         public int front;
 
@@ -28,12 +23,17 @@ namespace MemoryGameProject
         //Bool die aangeeft of een kaart omgeflipt is door een gebruiker
         public bool isFlipped;
 
-        public Card(int x, int y, PictureBox pictures)
+        /// <summary>
+        ///     Constructor voor Card de klasse
+        /// </summary>
+        /// <param name="x"> De x axis van de kaart.</param>
+        /// <param name="y"> De y axis van de kaart.</param>
+        public Card(int x, int y)
         {
             X = x;
             Y = y;
-            pictureBox = pictures;
             isGuessed = false;
+            isFlipped = false;
         }
     }
 }
