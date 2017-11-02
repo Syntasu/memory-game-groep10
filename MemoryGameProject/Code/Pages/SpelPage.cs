@@ -267,6 +267,9 @@ namespace MemoryGameProject.Code.Pages
             labelTurn.Text = "Beurt: " + playerWithInitialTurn.name;
         }
 
+        /// <summary>
+        ///     Update alle elementen van de game.
+        /// </summary>
         public void Update()
         {
             //Update de UI, beurten en de spelers lijst.
@@ -354,13 +357,20 @@ namespace MemoryGameProject.Code.Pages
             }
         }
 
+        /// <summary>
+        ///     Update de card controller.
+        /// </summary>
         private void UpdateCardController()
         {
             cardController.Update();
         }
 
+        /// <summary>
+        ///     Reset/Herstart de game.
+        /// </summary>
         public void ResetGame()
         {
+            //Zet de spelers lijst om in een string array.
             string[] players = new string[playerList.GetPlayerCount()];
 
             for (int i = 0; i < players.Length; i++)
@@ -368,6 +378,7 @@ namespace MemoryGameProject.Code.Pages
                 players[i] = playerList.GetPlayerById(i).name;
             }
 
+            //Begin de game opnieuw
             BeginGame(players);
         }
     }

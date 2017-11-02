@@ -68,11 +68,19 @@ namespace MemoryGameProject.Code.Game
             return null;
         }
 
+        /// <summary>
+        ///     Maak een kopie van de playerlist met alleen de data ervan. (de context).
+        /// </summary>
+        /// <returns> Een kopie met puur de data van de player list.</returns>
         public PlayerListContext GetContext()
         {
             return new PlayerListContext(playerList);
         }
 
+        /// <summary>
+        ///     Laad een kopie in die alle data bevat van de playerlist.
+        /// </summary>
+        /// <param name="context"></param>
         public void SetContext(GameContext context)
         {
             playerList = context.playerListContext.players;

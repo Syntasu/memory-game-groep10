@@ -5,6 +5,9 @@ using System;
 
 namespace MemoryGameProject.Code.Game
 {
+    /// <summary>
+    ///     Klasse die alles m.b.t. het speelveld afhandeld.
+    /// </summary>
     public class PlayingField
     {
         /// <summary>
@@ -177,6 +180,12 @@ namespace MemoryGameProject.Code.Game
             }
         }
 
+        /// <summary>
+        ///     Vind een kaart op een bepaald coordinaat.
+        /// </summary>
+        /// <param name="x"> De x as van de gewenste kaart.</param>
+        /// <param name="y"> De y as van de gewenste kaart.</param>
+        /// <returns></returns>
         public Card GetCardAt(int x, int y)
         {
             //Controleer of we niet buiten de grensen een kaart proberen te pakken.

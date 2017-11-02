@@ -101,6 +101,9 @@ namespace MemoryGameProject.Code.Pages
             Application.Exit();
         }
 
+        /// <summary>
+        ///     Reset het hoofdmenu.
+        /// </summary>
         public void Reset()
         {
             //Maak de input box leeg.

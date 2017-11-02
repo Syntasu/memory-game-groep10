@@ -1,5 +1,4 @@
-﻿using MemoryGameProject.Code.IO;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -283,31 +282,40 @@ namespace MemoryGameProject.Code.Game
             return true;
         }
 
+        /// <summary>
+        ///     Update alle kaarten.
+        /// </summary>
         public void Update()
         {
+            //Loop over de kaarten heen.
             for (int x = 0; x < 4; x++)
             {
                 for (int y = 0; y < 4; y++)
                 {
+                    //Vind de kaart op de coordinaat.
                     Card card = playingField.GetCardAt(x,y);
 
+                    //Als de kaart null is, sla over.
                     if(card == null)
                     {
                         continue;
                     }
 
+                    //Als de kaart geflipt is, laat de voorkant zien.
                     if(card.isFlipped)
                     {
                         ShowCardFront(card);
                         continue;
                     }
 
+                    //Als de kaart geraden is, laat de voorkant zien.
                     if (card.isGuessed)
                     {
                         ShowCardFront(card);
                         continue;
                     }
 
+                    //Anders laat de achterkant zien.
                     ShowCardBack(card);
                 }
             }
@@ -329,6 +337,10 @@ namespace MemoryGameProject.Code.Game
             pb.Image = front;
         }
 
+        /// <summary>
+        ///     Laat de achterkant van de kaart zien.
+        /// </summary>
+        /// <param name="card"> De kaart die we de achterkant willen laten zien.</param>
         public void ShowCardBack(Card card)
         {
             //Vind de picture box die bij de kaart hoort.

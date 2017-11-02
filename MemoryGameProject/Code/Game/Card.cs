@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MemoryGameProject
+namespace MemoryGameProject.Code.Game
 {
     /// <summary>
     ///     De object kaart.

@@ -216,6 +216,9 @@ namespace MemoryGameProject
             gamePage.ResetGuess();
         }
 
+        /// <summary>
+        ///     De timer die verantwoordelijk is voor het resetten van de kaarten.
+        /// </summary>
         private void spelTimerResetCards_Tick(object sender, EventArgs e)
         {
             //Reset de beurt als kaarten gekozen of geraden zijn.
@@ -231,6 +234,9 @@ namespace MemoryGameProject
             gamePage.CardClicked(sender);
         }
 
+        /// <summary>
+        ///     Knop om het spel op te slaan.
+        /// </summary>
         private void spelBtnSave_Click(object sender, EventArgs e)
         {
             if (gamePage.SaveGame())
@@ -243,6 +249,10 @@ namespace MemoryGameProject
             }
         }
 
+        //TODO: Load button should be on the main page.
+        /// <summary>
+        ///     Knop om een spel inte laden.
+        /// </summary>
         private void spelBtnLoad_Click(object sender, EventArgs e)
         {
             if (gamePage.LoadGame())
@@ -258,6 +268,10 @@ namespace MemoryGameProject
         #endregion
 
         #region End game 
+        
+        /// <summary>
+        ///     Terug naar hoofmenu knop.
+        /// </summary>
         private void endBtnBack_Click(object sender, EventArgs e)
         {
             //Naar het hoofdmenu.
@@ -267,6 +281,9 @@ namespace MemoryGameProject
             hoofdmenuPage.Reset();
         }
 
+        /// <summary>
+        ///     Knop om het spel te herstarten.
+        /// </summary>
         private void endBtnAgain_Click(object sender, EventArgs e)
         {
             //Reset de game.

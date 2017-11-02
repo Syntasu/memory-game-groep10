@@ -27,6 +27,11 @@ namespace MemoryGameProject.Code.Game
         /// </summary>
         public int CurrentPlayerId = 0;
 
+        /// <summary>
+        ///     Constructor.
+        /// </summary>
+        /// <param name="turnTimeInSeconds"> De tijd een beurt duurt.</param>
+        /// <param name="playerList"> Referentie naar de spelerslijst. </param>
         public TurnController(int turnTimeInSeconds, PlayerList playerList)
         {
             this.playerList = playerList;
@@ -95,11 +100,19 @@ namespace MemoryGameProject.Code.Game
             }
         }
 
+        /// <summary>
+        ///     Maak een kopie met alleen de data van de turn controller. (de context).
+        /// </summary>
+        /// <returns>De TurnController context.</returns>
         public TurnControllerContext GetContext()
         {
             return new TurnControllerContext(turnTimeInSeconds, CurrentPlayerId);
         }
 
+        /// <summary>
+        ///     Laad een context in en pas deze toe.
+        /// </summary>
+        /// <param name="context"> De "Game context" die geladen is.</param>
         public void SetContext(GameContext context)
         {
             turnTimeInSeconds = context.turnControllerContext.turnTimeInSeconds;

@@ -6,7 +6,9 @@ using System.Windows.Forms;
 
 namespace MemoryGameProject.Code.IO
 { 
-
+    /// <summary>
+    ///     Een klasse die alle data van een "spel" bevat.
+    /// </summary>
     [Serializable]
     public class GameContext
     {
@@ -24,12 +26,18 @@ namespace MemoryGameProject.Code.IO
             //cardControllerContext = cardController.GetContext();
         }
 
+        /// <summary>
+        ///     Methode om de GameContext omtezetten naar iets wat kan worden opgeslagen op de schijf.
+        /// </summary>
+        /// <returns> Een byte array met alle data. </returns>
         public byte[] Serialize()
         {
             try
             {
+                //Maak een nieuwe stream...
                 using (MemoryStream stream = new MemoryStream())
                 {
+                    //Gebruik de binary formatter om de byte array te genereren die we kunnen opslaan.
                     BinaryFormatter formatter = new BinaryFormatter();
                     formatter.Serialize(stream, this);
                     return stream.ToArray();
@@ -37,8 +45,7 @@ namespace MemoryGameProject.Code.IO
             }
             catch (Exception e)
             {
-                MessageBox.Show("Kan het spel niet opslaan: " + e.Message, "Woops");
-                throw;
+                return new byte[0];
             }
         }
 
@@ -46,8 +53,11 @@ namespace MemoryGameProject.Code.IO
         {
             try
             {
+                //Maak een nieuwe stream aan en zet de bytes die we van de file geladen hebben er in.
                 using (MemoryStream stream = new MemoryStream(data))
                 {
+                    //Gebruik de binaryformatter om de bytes om te zetten naar een GameContext.
+                    //TODO: SHould not generate a new copy of GameContext, instead apply it to itself.
                     BinaryFormatter formatter = new BinaryFormatter();
                     return (GameContext)formatter.Deserialize(stream);
                 }
