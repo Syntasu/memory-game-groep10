@@ -54,19 +54,20 @@ namespace MemoryGameProject
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            player1Naam = Player1Naam;
-            player2Naam = Player2Naam;
-            player3Naam = Player3Naam;
-            player4Naam = Player4Naam;
-            player5Naam = Player5Naam;
-            player6Naam = Player6Naam;
+            //TODO: Bestaat niet?
+            //player1Naam = Player1Naam;
+            //player2Naam = Player2Naam;
+            //player3Naam = Player3Naam;
+            //player4Naam = Player4Naam;
+            //player5Naam = Player5Naam;
+            //player6Naam = Player6Naam;
 
-            player1Score = Player1Score;
-            player2Score = Player2Score;
-            player3Score = Player3Score;
-            player4Score = Player4Score;
-            player5Score = Player5Score;
-            player6Score = Player6Score;
+            //player1Score = Player1Score;
+            //player2Score = Player2Score;
+            //player3Score = Player3Score;
+            //player4Score = Player4Score;
+            //player5Score = Player5Score;
+            //player6Score = Player6Score;
 
             //Maak een 2D array die alle pictueboxes aan een index linkt.
             PictureBox[,] playingField = new PictureBox[4, 4];
@@ -256,8 +257,6 @@ namespace MemoryGameProject
         }
 
         #endregion
-<<<<<<< Updated upstream
-=======
 
         private void label8_Click(object sender, EventArgs e)
         {
@@ -267,61 +266,61 @@ namespace MemoryGameProject
         public static void SetHighscores(List<KeyValuePair<string, int>> highscores)
         {
            
-            int i = 0;
-            foreach (KeyValuePair<string,int> keyvaluePair in highscores)
-            {
-                switch (i)
-                {
-                    case 0:
-                        player1Naam.Text = keyvaluePair.Key;
-                        break;
-                    case 1:
-                        player2Naam.Text = keyvaluePair.Key;
-                        break;
-                    case 2:
-                        player3Naam.Text = keyvaluePair.Key;
-                        break;
-                    case 3:
-                        player4Naam.Text = keyvaluePair.Key;
-                        break;
-                    case 4:
-                        player5Naam.Text = keyvaluePair.Key;
-                        break;
-                    case 5:
-                        player6Naam.Text = keyvaluePair.Key;
-                        break;
-                }
+            //int i = 0;
+            //foreach (KeyValuePair<string,int> keyvaluePair in highscores)
+            //{
+            //    switch (i)
+            //    {
+            //        case 0:
+            //            player1Naam.Text = keyvaluePair.Key;
+            //            break;
+            //        case 1:
+            //            player2Naam.Text = keyvaluePair.Key;
+            //            break;
+            //        case 2:
+            //            player3Naam.Text = keyvaluePair.Key;
+            //            break;
+            //        case 3:
+            //            player4Naam.Text = keyvaluePair.Key;
+            //            break;
+            //        case 4:
+            //            player5Naam.Text = keyvaluePair.Key;
+            //            break;
+            //        case 5:
+            //            player6Naam.Text = keyvaluePair.Key;
+            //            break;
+            //    }
                 
-                i++;
-            }
+            //    i++;
+            //}
 
-            i = 0;
-            foreach (KeyValuePair<string,int> keyvaluePair in highscores)
-            {
-                switch (i)
-                {
-                    case 0:
-                        player1Score.Text = keyvaluePair.Value.ToString();
-                        break;
-                    case 1:
-                        player2Score.Text = keyvaluePair.Value.ToString();
-                        break;
-                    case 2:
-                        player3Score.Text = keyvaluePair.Value.ToString();
-                        break;
-                    case 3:
-                        player4Score.Text = keyvaluePair.Value.ToString();
-                        break;
-                    case 4:
-                        player5Score.Text = keyvaluePair.Value.ToString();
-                        break;
-                    case 5:
-                        player6Score.Text = keyvaluePair.Value.ToString();
-                        break;
-                }
+            //i = 0;
+            //foreach (KeyValuePair<string,int> keyvaluePair in highscores)
+            //{
+            //    switch (i)
+            //    {
+            //        case 0:
+            //            player1Score.Text = keyvaluePair.Value.ToString();
+            //            break;
+            //        case 1:
+            //            player2Score.Text = keyvaluePair.Value.ToString();
+            //            break;
+            //        case 2:
+            //            player3Score.Text = keyvaluePair.Value.ToString();
+            //            break;
+            //        case 3:
+            //            player4Score.Text = keyvaluePair.Value.ToString();
+            //            break;
+            //        case 4:
+            //            player5Score.Text = keyvaluePair.Value.ToString();
+            //            break;
+            //        case 5:
+            //            player6Score.Text = keyvaluePair.Value.ToString();
+            //            break;
+            //    }
 
-                i++;
-            }
+            //    i++;
+            //}
 
         }
 
@@ -329,6 +328,5 @@ namespace MemoryGameProject
         {
             pageController.ShowPage(PageController.PAGE_HOOFDMENU);
         }
->>>>>>> Stashed changes
     }
 }
