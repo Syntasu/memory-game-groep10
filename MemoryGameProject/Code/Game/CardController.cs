@@ -30,12 +30,12 @@ namespace MemoryGameProject.Code.Game
         /// <summary>
         ///     Array met alle voorkanten van de kaarten.
         /// </summary>
-        private Bitmap[] graphics;
+        private Bitmap[] cardFronts;
 
         /// <summary>
         ///     Bitmap met de achterkant van de kaarten.
         /// </summary>
-        private Bitmap backGraphic;
+        private Bitmap cardBack;
 
         /// <summary>
         ///     De timeout zorgt er voor dat de kaarten even op het scherm blijven staan.
@@ -58,14 +58,14 @@ namespace MemoryGameProject.Code.Game
         /// </summary>
         private List<Card> guessedCards = new List<Card>();
 
-        public CardController(Card[,] cards, Bitmap[] graphics, Bitmap backGraphic, 
-            Timer timeoutTimer, int maxGuesses, TurnController turnController, PlayerList playerList )
+        public CardController(Card[,] cards, Bitmap[] cardFronts, Bitmap cardBack, Timer timeoutTimer, 
+            int maxGuesses, TurnController turnController, PlayerList playerList )
         {
             this.turnController = turnController;
             this.playerList = playerList;
             this.cards = cards;
-            this.graphics = graphics;
-            this.backGraphic = backGraphic;
+            this.cardFronts = cardFronts;
+            this.cardBack = cardBack;
             this.timeoutTimer = timeoutTimer;
             this.maxGuesses = maxGuesses;
         }
@@ -76,7 +76,7 @@ namespace MemoryGameProject.Code.Game
         /// <param name="obj">object die in de event word mee gegeven.</param>
         public void CardClicked(object obj)
         {
-            //TODO: Voeg audio toe aan de resources, niet lokaal op je PC.
+            //Speel geluid af als je op kaart klikt.
             SoundPlayer clicksound = new SoundPlayer(Properties.Resources.geluid2);
             clicksound.Play();
 
@@ -133,7 +133,7 @@ namespace MemoryGameProject.Code.Game
             if (guessedCards.Count < maxGuesses)
             {
                 //Laat de voorkant van de kaart zien.
-                ShowCardFront(card);
+                card.isFlipped = true;
 
                 //Kijk of we een match hebben.
                 bool match = CheckForMatch(card);
@@ -157,6 +157,7 @@ namespace MemoryGameProject.Code.Game
                 guessedCards.Add(card);
             }
 
+            //Als we het maximaal aantal keer raden hebben gedaan dan:
             if (guessedCards.Count == maxGuesses)
             {
                 /*
@@ -194,10 +195,10 @@ namespace MemoryGameProject.Code.Game
                     card.isGuessed = true;
                     guessedCards[i].isGuessed = true;
 
-                    // geluid bij het goed raden van de kaarten
-                    //TODO: Voeg audio toe aan de resources, niet lokaal op je PC.
+                    //Speel geluid af als je goed geraden hebt.
                     SoundPlayer matchsound = new SoundPlayer(Properties.Resources.geluid1);
                     matchsound.Play();
+
                     return true;
                 }
             }
@@ -215,7 +216,16 @@ namespace MemoryGameProject.Code.Game
         {
             //Zet obj om in een picture box.
             //TODO: Geeft error als je een obj meegeeft wat geen picturebox is.
-            PictureBox pictureBox = (PictureBox)obj;
+            PictureBox pictureBox = null;
+
+            if(obj.GetType().IsAssignableFrom(typeof(PictureBox)))
+            {
+                pictureBox = obj as PictureBox;
+            }
+            else
+            {
+                throw new Exception("Gegeven object is geen kaart!");
+            }
 
             //Loop over de kaarten array.
             for (int x = 0; x < 4; x++)
@@ -253,11 +263,11 @@ namespace MemoryGameProject.Code.Game
                      */
                     if(!card.isGuessed)
                     {
-                        card.pictureBox.Image = backGraphic;
+                        card.pictureBox.Image = cardBack;
                     }
                     else
                     {
-                        card.pictureBox.Image = graphics[card.front];
+                        card.pictureBox.Image = cardFronts[card.front];
                     }
                 }
             }
@@ -268,11 +278,14 @@ namespace MemoryGameProject.Code.Game
         /// </summary>
         public void ResetGuesses()
         {
+            //Flip alle kaarten weer op die de gebruiker heeft geraden.
+            for (int i = 0; i < guessedCards.Count; i++)
+            {
+                guessedCards[i].isFlipped = false;
+            }
+
             //Reset alle geraden kaarten.
             guessedCards.Clear();
-
-            //Draai de kaarten weer om (niet als ze al geraden zijn).
-            ResetCards();
 
             //Ga naar de volgende beurt.
             turnController.NextTurn();
@@ -302,36 +315,37 @@ namespace MemoryGameProject.Code.Game
                     }
                 }
             }
+
             // geluid bij het uitspelen van het spel
-            //TODO: Voeg audio toe aan de resources, niet lokaal op je PC. (https://stackoverflow.com/a/28560858)
             SoundPlayer Finishsound = new SoundPlayer(Properties.Resources.geluid6);
             Finishsound.Play();
+
             return true;
-            // Check hoeveel keer een speler heeft gewonnen.
-            // If all of the icons are matched, the player wins
-            // </summary>
-            // private void CheckForWinner()
-            //{
-                // Go through all of the labels in the TableLayoutPanel, 
-                // checking each one to see if its icon is matched
-                //foreach (Control control in tableLayoutPanel1.Controls)
-                //{
-                //    Label iconLabel = control as Label;
+        }
 
-                 //   if (iconLabel != null)
-                  //  {
-                  //      if (iconLabel.ForeColor == iconLabel.BackColor)
-                  //          return;
-                  //  }
-               // }
+        public void Update()
+        {
+            for (int x = 0; x < 4; x++)
+            {
+                for (int y = 0; y < 4; y++)
+                {
+                    Card card = this.cards[x, y];
 
-                // If the loop didn’t return, it didn't find
-                // any unmatched icons
-                // That means the user won. Show a message and close the form
-                //MessageBox.Show("You matched all the icons!", "Congratulations");
-                //Close();
-        //    }
+                    if(card.isFlipped)
+                    {
+                        ShowCardFront(card);
+                        continue;
+                    }
 
+                    if (card.isGuessed)
+                    {
+                        ShowCardFront(card);
+                        continue;
+                    }
+
+                    HideCardFront(card);
+                }
+            }
         }
 
         /// <summary>
@@ -340,8 +354,28 @@ namespace MemoryGameProject.Code.Game
         /// <param name="card">De kaart die we willen omdraaien.</param>
         public void ShowCardFront(Card card)
         {
+            //TODO: Remove, this is an result of tight coupling.
+            if (card.pictureBox == null) return;
+
             //Zet het plaatje die we opvragen uit de graphic array.
-            card.pictureBox.Image = graphics[card.front];
+            /*
+             * TODO: Card is niet verantwoordelijk om pictureboxes bij te houden.
+             *       Dit zorgt een tight coupling tussen de kaart en picturebox.
+             */
+   
+            card.pictureBox.Image = cardFronts[card.front];
+        }
+
+        public void HideCardFront(Card card)
+        {
+            //TODO: Remove, this is an result of tight coupling.
+            if (card.pictureBox == null) return;
+
+            /*
+             * TODO: Card is niet verantwoordelijk om pictureboxes bij te houden.
+             *       Dit zorgt een tight coupling tussen de kaart en picturebox.
+             */
+            card.pictureBox.Image = cardBack;
         }
 
         public CardControllerContext GetContext()
@@ -353,5 +387,6 @@ namespace MemoryGameProject.Code.Game
         {
             cards = context.cardControllerContext.cards;
         }
+
     }
 }

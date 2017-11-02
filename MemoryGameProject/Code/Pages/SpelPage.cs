@@ -436,7 +436,7 @@ namespace MemoryGameProject.Code.Pages
 
         private void UpdateCardController()
         {
-
+            cardController.Update();
         }
 
         public void ResetGame()

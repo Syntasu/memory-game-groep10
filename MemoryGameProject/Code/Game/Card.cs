@@ -25,6 +25,9 @@ namespace MemoryGameProject
         //Boolean om aan te geven of een kaart al geraden is of niet.
         public bool isGuessed;
 
+        //Bool die aangeeft of een kaart omgeflipt is door een gebruiker
+        public bool isFlipped;
+
         public Card(int x, int y, PictureBox pictures)
         {
             X = x;
