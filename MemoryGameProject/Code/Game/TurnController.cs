@@ -100,10 +100,10 @@ namespace MemoryGameProject.Code.Game
             return new TurnControllerContext(turnTimeInSeconds, CurrentPlayerId);
         }
 
-        public void SetContext(TurnControllerContext context)
+        public void SetContext(GameContext context)
         {
-            turnTimeInSeconds = context.turnTimeInSeconds;
-            CurrentPlayerId = context.currentPlayerId;
+            turnTimeInSeconds = context.turnControllerContext.turnTimeInSeconds;
+            CurrentPlayerId = context.turnControllerContext.currentPlayerId;
         }
     }
 }

@@ -73,9 +73,9 @@ namespace MemoryGameProject.Code.Game
             return new PlayerListContext(playerList);
         }
 
-        public void SetContext(PlayerListContext context)
+        public void SetContext(GameContext context)
         {
-            playerList = context.players;
+            playerList = context.playerListContext.players;
         }
 
         /// <summary>

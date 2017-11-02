@@ -159,16 +159,26 @@ namespace MemoryGameProject.Code.Pages
 
             if(!GameFiles.WriteSaveGame(data))
             {
-                MessageBox.Show("Kan het spel niet opslaan!");
                 return false;
             }
 
             return true;
         }
 
-        public GameContext LoadGame()
+        public bool LoadGame()
         {
-            return null;
+            GameContext context = GameFiles.LoadSaveGame();
+            
+            if(context == null)
+            {
+                return false;
+            }
+
+            playerList.SetContext(context);
+            turnController.SetContext(context);
+            cardController.SetContext(context);
+
+            return true;
 
         }
 
@@ -341,6 +351,7 @@ namespace MemoryGameProject.Code.Pages
         {
             //Update de UI, beurten en de spelers lijst.
             UpdateUserInterface();
+            UpdateCardController();
             UpdateTurnController();
             UpdatePlayerList();
 
@@ -421,6 +432,11 @@ namespace MemoryGameProject.Code.Pages
             {
                 turnController.NextTurn();
             }
+        }
+
+        private void UpdateCardController()
+        {
+
         }
 
         public void ResetGame()

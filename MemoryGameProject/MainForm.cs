@@ -225,14 +225,26 @@ namespace MemoryGameProject
 
         private void spelBtnSave_Click(object sender, EventArgs e)
         {
-            gamePage.SaveGame();
-            MessageBox.Show("Het spel is opgeslagen.", "Success");
+            if (gamePage.SaveGame())
+            {
+                MessageBox.Show("Het spel is opgeslagen.", "Success");
+            }
+            else
+            {
+                MessageBox.Show("Kan spel niet opslaan", "Woops...");
+            }
         }
 
         private void spelBtnLoad_Click(object sender, EventArgs e)
         {
-            gamePage.LoadGame();
-            MessageBox.Show("Het spel is geladen.", "Success");
+            if (gamePage.LoadGame())
+            {
+                MessageBox.Show("Het spel is geladen.", "Success");
+            }
+            else
+            {
+                MessageBox.Show("Kan save game niet laden!", "Woops...");
+            }
         }
 
         #endregion

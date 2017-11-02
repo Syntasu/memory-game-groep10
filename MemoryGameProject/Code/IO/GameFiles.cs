@@ -28,9 +28,9 @@ namespace MemoryGameProject.Code.IO
         {
             try
             {
-                using (FileStream file = File.Open(SaveGamePath, FileMode.OpenOrCreate))
+                using (FileStream fileStream = File.Open(SaveGamePath, FileMode.OpenOrCreate))
                 {
-                    using (BinaryWriter writer = new BinaryWriter(file))
+                    using (BinaryWriter writer = new BinaryWriter(fileStream))
                     {
                         writer.Write(data);
                         return true;
@@ -45,21 +45,22 @@ namespace MemoryGameProject.Code.IO
 
         public static GameContext LoadSaveGame()
         {
-            //try
-            //{
-            //    using (StreamReader fileReader = new StreamReader(DefaultPath + SaveGameFileName))
-            //    {
-            //        GameContext resultingContext = new GameContext();
+            try
+            {
+                using (FileStream fileStream = File.Open(SaveGamePath, FileMode.OpenOrCreate))
+                {
+                    using (BinaryReader binaryReader = new BinaryReader(fileStream))
+                    {
+                        GameContext context = new GameContext();
 
-            //        BinaryReader binaryReader = new BinaryReader(fileReader.BaseStream);
-            //        byte[] data = binaryReader.ReadBytes((int)fileReader.BaseStream.Length);
-
-            //        return resultingContext.Deserialize(data);
-            //    }
-            //}
-            //catch(Exception)
-            //{
-            //}
+                        byte[] data = binaryReader.ReadBytes((int)fileStream.Length);
+                        return context.Deserialize(data);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+            }
             return null;
         }
     }

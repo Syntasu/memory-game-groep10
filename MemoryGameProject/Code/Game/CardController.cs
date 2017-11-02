@@ -349,9 +349,9 @@ namespace MemoryGameProject.Code.Game
             return new CardControllerContext(cards);
         }
 
-        public void SetContext(CardControllerContext context)
+        public void SetContext(GameContext context)
         {
-            cards = context.cards;
+            cards = context.cardControllerContext.cards;
         }
     }
 }
