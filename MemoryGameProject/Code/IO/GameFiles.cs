@@ -26,7 +26,7 @@ namespace MemoryGameProject.Code.IO
         /// </summary>
         static GameFiles()
         {
-            //Check 
+            //Check if the file exists.
             bool baseFolderExists = Directory.Exists(DefaultPath);
 
             if(!baseFolderExists)
@@ -68,7 +68,6 @@ namespace MemoryGameProject.Code.IO
         /// <returns>Een boolean, true = OK, false = FAIL.</returns>
         public static bool CreateHighScoreList(HighscoreContext context)
         {
-
             return WriteBinaryFile(HighScoreListPath, context.Serialize());
         }
 
@@ -81,13 +80,21 @@ namespace MemoryGameProject.Code.IO
             //Vraag byte data op.
             byte[] data = LoadBinaryFile(SaveGamePath);
 
-            //Maak een nieuwe context
-            GameContext context = new GameContext();
+            //Decodeer de bytes die we hebben opgevraagt
+            return (GameContext)Deserialize(data);
+        }
 
-            //Decodeer het.
-            context.Deserialize(data);
+        /// <summary>
+        ///     Laad de highscore context vanaf de schijf.
+        /// </summary>
+        /// <returns></returns>
+        public static HighscoreContext LoadHighscore()
+        {
+            //Vraag byte data op.
+            byte[] data = LoadBinaryFile(HighScoreListPath);
 
-            return context;
+            //Decodeer de bytes die we hebben opgevraagt
+            return (HighscoreContext)Deserialize(data);
         }
 
         /// <summary>
