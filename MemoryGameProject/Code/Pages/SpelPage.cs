@@ -158,6 +158,7 @@ namespace MemoryGameProject.Code.Pages
             playerList.SetContext(context);
             turnController.SetContext(context);
             playingField.SetContext(context);
+            cardController.SetContext(context);
 
             return true;
 

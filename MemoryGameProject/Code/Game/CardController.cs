@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using System.Media;
+using MemoryGameProject.Code.IO;
 
 namespace MemoryGameProject.Code.Game
 {
@@ -357,6 +358,26 @@ namespace MemoryGameProject.Code.Game
         #endregion
 
         #region Load and Save
+
+        /// <summary>
+        ///     Maak een kopie van CardController die alleen alle essentiele informatie bevat.
+        /// </summary>
+        /// <returns>Een "context" van de CardController. </returns>
+        public CardControllerContext GetContext()
+        {
+            return new CardControllerContext(guessedCards, maxGuesses);
+        }
+
+        /// <summary>
+        ///     Zet de data terug via de game context.
+        /// </summary>
+        /// <param name="context"> De context die geladen was/is. </param>
+        public void SetContext(GameContext context)
+        {
+            guessedCards = context.cardControllerContext.guessedCards;
+            maxGuesses = context.cardControllerContext.maxGuesses;
+        }
+
         #endregion
     }
 }

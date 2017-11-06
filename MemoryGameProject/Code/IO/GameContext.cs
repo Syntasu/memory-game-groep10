@@ -1,5 +1,6 @@
 ﻿using MemoryGameProject.Code.Game;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
@@ -15,6 +16,7 @@ namespace MemoryGameProject.Code.IO
         public PlayerListContext playerListContext;
         public TurnControllerContext turnControllerContext;
         public PlayingFieldContext playingFieldContext;
+        public CardControllerContext cardControllerContext;
 
         public GameContext() { }
 
@@ -24,6 +26,7 @@ namespace MemoryGameProject.Code.IO
             playerListContext = playerList.GetContext();
             turnControllerContext = turnController.GetContext();
             playingFieldContext = playingField.GetContext();
+            cardControllerContext = cardController.GetContext();
         }
 
         /// <summary>
@@ -74,13 +77,11 @@ namespace MemoryGameProject.Code.IO
     public class TurnControllerContext
     {
         public int turnTimeInSeconds;
-        //public Stopwatch turnTimer;
         public int currentPlayerId;
 
         public TurnControllerContext(int turnTimeInSeconds, int currentPlayerId)
         {
             this.turnTimeInSeconds = turnTimeInSeconds;
-            //this.turnTimer = turnTimer;
             this.currentPlayerId = currentPlayerId;
         }
     }
@@ -110,5 +111,20 @@ namespace MemoryGameProject.Code.IO
             this.cards = cards;
         }
     }
+
+    [Serializable]
+    public class CardControllerContext
+    {
+        public int maxGuesses;
+        public List<Card> guessedCards;
+
+        public CardControllerContext(List<Card> guessedCards, int maxGuesses)
+        {
+            this.guessedCards = guessedCards;
+            this.maxGuesses = maxGuesses;
+
+        }
+    }
+
 
 }
