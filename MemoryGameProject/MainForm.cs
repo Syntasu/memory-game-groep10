@@ -277,8 +277,6 @@ namespace MemoryGameProject
 
             //Reset de hoofdmenu.
             hoofdmenuPage.Reset();
-
-            gamePage.ResetGame();
         }
 
         /// <summary>
@@ -287,7 +285,7 @@ namespace MemoryGameProject
         private void endBtnAgain_Click(object sender, EventArgs e)
         {
             //Reset de game.
-            gamePage.ResetGame();
+            gamePage.RestartGame();
 
             //Laat de spel pagina zien.
             pageController.ShowPage(PageController.PAGE_SPEL);

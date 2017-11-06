@@ -2,7 +2,6 @@
 using MemoryGameProject.Code.IO;
 using MemoryGameProject.Code.UI;
 
-using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
@@ -117,6 +116,7 @@ namespace MemoryGameProject.Code.Pages
             playerList = new PlayerList(players);
             turnController = new TurnController(timePerTurn, playerList);
             cardController = new CardController(playingField, timerCardReset, 2, turnController, playerList);
+            playingField.Reset();
 
             //Start de turn controller, normaal roepen we dit aan als het spel begint.
             turnController.BeginTurn();
@@ -128,10 +128,15 @@ namespace MemoryGameProject.Code.Pages
             timerUpdateTimer.Start();
         }
 
+        /// <summary>
+        ///     Maak een complete kopie van de data van de game en slaat het op op de schijf.
+        /// </summary>
         public bool SaveGame()
         {
+            //Maak nieuwe context
             GameContext ctx = new GameContext(playerList, turnController, cardController, playingField);
 
+            //Roep functie aan die het naar de schijf schrijft.
             if(!GameFiles.CreateSaveGame(ctx))
             {
                 return false;
@@ -140,15 +145,22 @@ namespace MemoryGameProject.Code.Pages
             return true;
         }
 
+        /// <summary>
+        ///     Laad een game van schijf.
+        /// </summary>
+        /// <returns></returns>
         public bool LoadGame()
         {
+            //Laad de context van schijf.
             GameContext context = GameFiles.LoadSaveGame();
             
+            //Als er niks in staat, ga terug.
             if(context == null)
             {
                 return false;
             }
 
+            //Pas de context toe.
             playerList.SetContext(context);
             turnController.SetContext(context);
             playingField.SetContext(context);
@@ -351,9 +363,9 @@ namespace MemoryGameProject.Code.Pages
         }
 
         /// <summary>
-        ///     Reset/Herstart de game.
+        ///     Herstart de game met de zelfde spelers
         /// </summary>
-        public void ResetGame()
+        public void RestartGame()
         {
             //Zet de spelers lijst om in een string array.
             string[] players = new string[playerList.GetPlayerCount()];

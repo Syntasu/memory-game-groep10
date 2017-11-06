@@ -129,6 +129,7 @@ namespace MemoryGameProject.Code.Game
         {
             return playingCardsSet[0];
         }
+
         #endregion
 
         #region Cards
@@ -223,5 +224,17 @@ namespace MemoryGameProject.Code.Game
         }
 
         #endregion
+
+        public void Reset()
+        {
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    cards[x, y].isFlipped = false;
+                    cards[x, y].isGuessed = false;
+                }
+            }
+        }
     }
 }

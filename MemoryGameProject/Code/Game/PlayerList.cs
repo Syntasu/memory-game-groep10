@@ -50,6 +50,8 @@ namespace MemoryGameProject.Code.Game
             }
         }
 
+        #region Game Logic 
+
         /// <summary>
         ///     Verkrijg de speler object door middel van een ID.
         /// </summary>
@@ -68,21 +70,19 @@ namespace MemoryGameProject.Code.Game
             return null;
         }
 
-        public Player GetPlayerByName(string name)
+
+        /// <summary>
+        ///     Kijk hoeveel spelers in de player list zitten.
+        /// </summary>
+        /// <returns>Returned het aantal spelers.</returns>
+        public int GetPlayerCount()
         {
-            for (int i = 0; i < playerList.Length; i++)
-            {
-                Player player = playerList[i];
-                string playerName = player.name.ToLower();
-
-                if(name.Equals(playerName, StringComparison.CurrentCultureIgnoreCase))
-                {
-                    return player;
-                }
-            }
-
-            return null;
+            return playerList.Length;
         }
+
+        #endregion
+
+        #region Save/Load
 
         /// <summary>
         ///     Maak een kopie van de playerlist met alleen de data ervan. (de context).
@@ -102,13 +102,6 @@ namespace MemoryGameProject.Code.Game
             playerList = context.playerListContext.players;
         }
 
-        /// <summary>
-        ///     Kijk hoeveel spelers in de player list zitten.
-        /// </summary>
-        /// <returns>Returned het aantal spelers.</returns>
-        public int GetPlayerCount()
-        {
-            return playerList.Length;
-        }
+        #endregion
     }
 }
