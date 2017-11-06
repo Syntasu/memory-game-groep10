@@ -68,6 +68,22 @@ namespace MemoryGameProject.Code.Game
             return null;
         }
 
+        public Player GetPlayerByName(string name)
+        {
+            for (int i = 0; i < playerList.Length; i++)
+            {
+                Player player = playerList[i];
+                string playerName = player.name.ToLower();
+
+                if(name.Equals(playerName, StringComparison.CurrentCultureIgnoreCase))
+                {
+                    return player;
+                }
+            }
+
+            return null;
+        }
+
         /// <summary>
         ///     Maak een kopie van de playerlist met alleen de data ervan. (de context).
         /// </summary>

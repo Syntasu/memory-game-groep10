@@ -1,9 +1,5 @@
-﻿using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using MemoryGameProject;
-using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
+using MemoryGameProject.Code.IO;
 
 namespace MemoryGameProject.Code.Pages
 {
@@ -22,20 +18,31 @@ namespace MemoryGameProject.Code.Pages
             this.highscoreList = highscoreList;
         }
 
-        public void Load()
+        /// <summary>
+        ///     Update de highscore lijst door middel van het highscore bestand
+        /// </summary>
+        public void Show()
         {
+            //Verkrijg de highscore data.
+            HighscoreContext highscoreContext = GameFiles.LoadHighscore();
 
+            if (highscoreContext != null)
+            {
+                for (int i = 0; i < highscoreContext.HighscoreItems.Count; i++)
+                {
+                    HighscoreListItem item = highscoreContext.HighscoreItems[i];
+
+                    //Maak een nieuwe list view item.
+                    ListViewItem lvItem = new ListViewItem(new[] {
+                    item.name, item.wins.ToString(), item.score.ToString()
+                });
+
+                    //En voeg de listview item toe aan de highscore listview.
+                    highscoreList.Items.Add(lvItem);
+                }
+            }
         }
 
-        public void Save()
-        {
-
-        }
-
-        public void Update()
-        {
-
-        }
 
         /// <summary>
         ///     Maak de highscore lijst leeg.

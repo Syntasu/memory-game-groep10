@@ -169,6 +169,7 @@ namespace MemoryGameProject.Code.Pages
 
             Player[] winners = DetermineWinners();
             endGamePage.ShowWinners(winners);
+            endGamePage.UpdateHighscoreList(playerList, winners);
 
             //Laat de "SPEL_END" pagina zien.
             pageController.ShowPage(PageController.PAGE_SPEL_END);

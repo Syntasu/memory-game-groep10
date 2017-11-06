@@ -154,11 +154,7 @@ namespace MemoryGameProject
         /// </summary>
         private void hmBtnHighscore_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < 10; i++)
-            {
-                ListViewItem item = new ListViewItem(new[] { "Syntasu", "999", "9999" });
-                hsLvList.Items.Add(item);
-            }
+            highscorePage.Show();
 
             //Laat de highscore lijst pagina zien.
             pageController.ShowPage(PageController.PAGE_HIGHSCORE);
@@ -281,6 +277,8 @@ namespace MemoryGameProject
 
             //Reset de hoofdmenu.
             hoofdmenuPage.Reset();
+
+            gamePage.ResetGame();
         }
 
         /// <summary>
@@ -301,6 +299,7 @@ namespace MemoryGameProject
         /// </summary>
         private void endBtnHighscores_Click(object sender, EventArgs e)
         {
+            highscorePage.Show();
             pageController.ShowPage(PageController.PAGE_HIGHSCORE);
         }
 

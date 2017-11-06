@@ -76,6 +76,7 @@ namespace MemoryGameProject.Code.UI
             }
         }
 
+
         /// <summary>
         ///     Functie die kijkt of de pagina veranderd mag worden. 
         ///     Geeft de interne variable terug, zodat de gebruiker dit niet handmatig kan aanpassen).

@@ -1,4 +1,6 @@
 ﻿using MemoryGameProject.Code.Game;
+using MemoryGameProject.Code.IO;
+using System;
 using System.Windows.Forms;
 
 namespace MemoryGameProject.Code.Pages
@@ -33,6 +35,62 @@ namespace MemoryGameProject.Code.Pages
 
             //Laat de tekst zien op de label.
             labelWinners.Text = message;
+        }
+
+        /// <summary>
+        ///     Update de highscore lijst 
+        /// </summary>
+        /// <param name="playerList"> De spelerslijst object </param>
+        /// <param name="winners"> Array met de winnaars </param>
+        public void UpdateHighscoreList(PlayerList playerList, Player[] winners)
+        {
+            //Vraag de highscore lijst op van de schijf.
+            HighscoreContext highscoreList = GameFiles.LoadHighscore();
+
+            // Als er abosluut niks in de highscore lijst staat, maak nieuwe aan.
+            if(highscoreList == null)
+            {
+                highscoreList = new HighscoreContext();
+            }
+
+            //Ga over alle spelers heen in de speler lijst.
+            for (int i = 0; i < playerList.GetPlayerCount(); i++)
+            {
+                //Verkrijg speler object.
+                Player player = playerList.GetPlayerById(i);
+
+                //Kijk of die gene een winaar is.
+                bool isWinner = false;
+
+                for (int w = 0; w < winners.Length; w++)
+                {
+                    if(winners[w].id == player.id)
+                    {
+                        isWinner = true;
+                        break;
+                    }
+                }
+
+                //Voeg HighScoreListItem toe als die niet bestaat:
+                if(!highscoreList.ContainsPlayer(player))
+                {
+                    highscoreList.HighscoreItems.Add(new HighscoreListItem(player.name, 0, 0));
+                }
+
+
+                //Update alle waarden in de highscore lijst.
+                for (int n = 0; n < highscoreList.HighscoreItems.Count; n++)
+                {
+                    HighscoreListItem item = highscoreList.HighscoreItems[n];
+                    item.Update(player, isWinner);
+
+                    highscoreList.HighscoreItems[n] = item;
+                }
+
+            }
+
+            //Schrijf opnieuw naar schijf.
+            GameFiles.CreateHighScoreList(highscoreList);
         }
     }
 }
