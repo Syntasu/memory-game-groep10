@@ -22,6 +22,11 @@ namespace MemoryGameProject.Code.Game
         private int height = 4;
 
         /// <summary>
+        ///     Hoeveel power ups we generen per veld.
+        /// </summary>
+        private int powerUpCount;
+
+        /// <summary>
         ///     Array van alle pictureboxes die gevonden zijn.
         /// </summary>
         private PictureBox[,] cardPictureBoxes;
@@ -54,10 +59,11 @@ namespace MemoryGameProject.Code.Game
         /// <param name="pictureBoxName">De default naam van de kaarten.</param>
         /// <param name="width">De breedte van het spelveld.</param>
         /// <param name="height">Hoe hoog het spel veld is.</param>
-        public PlayingField(PictureBox[,] pictureBoxes, int width, int height)
+        public PlayingField(PictureBox[,] pictureBoxes, int width, int height, int powerUpCount)
         {
             this.width = width;
             this.height = height;
+            this.powerUpCount = powerUpCount;
 
             cards = new Card[width, height];
             cardPictureBoxes = new PictureBox[width, height];
@@ -142,6 +148,15 @@ namespace MemoryGameProject.Code.Game
             //Maak een nieuwe random object aan.
             Random rand = new Random();
 
+            //Kies een willekeurige kaart die een power up krijgt.
+            for (int i = 0; i < powerUpCount; i++)
+            {
+                int x = rand.Next(0, width);
+                int y = rand.Next(0, height);
+
+                cards[x, y].hasPowerUp = true;
+            }
+
             //Houd een array bij met hoe vaak een kaart gekozen is.
             int[] picked = new int[8];
 
@@ -150,6 +165,7 @@ namespace MemoryGameProject.Code.Game
             {
                 for (int y = 0; y < 4; y++)
                 {
+                    int powerUpRandom = rand.Next(0, 4);
                     bool haspicked = false;
 
                     //Pak een random nummer tussen 0 en 8.

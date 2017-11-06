@@ -23,6 +23,9 @@ namespace MemoryGameProject.Code.Game
         //Bool die aangeeft of een kaart omgeflipt is door een gebruiker
         public bool isFlipped;
 
+        //Bool die aangeeft of de kaart een power up heeft.
+        public bool hasPowerUp;
+
         /// <summary>
         ///     Constructor voor Card de klasse
         /// </summary>
@@ -34,6 +37,7 @@ namespace MemoryGameProject.Code.Game
             Y = y;
             isGuessed = false;
             isFlipped = false;
+            hasPowerUp = false;
         }
     }
 }

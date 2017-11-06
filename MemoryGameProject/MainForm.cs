@@ -74,7 +74,7 @@ namespace MemoryGameProject
             //Maak een eind pagina aan.
             endGamePage = new EndGamePage(endLblWinners);
 
-            PlayingField playingField = new PlayingField(pictureBoxes, 4, 4);
+            PlayingField playingField = new PlayingField(pictureBoxes, 4, 4, 2);
 
             //Maak een nieuwe spel pagina aan.
             gamePage = new SpelPage(

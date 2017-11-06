@@ -118,8 +118,6 @@ namespace MemoryGameProject.Code.Game
         /// <param name="card">De kaart die geklikt is.</param>
         private void HandleCardClick(Card card)
         {
-            Console.WriteLine("CLICK");
-
             //Controleer of we nog kaarten kunnen kiezen, of we aan de limiet voor het max aantal keer raden zitten.
             if (guessedCards.Count < maxGuesses)
             {
@@ -127,8 +125,18 @@ namespace MemoryGameProject.Code.Game
                 card.isFlipped = true;
 
                 //Speel geluid af als je op kaart klikt.
-                SoundPlayer clicksound = new SoundPlayer(Properties.Resources.geluid2);
-                clicksound.Play();
+                if(card.hasPowerUp)
+                {
+                    SoundPlayer powerUpSound = new SoundPlayer(Properties.Resources.geluid3);
+                    powerUpSound.Play();
+
+                    card.hasPowerUp = false;
+                }
+                else
+                {
+                    SoundPlayer clicksound = new SoundPlayer(Properties.Resources.geluid2);
+                    clicksound.Play();
+                } 
 
                 //Kijk of we een match hebben.
                 bool match = CheckForMatch(card);
