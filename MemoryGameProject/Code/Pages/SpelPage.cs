@@ -167,6 +167,9 @@ namespace MemoryGameProject.Code.Pages
             timerUpdateTimer.Stop();
             timerTurnCountdown.Stop();
 
+            Player[] winners = DetermineWinners();
+            endGamePage.ShowWinners(winners);
+
             //Laat de "SPEL_END" pagina zien.
             pageController.ShowPage(PageController.PAGE_SPEL_END);
         }
@@ -175,7 +178,7 @@ namespace MemoryGameProject.Code.Pages
         ///     Returned de winnaar van het spel, meerdere spelers als er een gelijkspel is.
         /// </summary>
         /// <returns>Een array van spelers die het spel hebben gewonnen.</returns>
-        public Player[] DetermineWinner()
+        public Player[] DetermineWinners()
         {
             //Lijst met alle winnaars.
             List<Player> winners = new List<Player>();
