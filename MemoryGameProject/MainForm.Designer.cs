@@ -50,7 +50,6 @@
             this.hmLblTitle = new System.Windows.Forms.Label();
             this.hmBtnPlay = new System.Windows.Forms.Button();
             this.spelPage = new System.Windows.Forms.TabPage();
-            this.spelBtnLoad = new System.Windows.Forms.Button();
             this.spelBtnSave = new System.Windows.Forms.Button();
             this.spelPbKaart00 = new System.Windows.Forms.PictureBox();
             this.spelPbKaart10 = new System.Windows.Forms.PictureBox();
@@ -130,7 +129,6 @@
             // 
             // spelTimerUpdate
             // 
-            this.spelTimerUpdate.Interval = 250;
             this.spelTimerUpdate.Tick += new System.EventHandler(this.spelTimerUpdate_Tick);
             // 
             // spelLblTime
@@ -185,7 +183,7 @@
             this.mainTabControl.Location = new System.Drawing.Point(0, 0);
             this.mainTabControl.Name = "mainTabControl";
             this.mainTabControl.SelectedIndex = 0;
-            this.mainTabControl.Size = new System.Drawing.Size(593, 458);
+            this.mainTabControl.Size = new System.Drawing.Size(593, 466);
             this.mainTabControl.TabIndex = 35;
             this.mainTabControl.TabStop = false;
             this.mainTabControl.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.mainTabControl_Selecting);
@@ -353,7 +351,6 @@
             // spelPage
             // 
             this.spelPage.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.spelPage.Controls.Add(this.spelBtnLoad);
             this.spelPage.Controls.Add(this.spelBtnSave);
             this.spelPage.Controls.Add(this.spelLvSpelers);
             this.spelPage.Controls.Add(this.spelLblTime);
@@ -378,29 +375,18 @@
             this.spelPage.Location = new System.Drawing.Point(4, 25);
             this.spelPage.Name = "spelPage";
             this.spelPage.Padding = new System.Windows.Forms.Padding(3);
-            this.spelPage.Size = new System.Drawing.Size(585, 429);
+            this.spelPage.Size = new System.Drawing.Size(585, 437);
             this.spelPage.TabIndex = 0;
             this.spelPage.Text = "Spel";
             // 
-            // spelBtnLoad
-            // 
-            this.spelBtnLoad.Location = new System.Drawing.Point(438, 404);
-            this.spelBtnLoad.Margin = new System.Windows.Forms.Padding(2);
-            this.spelBtnLoad.Name = "spelBtnLoad";
-            this.spelBtnLoad.Size = new System.Drawing.Size(67, 19);
-            this.spelBtnLoad.TabIndex = 36;
-            this.spelBtnLoad.Text = "Laden";
-            this.spelBtnLoad.UseVisualStyleBackColor = true;
-            this.spelBtnLoad.Click += new System.EventHandler(this.spelBtnLoad_Click);
-            // 
             // spelBtnSave
             // 
-            this.spelBtnSave.Location = new System.Drawing.Point(509, 404);
+            this.spelBtnSave.Location = new System.Drawing.Point(391, 404);
             this.spelBtnSave.Margin = new System.Windows.Forms.Padding(2);
             this.spelBtnSave.Name = "spelBtnSave";
-            this.spelBtnSave.Size = new System.Drawing.Size(68, 19);
+            this.spelBtnSave.Size = new System.Drawing.Size(186, 28);
             this.spelBtnSave.TabIndex = 35;
-            this.spelBtnSave.Text = "Opslaan";
+            this.spelBtnSave.Text = "Spel opslaan";
             this.spelBtnSave.UseVisualStyleBackColor = true;
             this.spelBtnSave.Click += new System.EventHandler(this.spelBtnSave_Click);
             // 
@@ -854,7 +840,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(593, 458);
+            this.ClientSize = new System.Drawing.Size(593, 466);
             this.Controls.Add(this.mainTabControl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -936,7 +922,6 @@
         private System.Windows.Forms.Button endBtnAgain;
         private System.Windows.Forms.Button endBtnBack;
         private System.Windows.Forms.Button spelBtnSave;
-        private System.Windows.Forms.Button spelBtnLoad;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;

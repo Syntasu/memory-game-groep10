@@ -61,6 +61,7 @@ namespace MemoryGameProject.Code.Game
             Update();
         }
 
+        #region Game Logic
         /// <summary>
         ///     Functie die aangeroepen word wanneer 
         /// </summary>
@@ -352,5 +353,10 @@ namespace MemoryGameProject.Code.Game
             //Zet het plaatje naar de achterkant.
             pb.Image = back;
         }
+
+        #endregion
+
+        #region Load and Save
+        #endregion
     }
 }

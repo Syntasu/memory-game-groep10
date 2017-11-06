@@ -5,6 +5,7 @@ using MemoryGameProject.Code;
 using MemoryGameProject.Code.UI;
 using System.Collections.Generic;
 using MemoryGameProject.Code.Game;
+using MemoryGameProject.Code.IO;
 
 namespace MemoryGameProject
 {
@@ -149,8 +150,28 @@ namespace MemoryGameProject
                 //Start het spel.
                 gamePage.BeginGame(players);
 
+                //Controleer of we al een save game hebben..
+                if (GameFiles.HasSaveGame())
+                {
+                    //Vraag om gebruikers input
+                    DialogResult result = MessageBox.Show(
+                        "Er is al een bestaande game opgeslagen, wil je deze laden?", 
+                        "Game Laden", MessageBoxButtons.YesNo
+                    );
+
+                    if(result == DialogResult.Yes)
+                    {
+                        //Laad het spel van schijf.
+                        gamePage.LoadGame();
+                    }
+                }
+              
                 //Laat het spel pagina zien.
                 pageController.ShowPage(PageController.PAGE_SPEL);
+            }
+            else
+            {
+                MessageBox.Show("Er zijn te weinig spelers om het spel te starten!", "Woops", MessageBoxButtons.OK);
             }
         }
 
