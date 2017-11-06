@@ -4,7 +4,9 @@ using System.Diagnostics;
 
 namespace MemoryGameProject.Code.Game
 {
-
+    /// <summary>
+    ///     Klasse die alles qua beurten afhandeld.
+    /// </summary>
     public class TurnController
     {
         /// <summary>
