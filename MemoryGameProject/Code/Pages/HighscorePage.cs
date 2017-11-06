@@ -3,6 +3,7 @@ using System.IO;
 using System.Linq;
 using MemoryGameProject;
 using System;
+using System.Windows.Forms;
 
 namespace MemoryGameProject.Code.Pages
 {
@@ -11,95 +12,37 @@ namespace MemoryGameProject.Code.Pages
     /// </summary>
     public class  HighScorePage
     {
-        private string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
-        //constructor
-        public HighScorePage()
+        /// <summary>
+        ///     Referentie naar de high score list view.
+        /// </summary>
+        private ListView highscoreList;
+
+        public HighScorePage(ListView highscoreList)
         {
-            LaadHighscoreLijst();
+            this.highscoreList = highscoreList;
         }
 
-        private List<KeyValuePair<string, int>> highscoreLijst = new List<KeyValuePair<string, int>>();
-
-        public List<KeyValuePair<string, int>> HighscoreLijst { get => highscoreLijst; set => highscoreLijst = value; }
-
-        public void LaadHighscoreLijst()
+        public void Load()
         {
-            
-            
-            if (File.Exists(path+ "\\highscoreLijst.txt"))
-            {
-                
-                string[] highscoreString = File.ReadAllLines(path + "\\highscoreLijst.txt");
-                for (int i = 0; i < 6; i++)
-                {
-                    highscoreString[i] = highscoreString[i].Trim('[', ']');
-                    string[] tempString = highscoreString[i].Split(',');
-                    
-                    highscoreLijst.Add(new KeyValuePair<string, int>(tempString[0], Convert.ToInt16(tempString[1])));
-                    
-                }
-                MainForm.SetHighscores(HighscoreLijst);
-                
-            }
-            else
-            {
 
-                for (int i = 0; i < 6; i++)
-                {
-                    HighscoreLijst.Add(new KeyValuePair<string, int>("Speler " + (i + 1), 0));
-                }
-                File.WriteAllLines(path + "\\highscoreLijst.txt", HighscoreLijst.Select(s => s.ToString()));
-             
-            }
         }
 
-        public void checkHighscore(string player1Name, int player1Score)
+        public void Save()
         {
-            foreach (KeyValuePair<string, int> keyValue in HighscoreLijst)
-            {
-                if (player1Score > keyValue.Value)
-                {
-                    HighscoreLijst.Add(new KeyValuePair<string, int>( player1Name, player1Score));
-                    HighscoreLijst = HighscoreLijst.OrderByDescending(x => x.Value).ToList();
-                    HighscoreLijst.RemoveAt(5);
-                 
-                    MainForm.SetHighscores(HighscoreLijst);
-                    
-                    break;
-                    
-                }
-            }
-            File.WriteAllLines(path + "\\highscoreLijst.txt", HighscoreLijst.Select(s => s.ToString()));
+
         }
 
-        public void checkHighscore(string player1Name, int player1Score, string player2Name, int player2Score)
+        public void Update()
         {
-            foreach (KeyValuePair<string, int> keyValue in HighscoreLijst)
-            {
-                if (player1Score > keyValue.Value)
-                {
-                    HighscoreLijst.Add(new KeyValuePair<string, int>( player1Name, player1Score));
-                    HighscoreLijst = HighscoreLijst.OrderByDescending(x => x.Value).ToList();
-                    HighscoreLijst.RemoveAt(5);
-                    MainForm.SetHighscores(HighscoreLijst);
-                    break;
 
-                }
-            }
+        }
 
-            foreach (KeyValuePair<string, int> keyValue in HighscoreLijst)
-            {
-                if (player2Score > keyValue.Value)
-                {
-                    HighscoreLijst.Add(new KeyValuePair<string, int>(player2Name, player2Score));
-                    HighscoreLijst = HighscoreLijst.OrderByDescending(x => x.Value).ToList();
-                    HighscoreLijst.RemoveAt(5);
-                    MainForm.SetHighscores(HighscoreLijst);
-                    break;
-
-                }
-            }
-            File.WriteAllLines(path + "\\highscoreLijst.txt", HighscoreLijst.Select(s => s.ToString()));
+        /// <summary>
+        ///     Maak de highscore lijst leeg.
+        /// </summary>
+        public void ResetList()
+        {
+            highscoreList.Items.Clear();
         }
     }
 

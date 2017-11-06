@@ -76,6 +76,7 @@
     <Compile Include="Code\Game\PlayingField.cs" />
     <Compile Include="Code\IO\GameContext.cs" />
     <Compile Include="Code\IO\GameFiles.cs" />
+    <Compile Include="Code\IO\HighscoreContext.cs" />
     <Compile Include="Code\UI\PageController.cs" />
     <Compile Include="Code\Game\Card.cs" />
     <Compile Include="Code\Pages\EndGamePage.cs" />

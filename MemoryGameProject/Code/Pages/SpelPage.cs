@@ -41,11 +41,6 @@ namespace MemoryGameProject.Code.Pages
         private PlayingField playingField;
 
         /// <summary>
-        ///     Referentie naar de highscore pagina.
-        /// </summary>
-        private HighScorePage highScorePage = new HighScorePage();
-
-        /// <summary>
         ///     Een array met de kaarten van het spel.
         /// </summary>
         private Card[,] cards = new Card[4, 4];
@@ -136,9 +131,8 @@ namespace MemoryGameProject.Code.Pages
         public bool SaveGame()
         {
             GameContext ctx = new GameContext(playerList, turnController, cardController, playingField);
-            byte[] data = ctx.Serialize();
 
-            if(!GameFiles.WriteSaveGame(data))
+            if(!GameFiles.CreateSaveGame(ctx))
             {
                 return false;
             }
@@ -175,19 +169,6 @@ namespace MemoryGameProject.Code.Pages
 
             //Laat de "SPEL_END" pagina zien.
             pageController.ShowPage(PageController.PAGE_SPEL_END);
-
-            Player[] players = DetermineWinner();
-
-            if (players.Length == 1)
-            {
-                highScorePage.checkHighscore(players[0].name, players[0].score);
-            }
-            else
-            {
-                highScorePage.checkHighscore(players[0].name, players[0].score, players[1].name, players[1].score);
-            }
-
-            endGamePage.ShowWinners(players);
         }
 
         /// <summary>

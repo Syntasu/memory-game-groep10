@@ -35,41 +35,21 @@ namespace MemoryGameProject.Code.IO
         /// <returns> Een byte array met alle data. </returns>
         public byte[] Serialize()
         {
-            try
-            {
-                //Maak een nieuwe stream...
-                using (MemoryStream stream = new MemoryStream())
-                {
-                    //Gebruik de binary formatter om de byte array te genereren die we kunnen opslaan.
-                    BinaryFormatter formatter = new BinaryFormatter();
-                    formatter.Serialize(stream, this);
-                    return stream.ToArray();
-                }
-            }
-            catch (Exception e)
-            {
-                return new byte[0];
-            }
+            return GameFiles.Serialize(this);
         }
 
-        public GameContext Deserialize(byte[] data)
+        /// <summary>
+        ///     Methode om GameContext te maken vanuit de gegeven bytes.
+        /// </summary>
+        /// <param name="data"></param>
+        public void Deserialize(byte[] data)
         {
-            try
-            {
-                //Maak een nieuwe stream aan en zet de bytes die we van de file geladen hebben er in.
-                using (MemoryStream stream = new MemoryStream(data))
-                {
-                    //Gebruik de binaryformatter om de bytes om te zetten naar een GameContext.
-                    //TODO: SHould not generate a new copy of GameContext, instead apply it to itself.
-                    BinaryFormatter formatter = new BinaryFormatter();
-                    return (GameContext)formatter.Deserialize(stream);
-                }
-            }
-            catch(Exception e)
-            {
-                MessageBox.Show("Kan het opgeslagen spel niet laden: " + e.Message, "Woops");
-                return null;
-            }
+            GameContext ctx = (GameContext)GameFiles.Deserialize(data);
+
+            playerListContext = ctx.playerListContext;
+            turnControllerContext = ctx.turnControllerContext;
+            cardControllerContext = ctx.cardControllerContext;
+            playingFieldContext = ctx.playingFieldContext;
         }
     }
 

@@ -16,20 +16,6 @@ namespace MemoryGameProject
             InitializeComponent();
         }
 
-        private static Label player1Naam;
-        private static Label player2Naam;
-        private static Label player3Naam;
-        private static Label player4Naam;
-        private static Label player5Naam;
-        private static Label player6Naam;
-
-        private static Label player1Score;
-        private static Label player2Score;
-        private static Label player3Score;
-        private static Label player4Score;
-        private static Label player5Score;
-        private static Label player6Score;
-
         /// <summary>
         ///     De page controller die verantwoordelijk is voor het veranderen van de paginas.
         /// </summary>
@@ -50,27 +36,15 @@ namespace MemoryGameProject
         /// </summary>
         private EndGamePage endGamePage;
         
+        /// <summary>
+        ///     Pagina van de highscore lijst
+        /// </summary>
         private HighScorePage highscorePage;
         
 
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //TODO: Bestaat niet?
-            //player1Naam = Player1Naam;
-            //player2Naam = Player2Naam;
-            //player3Naam = Player3Naam;
-            //player4Naam = Player4Naam;
-            //player5Naam = Player5Naam;
-            //player6Naam = Player6Naam;
-
-            //player1Score = Player1Score;
-            //player2Score = Player2Score;
-            //player3Score = Player3Score;
-            //player4Score = Player4Score;
-            //player5Score = Player5Score;
-            //player6Score = Player6Score;
-
             //Maak een 2D array die alle pictueboxes aan een index linkt.
             PictureBox[,] pictureBoxes = new PictureBox[4, 4];
             pictureBoxes[0, 0] = spelPbKaart00;
@@ -110,7 +84,7 @@ namespace MemoryGameProject
                 spelLvSpelers,spelLblTurn, spelLblTime
             );
 
-            highscorePage = new HighScorePage();
+            highscorePage = new HighScorePage(hsLvList);
         }
 
         /// <summary>
@@ -180,8 +154,15 @@ namespace MemoryGameProject
         /// </summary>
         private void hmBtnHighscore_Click(object sender, EventArgs e)
         {
+            for (int i = 0; i < 10; i++)
+            {
+                ListViewItem item = new ListViewItem(new[] { "Syntasu", "999", "9999" });
+                hsLvList.Items.Add(item);
+            }
+
             //Laat de highscore lijst pagina zien.
             pageController.ShowPage(PageController.PAGE_HIGHSCORE);
+
         }
 
         /// <summary>
@@ -314,77 +295,26 @@ namespace MemoryGameProject
             pageController.ShowPage(PageController.PAGE_SPEL);
         }
 
+
+        /// <summary>
+        ///     Knop om naar de high score lijst te gaan.
+        /// </summary>
+        private void endBtnHighscores_Click(object sender, EventArgs e)
+        {
+            pageController.ShowPage(PageController.PAGE_HIGHSCORE);
+        }
+
         #endregion
 
-        private void label8_Click(object sender, EventArgs e)
+
+        #region Highscore page
+
+        private void hsBtnBack_Click(object sender, EventArgs e)
         {
-            
-        }
-
-        public static void SetHighscores(List<KeyValuePair<string, int>> highscores)
-        {
-           
-            //int i = 0;
-            //foreach (KeyValuePair<string,int> keyvaluePair in highscores)
-            //{
-            //    switch (i)
-            //    {
-            //        case 0:
-            //            player1Naam.Text = keyvaluePair.Key;
-            //            break;
-            //        case 1:
-            //            player2Naam.Text = keyvaluePair.Key;
-            //            break;
-            //        case 2:
-            //            player3Naam.Text = keyvaluePair.Key;
-            //            break;
-            //        case 3:
-            //            player4Naam.Text = keyvaluePair.Key;
-            //            break;
-            //        case 4:
-            //            player5Naam.Text = keyvaluePair.Key;
-            //            break;
-            //        case 5:
-            //            player6Naam.Text = keyvaluePair.Key;
-            //            break;
-            //    }
-                
-            //    i++;
-            //}
-
-            //i = 0;
-            //foreach (KeyValuePair<string,int> keyvaluePair in highscores)
-            //{
-            //    switch (i)
-            //    {
-            //        case 0:
-            //            player1Score.Text = keyvaluePair.Value.ToString();
-            //            break;
-            //        case 1:
-            //            player2Score.Text = keyvaluePair.Value.ToString();
-            //            break;
-            //        case 2:
-            //            player3Score.Text = keyvaluePair.Value.ToString();
-            //            break;
-            //        case 3:
-            //            player4Score.Text = keyvaluePair.Value.ToString();
-            //            break;
-            //        case 4:
-            //            player5Score.Text = keyvaluePair.Value.ToString();
-            //            break;
-            //        case 5:
-            //            player6Score.Text = keyvaluePair.Value.ToString();
-            //            break;
-            //    }
-
-            //    i++;
-            //}
-
-        }
-
-        private void highScorePage_Click(object sender, EventArgs e)
-        {
+            highscorePage.ResetList();
             pageController.ShowPage(PageController.PAGE_HOOFDMENU);
         }
+
+        #endregion
     }
 }
