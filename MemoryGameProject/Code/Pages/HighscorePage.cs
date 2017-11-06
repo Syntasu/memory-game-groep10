@@ -1,5 +1,7 @@
 ﻿using System.Windows.Forms;
 using MemoryGameProject.Code.IO;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace MemoryGameProject.Code.Pages
 {
@@ -28,14 +30,18 @@ namespace MemoryGameProject.Code.Pages
 
             if (highscoreContext != null)
             {
-                for (int i = 0; i < highscoreContext.HighscoreItems.Count; i++)
+                //Sorteer met wins
+                List<HighscoreListItem> sortedList = 
+                    highscoreContext.HighscoreItems.OrderByDescending(x => x.wins).ToList();
+
+                for (int i = 0; i < sortedList.Count; i++)
                 {
-                    HighscoreListItem item = highscoreContext.HighscoreItems[i];
+                    HighscoreListItem item = sortedList[i];
 
                     //Maak een nieuwe list view item.
                     ListViewItem lvItem = new ListViewItem(new[] {
-                    item.name, item.wins.ToString(), item.score.ToString()
-                });
+                        item.name, item.wins.ToString(), item.score.ToString()
+                    });
 
                     //En voeg de listview item toe aan de highscore listview.
                     highscoreList.Items.Add(lvItem);
@@ -43,7 +49,7 @@ namespace MemoryGameProject.Code.Pages
             }
         }
 
-
+  
         /// <summary>
         ///     Maak de highscore lijst leeg.
         /// </summary>
