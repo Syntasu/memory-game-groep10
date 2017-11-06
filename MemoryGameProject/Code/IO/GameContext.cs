@@ -14,16 +14,16 @@ namespace MemoryGameProject.Code.IO
     {
         public PlayerListContext playerListContext;
         public TurnControllerContext turnControllerContext;
-        public CardControllerContext cardControllerContext;
+        public PlayingFieldContext playingFieldContext;
 
         public GameContext() { }
 
-        public GameContext(PlayerList playerList, TurnController turnController, CardController cardController)
+        public GameContext(PlayerList playerList, TurnController 
+            turnController, CardController cardController, PlayingField playingField)
         {
             playerListContext = playerList.GetContext();
             turnControllerContext = turnController.GetContext();
-            //TODO: Replace.
-            //cardControllerContext = cardController.GetContext();
+            playingFieldContext = playingField.GetContext();
         }
 
         /// <summary>
@@ -97,13 +97,18 @@ namespace MemoryGameProject.Code.IO
     }
 
     [Serializable]
-    public class CardControllerContext
+    public class PlayingFieldContext
     {
+        public int width;
+        public int height;
         public Card[,] cards;
 
-        public CardControllerContext(Card[,] cards)
+        public PlayingFieldContext(int width, int height, Card[,] cards)
         {
+            this.width = width;
+            this.height = height;
             this.cards = cards;
         }
     }
+
 }

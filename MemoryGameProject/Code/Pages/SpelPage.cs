@@ -135,7 +135,7 @@ namespace MemoryGameProject.Code.Pages
 
         public bool SaveGame()
         {
-            GameContext ctx = new GameContext(playerList, turnController, cardController);
+            GameContext ctx = new GameContext(playerList, turnController, cardController, playingField);
             byte[] data = ctx.Serialize();
 
             if(!GameFiles.WriteSaveGame(data))
@@ -157,8 +157,7 @@ namespace MemoryGameProject.Code.Pages
 
             playerList.SetContext(context);
             turnController.SetContext(context);
-            //TODO: Serialize playing field
-            //cardController.SetContext(context);
+            playingField.SetContext(context);
 
             return true;
 

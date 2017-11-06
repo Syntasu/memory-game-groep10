@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System;
+using MemoryGameProject.Code.IO;
 
 namespace MemoryGameProject.Code.Game
 {
@@ -195,6 +196,30 @@ namespace MemoryGameProject.Code.Game
             }
 
             return cards[x, y];
+        }
+
+        #endregion
+
+        #region Saving/Loading context
+
+        /// <summary>
+        ///     Maak de "context" van de PlayingField class.
+        ///     Maakt een copy met alleen de data van PlayingField
+        /// </summary>
+        /// <returns>Returned de context</returns>
+        public PlayingFieldContext GetContext()
+        {
+            return new PlayingFieldContext(width, height, cards);
+        }
+
+        /// <summary>
+        ///     Gebruik de geladen data (de gamecontext) om de playing field weer in te stellen.
+        /// </summary>
+        public void SetContext(GameContext context)
+        {
+            width = context.playingFieldContext.width;
+            height = context.playingFieldContext.height;
+            cards = context.playingFieldContext.cards;
         }
 
         #endregion
