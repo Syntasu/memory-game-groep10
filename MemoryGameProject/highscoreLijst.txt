@@ -1,6 +1,0 @@
-[lklklklk, 8]
-[Valeria, 5]
-[abc, 4]
-[def, 4]
-[hello, 4]
-[Speler 4, 0]
