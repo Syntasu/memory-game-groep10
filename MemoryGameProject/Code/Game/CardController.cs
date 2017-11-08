@@ -43,6 +43,9 @@ namespace MemoryGameProject.Code.Game
         /// </summary>
         private int maxGuesses = 2;
 
+        /// <summary>
+        ///     Bool die bij houd of in die beurt een power up is geweest
+        /// </summary>
         private bool hadPowerUp = false;
 
         /// <summary>
@@ -263,8 +266,12 @@ namespace MemoryGameProject.Code.Game
                 //Ga naar de volgende beurt.
                 turnController.NextTurn();
             }
+            //Anders reset de power up flag.
+            else
+            {
+                hadPowerUp = false;
+            }
 
-            hadPowerUp = false;
 
             //Zeg dat we hebben gewacht totdat de timer afgelopen is.
             timeout = false;
