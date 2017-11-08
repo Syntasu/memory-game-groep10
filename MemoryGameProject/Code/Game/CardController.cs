@@ -43,6 +43,8 @@ namespace MemoryGameProject.Code.Game
         /// </summary>
         private int maxGuesses = 2;
 
+        private bool hadPowerUp = false;
+
         /// <summary>
         ///     Een lijst met alle kaarten die zij geraden tijdens een beurt.
         /// </summary>
@@ -131,6 +133,7 @@ namespace MemoryGameProject.Code.Game
                     powerUpSound.Play();
 
                     card.hasPowerUp = false;
+                    hadPowerUp = true;
                 }
                 else
                 {
@@ -254,8 +257,14 @@ namespace MemoryGameProject.Code.Game
             //Reset alle geraden kaarten.
             guessedCards.Clear();
 
-            //Ga naar de volgende beurt.
-            turnController.NextTurn();
+            //Ga naar volgende beurt als je geen power up hebt.
+            if (!hadPowerUp)
+            {
+                //Ga naar de volgende beurt.
+                turnController.NextTurn();
+            }
+
+            hadPowerUp = false;
 
             //Zeg dat we hebben gewacht totdat de timer afgelopen is.
             timeout = false;
